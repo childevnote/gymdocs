@@ -896,7 +896,7 @@
       "en": "Assisted Pull-Up Machine",
       "ja": "アシスト懸垂マシン"
     },
-    "type": "weightAndReps",
+    "type": "assistedWeightAndReps",
     "bodyPart": "back"
   },
   {
@@ -965,8 +965,8 @@
   {
     "names": {
       "ko": "이지바(EZ바) 컬",
-      "en": "EZ-Bar EZ-Bar Curl",
-      "ja": "EZバーEZバーカール"
+      "en": "EZ-Bar Curl",
+      "ja": "EZバーカール"
     },
     "type": "weightAndReps",
     "bodyPart": "biceps"
@@ -1004,7 +1004,7 @@
       "en": "Assisted Dips",
       "ja": "アシストディップス"
     },
-    "type": "repsOnly",
+    "type": "assistedWeightAndReps",
     "bodyPart": "chest"
   },
   {
@@ -2228,7 +2228,7 @@
       "en": "Assisted Chin-Up",
       "ja": "アシストチンニング"
     },
-    "type": "repsOnly",
+    "type": "assistedWeightAndReps",
     "bodyPart": "back"
   },
   {
@@ -5649,6 +5649,177 @@
       "ja": "スタンディングオーバーヘッド肩ストレッチ"
     },
     "type": "timeOnly",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 로우",
+      "en": "One Arm Dumbbell Row",
+      "ja": "ワンアーム ダンベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 로우",
+      "en": "One Arm Cable Row",
+      "ja": "ワンアーム ケーブルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 컬",
+      "en": "One Arm Dumbbell Curl",
+      "ja": "ワンアーム ダンベルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 컬",
+      "en": "One Arm Cable Curl",
+      "ja": "ワンアーム ケーブルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 프리처 컬",
+      "en": "One Arm Dumbbell Preacher Curl",
+      "ja": "ワンアーム ダンベルプリーチャーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 숄더 프레스",
+      "en": "One Arm Dumbbell Shoulder Press",
+      "ja": "ワンアーム ダンベルショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 사이드 레터럴 레이즈",
+      "en": "One Arm Dumbbell Lateral Raise",
+      "ja": "ワンアーム ダンベルサイドレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 레터럴 레이즈",
+      "en": "One Arm Cable Lateral Raise",
+      "ja": "ワンアーム ケーブルラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 프론트 레이즈",
+      "en": "One Arm Dumbbell Front Raise",
+      "ja": "ワンアーム ダンベルフロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 프론트 레이즈",
+      "en": "One Arm Cable Front Raise",
+      "ja": "ワンアーム ケーブルフロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 킥백",
+      "en": "One Arm Dumbbell Kickback",
+      "ja": "ワンアーム ダンベルキックバック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 킥 백",
+      "en": "One Arm Cable Kickback",
+      "ja": "ワンアーム ケーブルキックバック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "other"
+  },
+  {
+    "names": {
+      "ko": "원 암 케틀벨 스윙",
+      "en": "One Arm Kettlebell Swing",
+      "ja": "ワンアーム ケトルベルスイング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "원 암 케틀벨 프레스",
+      "en": "One Arm Kettlebell Press",
+      "ja": "ワンアーム ケトルベルプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 슈러그",
+      "en": "One Arm Dumbbell Shrug",
+      "ja": "ワンアーム ダンベルシュラッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 랫 풀다운",
+      "en": "One Arm Lat Pulldown",
+      "ja": "ワンアーム ラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 체스트 프레스",
+      "en": "One Arm Cable Chest Press",
+      "ja": "ワンアーム ケーブルチェストプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "원 암 머신 체스트 프레스",
+      "en": "One Arm Machine Chest Press",
+      "ja": "ワンアーム マシンチェストプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "원 암 머신 숄더 프레스",
+      "en": "One Arm Machine Shoulder Press",
+      "ja": "ワンアーム マシンショルダープレス"
+    },
+    "type": "weightAndReps",
     "bodyPart": "shoulders"
   }
 ]

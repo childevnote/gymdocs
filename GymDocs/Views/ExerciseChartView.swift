@@ -63,7 +63,7 @@ struct ExerciseChartView: View {
                 Text(String(localized: "chart.history"))
             }
         }
-        .navigationTitle(exercise.name)
+        .navigationTitle(exercise.localizedName)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

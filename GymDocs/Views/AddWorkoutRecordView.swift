@@ -11,7 +11,7 @@ struct AddWorkoutRecordView: View {
 
     private var filteredExercises: [Exercise] {
         if searchText.isEmpty { return exercises }
-        return exercises.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        return exercises.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
     }
 
     private var groupedExercises: [(BodyPart, [Exercise])] {
@@ -45,8 +45,8 @@ struct AddWorkoutRecordView: View {
                                     addRecord(for: exercise)
                                 } label: {
                                     HStack {
-                                        VStack(alignment: .leading) {
-                                            Text(exercise.name)
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text(exercise.localizedName)
                                                 .font(.body)
                                                 .foregroundStyle(.primary)
                                             Text(exercise.type.displayName)

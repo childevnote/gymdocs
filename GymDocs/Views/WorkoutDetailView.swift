@@ -32,7 +32,7 @@ struct WorkoutDetailView: View {
                     Label(String(localized: "detail.addSet"), systemImage: "plus.circle")
                 }
             } header: {
-                Text(record.exercise?.name ?? "")
+                Text(record.exercise?.localizedName ?? "")
             } footer: {
                 if record.exercise?.type == .weightAndReps {
                     Text(String(localized: "detail.totalVolume") + ": " + String(format: "%.0f kg", record.totalVolume))
@@ -84,6 +84,7 @@ struct SetRecordRow: View {
                         .font(.title3)
                 }
                 .buttonStyle(.plain)
+                .sensoryFeedback(.success, trigger: setRecord.isCompleted)
             }
 
             // Input fields based on exercise type
@@ -171,6 +172,7 @@ struct SetRecordRow: View {
                 .buttonStyle(.bordered)
                 .controlSize(.small)
                 .tint(isTimerActiveForThis ? .red : .blue)
+                .sensoryFeedback(.impact(flexibility: .solid), trigger: isTimerActiveForThis)
             }
         }
         .padding(.vertical, 4)

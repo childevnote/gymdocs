@@ -81,7 +81,7 @@ struct WorkoutRecordRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(record.exercise?.name ?? "")
+            Text(record.exercise?.localizedName ?? "")
                 .font(.headline)
             HStack {
                 Text("\(record.sets.count) " + String(localized: "home.sets"))

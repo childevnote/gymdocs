@@ -9,7 +9,7 @@ struct ExerciseListView: View {
 
     private var filteredExercises: [Exercise] {
         if searchText.isEmpty { return exercises }
-        return exercises.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        return exercises.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
     }
 
     private var groupedExercises: [(BodyPart, [Exercise])] {
@@ -40,8 +40,8 @@ struct ExerciseListView: View {
                         Section(header: Text(part.displayName)) {
                             ForEach(items) { exercise in
                                 NavigationLink(destination: ExerciseChartView(exercise: exercise)) {
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text(exercise.name)
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(exercise.localizedName)
                                             .font(.body)
                                         Text(exercise.type.displayName)
                                             .font(.caption)

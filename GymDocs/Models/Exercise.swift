@@ -44,6 +44,10 @@ final class Exercise {
         self.createdAt = Date()
         self.records = []
     }
+
+    var localizedName: String {
+        ExerciseTranslator.shared.localizedName(for: name)
+    }
 }
 
 enum ExerciseType: String, Codable, CaseIterable {

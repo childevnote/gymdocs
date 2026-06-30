@@ -9,7 +9,16 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var exercises: [Exercise]
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @AppStorage("appColorScheme") private var appColorScheme = 0 // 0: System, 1: Light, 2: Dark
     @State private var selectedTab = 0
+
+    private var colorScheme: ColorScheme? {
+        switch appColorScheme {
+        case 1: return .light
+        case 2: return .dark
+        default: return nil // System
+        }
+    }
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -37,6 +46,8 @@ struct ContentView: View {
                 }
                 .tag(3)
         }
+        .tint(.teal)
+        .preferredColorScheme(colorScheme)
         .fullScreenCover(isPresented: .init(get: { !hasCompletedOnboarding }, set: { _ in })) {
             OnboardingView()
         }

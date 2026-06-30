@@ -30,15 +30,17 @@ struct RoutineDetailView: View {
                             .frame(maxWidth: .infinity)
                             .font(.headline)
                     }
-                    .tint(.green)
+                    }
+                    .tint(.teal)
                     .buttonStyle(.borderedProminent)
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                    .sensoryFeedback(.success, trigger: showStartedAlert)
                 }
 
                 ForEach(sortedExercises) { rExercise in
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(rExercise.exercise?.name ?? String(localized: "common.unknown", defaultValue: "알 수 없는 운동"))
+                        Text(rExercise.exercise?.localizedName ?? String(localized: "common.unknown", defaultValue: "알 수 없는 운동"))
                             .font(.body)
                         Text(rExercise.type.displayName)
                             .font(.caption)
@@ -129,7 +131,7 @@ struct RoutineExercisePickerView: View {
 
     private var filteredExercises: [Exercise] {
         if searchText.isEmpty { return allExercises }
-        return allExercises.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        return allExercises.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
     }
 
     private var groupedExercises: [(BodyPart, [Exercise])] {
@@ -157,7 +159,7 @@ struct RoutineExercisePickerView: View {
                                 } label: {
                                     HStack {
                                         VStack(alignment: .leading, spacing: 2) {
-                                            Text(exercise.name)
+                                            Text(exercise.localizedName)
                                                 .font(.body)
                                                 .foregroundStyle(.primary)
                                             Text(exercise.type.displayName)
@@ -170,15 +172,14 @@ struct RoutineExercisePickerView: View {
                                                 .foregroundStyle(.blue)
                                         } else {
                                             Image(systemName: "circle")
-                                                .foregroundStyle(.secondary)
-                                        }
-                                    }
                                 }
+                                .buttonStyle(.plain)
                             }
                         }
                     }
                 }
             }
+            .sensoryFeedback(.selection, trigger: selectedExercises.count)
             .searchable(text: $searchText, prompt: String(localized: "common.search", defaultValue: "운동 검색"))
             .navigationTitle(String(localized: "routines.addExerciseTitle", defaultValue: "운동 추가"))
             .navigationBarTitleDisplayMode(.inline)
