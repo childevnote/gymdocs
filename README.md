@@ -34,27 +34,6 @@ SwiftUI와 SwiftData를 활용하여 View와 Model 계층을 연결한 구조입
 
 ---
 
-## English
-<div id="english"></div>
-
-### Precision engineering for your workouts.
-GymDocs is a minimal, native iOS application designed for the perfectionist. Beneath its remarkably intuitive and elegant design lies a highly sophisticated, biomechanics-based volume calculation engine.
-
-### Astonishing Precision
-- **Biomechanical Volume Tracking:** Calculates the Effective Load applied to your muscles, factoring in the weight of your forearms for bodyweight exercises and pulley friction for assisted machines.
-- **Range of Motion (ROM) Analysis:** From eccentric negatives to full-range extensions, every nuance of your control is converted into a true Intensity Score.
-- **Metabolic Stress Modeling:** Analyzes workout density in real-time. By modeling metabolic stress against a 3-to-4-minute optimal recovery window, intensity is rewarded down to the second.
-
-### An Overwhelmingly Seamless Experience
-- **Fluid UI & Haptics:** A perfectly native interface resembling Apple Reminders. Complete sets with a subtle haptic pulse and an intelligent auto-rest timer.
-- **Daily Lock & Streak System:** Mark your workout as finished to securely lock your data for the day, igniting your weekly streak to keep your momentum alive.
-- **Global Database:** Access over 640 meticulously cataloged exercises natively localized in English, Korean, and Japanese.
-- **Data & Charts:** Visualize your progressive overload with stunning Swift Charts and export your journey to Excel (CSV).
-
-**Architecture:** SwiftUI, SwiftData, iOS 17.0+
-
----
-
 ## 한국어
 <div id="korean"></div>
 
@@ -73,6 +52,27 @@ GymDocs는 완벽주의자를 위해 완전히 새롭게 설계된 네이티브 
 - **데이터 분석 및 내보내기:** 아름다운 Swift Charts로 성장을 시각화하고, 언제든 엑셀(CSV)로 데이터를 내보내어 관리하세요.
 
 **기술 스택:** SwiftUI, SwiftData, iOS 17.0+
+
+---
+
+## English
+<div id="english"></div>
+
+### Precision engineering for your workouts.
+GymDocs is a minimal, native iOS application designed for the perfectionist. Beneath its remarkably intuitive and elegant design lies a highly sophisticated, biomechanics-based volume calculation engine.
+
+### Astonishing Precision
+- **Biomechanical Volume Tracking:** Calculates the Effective Load applied to your muscles, factoring in the weight of your forearms for bodyweight exercises and pulley friction for assisted machines.
+- **Range of Motion (ROM) Analysis:** From eccentric negatives to full-range extensions, every nuance of your control is converted into a true Intensity Score.
+- **Metabolic Stress Modeling:** Analyzes workout density in real-time. By modeling metabolic stress against a 3-to-4-minute optimal recovery window, intensity is rewarded down to the second.
+
+### An Overwhelmingly Seamless Experience
+- **Fluid UI & Haptics:** A perfectly native interface resembling Apple Reminders. Complete sets with a subtle haptic pulse and an intelligent auto-rest timer.
+- **Daily Lock & Streak System:** Mark your workout as finished to securely lock your data for the day, igniting your weekly streak to keep your momentum alive.
+- **Global Database:** Access over 640 meticulously cataloged exercises natively localized in English, Korean, and Japanese.
+- **Data & Charts:** Visualize your progressive overload with stunning Swift Charts and export your journey to Excel (CSV).
+
+**Architecture:** SwiftUI, SwiftData, iOS 17.0+
 
 ---
 
