@@ -19,7 +19,14 @@ struct WorkoutDetailView: View {
                 }
 
                 Button {
-                    let newSet = SetRecord(order: record.sets.count + 1, workoutRecord: record)
+                    let newOrder = record.sets.count + 1
+                    let newSet = SetRecord(order: newOrder, workoutRecord: record)
+                    if let lastSet = record.sortedSets.last {
+                        newSet.weight = lastSet.weight
+                        newSet.reps = lastSet.reps
+                        newSet.timeDuration = lastSet.timeDuration
+                        newSet.rangeOfMotion = lastSet.rangeOfMotion
+                    }
                     modelContext.insert(newSet)
                 } label: {
                     Label(String(localized: "detail.addSet"), systemImage: "plus.circle")
@@ -49,10 +56,11 @@ struct SetRecordRow: View {
     @Environment(\.modelContext) private var modelContext
     @Bindable var setRecord: SetRecord
     let exerciseType: ExerciseType
-    @State private var isTimerRunning = false
-    @State private var timerStartDate: Date?
-    @State private var displayRestTime: Int = 0
-    @State private var timer: Timer?
+    private var timerManager = RestTimerManager.shared
+
+    private var isTimerActiveForThis: Bool {
+        timerManager.isRunning && timerManager.activeSetId == setRecord.id
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -64,6 +72,12 @@ struct SetRecordRow: View {
                 Spacer()
                 Button {
                     setRecord.isCompleted.toggle()
+                    if setRecord.isCompleted && !isTimerActiveForThis {
+                        timerManager.start(for: setRecord.id)
+                    } else if !setRecord.isCompleted && isTimerActiveForThis {
+                        let elapsed = timerManager.stop()
+                        setRecord.restTimeAfterSet = elapsed
+                    }
                 } label: {
                     Image(systemName: setRecord.isCompleted ? "checkmark.circle.fill" : "circle")
                         .foregroundStyle(setRecord.isCompleted ? .green : .secondary)
@@ -73,10 +87,10 @@ struct SetRecordRow: View {
             }
 
             // Input fields based on exercise type
-            if exerciseType == .weightAndReps {
+            if exerciseType == .weightAndReps || exerciseType == .assistedWeightAndReps {
                 HStack(spacing: 12) {
                     VStack(alignment: .leading) {
-                        Text(String(localized: "detail.weight"))
+                        Text(exerciseType == .assistedWeightAndReps ? String(localized: "detail.assistWeight") : String(localized: "detail.weight"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         TextField("0", value: $setRecord.weight, format: .number)
@@ -92,6 +106,15 @@ struct SetRecordRow: View {
                             .textFieldStyle(.roundedBorder)
                     }
                 }
+            } else if exerciseType == .repsOnly {
+                VStack(alignment: .leading) {
+                    Text(String(localized: "detail.reps"))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    TextField("0", value: $setRecord.reps, format: .number)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(.roundedBorder)
+                }
             } else {
                 VStack(alignment: .leading) {
                     Text(String(localized: "detail.duration"))
@@ -106,16 +129,34 @@ struct SetRecordRow: View {
                 }
             }
 
+            // ROM
+            if exerciseType != .timeOnly {
+                HStack {
+                    Picker("ROM", selection: $setRecord.rangeOfMotion) {
+                        ForEach(RangeOfMotion.allCases, id: \.self) { rom in
+                            Text(rom.displayName).tag(rom)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                    .controlSize(.mini)
+                    
+                    Spacer()
+                }
+            }
+
             // Rest timer
             HStack {
                 Button {
-                    toggleRestTimer()
+                    timerManager.toggle(for: setRecord.id) { elapsed in
+                        setRecord.restTimeAfterSet = elapsed
+                    }
                 } label: {
                     HStack(spacing: 4) {
-                        Image(systemName: isTimerRunning ? "stop.fill" : "timer")
+                        Image(systemName: isTimerActiveForThis ? "stop.fill" : "timer")
                             .font(.caption)
-                        if isTimerRunning {
-                            Text(formatDuration(displayRestTime))
+                        if isTimerActiveForThis {
+                            Text(formatDuration(timerManager.elapsedSeconds))
                                 .font(.caption)
                                 .monospacedDigit()
                         } else if setRecord.restTimeAfterSet > 0 {
@@ -129,41 +170,10 @@ struct SetRecordRow: View {
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.small)
-                .tint(isTimerRunning ? .red : .blue)
+                .tint(isTimerActiveForThis ? .red : .blue)
             }
         }
         .padding(.vertical, 4)
-        .onDisappear {
-            stopTimer()
-        }
-    }
-
-    private func toggleRestTimer() {
-        if isTimerRunning {
-            stopTimer()
-        } else {
-            startTimer()
-        }
-    }
-
-    private func startTimer() {
-        isTimerRunning = true
-        timerStartDate = Date()
-        displayRestTime = 0
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            if let start = timerStartDate {
-                displayRestTime = Int(Date().timeIntervalSince(start))
-            }
-        }
-    }
-
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-        if isTimerRunning, let start = timerStartDate {
-            setRecord.restTimeAfterSet = Int(Date().timeIntervalSince(start))
-        }
-        isTimerRunning = false
-        timerStartDate = nil
     }
 }
+

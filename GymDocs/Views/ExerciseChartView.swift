@@ -8,7 +8,7 @@ struct ExerciseChartView: View {
     private var chartData: [(date: Date, volume: Double)] {
         exercise.records
             .sorted { $0.date < $1.date }
-            .map { (date: $0.date, volume: $0.totalVolume) }
+            .map { (date: $0.date, volume: $0.intensityScore) }
     }
 
     var body: some View {
@@ -25,12 +25,12 @@ struct ExerciseChartView: View {
                     Chart(chartData, id: \.date) { item in
                         BarMark(
                             x: .value(String(localized: "chart.date"), item.date, unit: .day),
-                            y: .value(String(localized: "chart.volume"), item.volume)
+                            y: .value(String(localized: "chart.intensity"), item.volume)
                         )
                         .foregroundStyle(.blue.gradient)
                         .cornerRadius(4)
                     }
-                    .chartYAxisLabel(exercise.type == .weightAndReps ? "kg" : String(localized: "chart.seconds"))
+                    .chartYAxisLabel(exercise.type == .assistedWeightAndReps ? "kg" : String(localized: "chart.score"))
                     .frame(height: 220)
                     .padding(.vertical, 8)
                 }
@@ -44,8 +44,12 @@ struct ExerciseChartView: View {
                         Text(item.date, style: .date)
                             .font(.subheadline)
                         Spacer()
-                        if exercise.type == .weightAndReps {
-                            Text(String(format: "%.0f kg", item.volume))
+                        if exercise.type == .weightAndReps || exercise.type == .assistedWeightAndReps {
+                            Text(String(format: "%.0f", item.volume))
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        } else if exercise.type == .repsOnly {
+                            Text(String(format: "%.0f", item.volume))
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         } else {

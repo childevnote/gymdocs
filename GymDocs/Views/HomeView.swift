@@ -5,6 +5,8 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var allRecords: [WorkoutRecord]
     @State private var selectedDate: Date = Date()
+    @State private var recordToNavigate: WorkoutRecord?
+    @State private var showAddSheet = false
 
     private var recordsForSelectedDate: [WorkoutRecord] {
         let calendar = Calendar.current
@@ -55,10 +57,20 @@ struct HomeView: View {
             .navigationTitle(String(localized: "home.title"))
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: AddWorkoutRecordView(date: selectedDate)) {
+                    Button {
+                        showAddSheet = true
+                    } label: {
                         Image(systemName: "plus")
                     }
                 }
+            }
+            .sheet(isPresented: $showAddSheet) {
+                AddWorkoutRecordView(date: selectedDate) { newRecord in
+                    recordToNavigate = newRecord
+                }
+            }
+            .navigationDestination(item: $recordToNavigate) { record in
+                WorkoutDetailView(record: record)
             }
         }
     }

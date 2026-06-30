@@ -39,6 +39,7 @@ struct SetRecordDTO: Codable {
     let reps: Int
     let timeDuration: Int
     let restTimeAfterSet: Int
+    let rangeOfMotion: RangeOfMotion
     let isCompleted: Bool
     let workoutRecordId: UUID
 
@@ -49,7 +50,28 @@ struct SetRecordDTO: Codable {
         self.reps = setRecord.reps
         self.timeDuration = setRecord.timeDuration
         self.restTimeAfterSet = setRecord.restTimeAfterSet
+        self.rangeOfMotion = setRecord.rangeOfMotion
         self.isCompleted = setRecord.isCompleted
         self.workoutRecordId = setRecord.workoutRecord?.id ?? UUID()
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case id, order, weight, reps, timeDuration, restTimeAfterSet, rangeOfMotion, isCompleted, workoutRecordId
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        order = try container.decode(Int.self, forKey: .order)
+        weight = try container.decode(Double.self, forKey: .weight)
+        reps = try container.decode(Int.self, forKey: .reps)
+        timeDuration = try container.decode(Int.self, forKey: .timeDuration)
+        restTimeAfterSet = try container.decode(Int.self, forKey: .restTimeAfterSet)
+        
+        // Backward compatibility: If rangeOfMotion is missing, default to .normal
+        rangeOfMotion = try container.decodeIfPresent(RangeOfMotion.self, forKey: .rangeOfMotion) ?? .normal
+        
+        isCompleted = try container.decode(Bool.self, forKey: .isCompleted)
+        workoutRecordId = try container.decode(UUID.self, forKey: .workoutRecordId)
     }
 }

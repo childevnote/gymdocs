@@ -1,0 +1,5654 @@
+[
+  {
+    "names": {
+      "ko": "벤치프레스",
+      "en": "Bench Press",
+      "ja": "ベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 벤치프레스",
+      "en": "Dumbbell Bench Press",
+      "ja": "ダンベルベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "머신 체스트 프레스",
+      "en": "Machine Chest Press",
+      "ja": "マシンチェストプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "인클라인 벤치프레스",
+      "en": "Incline Bench Press",
+      "ja": "インクラインベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "인클라인 덤벨 프레스",
+      "en": "Incline Dumbbell Press",
+      "ja": "インクラインダンベルプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "인클라인 머신 프레스",
+      "en": "Incline Machine Press",
+      "ja": "インクラインマシンプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "디클라인 벤치프레스",
+      "en": "Decline Bench Press",
+      "ja": "デクラインベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "펙 덱 플라이",
+      "en": "Pec Deck Fly",
+      "ja": "ペックデックフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 플라이",
+      "en": "Dumbbell Fly",
+      "ja": "ダンベルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "케이블 크로스오버",
+      "en": "Cable Crossover",
+      "ja": "ケーブルクロスオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "로우 케이블 크로스오버",
+      "en": "Low Cable Crossover",
+      "ja": "ローケーブルクロスオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "케이블 체스트 프레스",
+      "en": "Cable Chest Press",
+      "ja": "ケーブルチェストプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "푸시업",
+      "en": "Push-Up",
+      "ja": "プッシュダウン"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "원 암 푸시업",
+      "en": "One-Arm Push-Up",
+      "ja": "ワンアームプッシュダウン"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "맨몸 딥스",
+      "en": "Dips",
+      "ja": "ディップス"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "중량 딥스",
+      "en": "Weighted Dips",
+      "ja": "加重ディップス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "데드리프트",
+      "en": "Deadlift",
+      "ja": "デッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "풀업",
+      "en": "Pull-Up",
+      "ja": "懸垂"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "친업",
+      "en": "Chin-Up",
+      "ja": "チンニング"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "머슬업",
+      "en": "Muscle-up",
+      "ja": "マッスルアップ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "어시스티드 풀업",
+      "en": "Assisted Pull-Up",
+      "ja": "アシスト懸垂"
+    },
+    "type": "assistedWeightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "랫 풀다운",
+      "en": "Lat Pulldown",
+      "ja": "ラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "머신 랫 풀다운",
+      "en": "Machine Lat Pulldown",
+      "ja": "マシンラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 랫 풀다운",
+      "en": "One-Arm Lat Pulldown",
+      "ja": "ワンアームラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 암 풀다운",
+      "en": "Cable Straight Arm Pulldown",
+      "ja": "ケーブルストレートアームプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "바벨 로우",
+      "en": "Barbell Row",
+      "ja": "バーベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 로우",
+      "en": "Dumbbell Row",
+      "ja": "ダンベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 로우",
+      "en": "One-Arm Dumbbell Row",
+      "ja": "ワンアームダンベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "인클라인 덤벨 로우",
+      "en": "Incline Dumbbell Row",
+      "ja": "インクラインダンベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "티바 로우",
+      "en": "T-Bar Row",
+      "ja": "Tバーロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "시티드 케이블 로우",
+      "en": "Seated Cable Row",
+      "ja": "シーテッドケーブルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "머신 시티드 로우",
+      "en": "Machine Seated Row",
+      "ja": "マシンシーテッドロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "백 익스텐션",
+      "en": "Back Extension",
+      "ja": "バックエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스쿼트",
+      "en": "Squat",
+      "ja": "スクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "맨몸 스쿼트",
+      "en": "Bodyweight Squat",
+      "ja": "自重スクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "브이스쿼트",
+      "en": "VSquat",
+      "ja": "Vスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "핵스쿼트",
+      "en": "Hack Squat",
+      "ja": "ハックスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "불가리안 스플릿 스쿼트",
+      "en": "Bulgarian Split Squat",
+      "ja": "ブルガリアンスプリットスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "피스톨 스쿼트",
+      "en": "Pistol Squat",
+      "ja": "ピストルスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "런지",
+      "en": "Lunge",
+      "ja": "ランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "레그 프레스",
+      "en": "Leg Press",
+      "ja": "レッグプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "머신 레그 프레스",
+      "en": "Machine Leg Press",
+      "ja": "マシンレッグプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "레그 익스텐션",
+      "en": "Leg Extension",
+      "ja": "レッグエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "레그 컬",
+      "en": "Leg Curl",
+      "ja": "レッグカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "이너 타이 머신",
+      "en": "Inner Thigh Machine",
+      "ja": "インナーサイマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "아웃 타이 머신",
+      "en": "Outer Thigh Machine",
+      "ja": "アウターサイマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "케이블 풀스루",
+      "en": "Cable Pull Through",
+      "ja": "ケーブルプルスルー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "루마니안 데드리프트",
+      "en": "Romanian Deadlift",
+      "ja": "ルーマニアンデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "카프 레이즈",
+      "en": "Calf Raise",
+      "ja": "カーフレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "오버헤드 프레스",
+      "en": "Overhead Press",
+      "ja": "オーバーヘッドプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "덤벨 숄더 프레스",
+      "en": "Dumbbell Shoulder Press",
+      "ja": "ダンベルショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "머신 숄더 프레스",
+      "en": "Machine Shoulder Press",
+      "ja": "マシンショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 숄더 프레스",
+      "en": "One-Arm Dumbbell Shoulder Press",
+      "ja": "ワンアームダンベルショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "사이드 레터럴 레이즈",
+      "en": "Lateral Raise",
+      "ja": "サイドレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "케이블 레터럴 레이즈",
+      "en": "Cable Lateral Raise",
+      "ja": "ケーブルラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "인클라인 레터럴 레이즈",
+      "en": "Incline Lateral Raise",
+      "ja": "インクラインラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "프론트 레이즈",
+      "en": "Front Raise",
+      "ja": "フロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "케이블 프론트 레이즈",
+      "en": "Cable Front Raise",
+      "ja": "ケーブルフロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "리버스 펙덱 플라이",
+      "en": "Reverse Pec Deck Fly",
+      "ja": "リバースペックデックフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "케이블 페이스 풀",
+      "en": "Cable Face Pull",
+      "ja": "ケーブルフェイスプル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "바벨 컬",
+      "en": "Barbell Curl",
+      "ja": "バーベルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "덤벨 컬",
+      "en": "Dumbbell Curl",
+      "ja": "ダンベルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 컬",
+      "en": "One-Arm Dumbbell Curl",
+      "ja": "ワンアームダンベルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "인클라인 덤벨 컬",
+      "en": "Incline Dumbbell Curl",
+      "ja": "インクラインダンベルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "머신 암 컬",
+      "en": "Machine Arm Curl",
+      "ja": "マシンアームカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "케이블 바이셉스 컬",
+      "en": "Cable Bicep Curl",
+      "ja": "ケーブルバイセプスカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "트라이셉스 푸시다운",
+      "en": "Triceps Pushdown",
+      "ja": "トライセプスプッシュダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "머신 트라이셉스 익스텐션",
+      "en": "Machine Triceps Extension",
+      "ja": "マシントライセプスエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "원 암 트라이셉스 익스텐션",
+      "en": "One-Arm Triceps Extension",
+      "ja": "ワンアームトライセプスエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "크런치",
+      "en": "Crunch",
+      "ja": "クランチ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "싯업",
+      "en": "Sit-Up",
+      "ja": "上体起こし"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "레그 레이즈",
+      "en": "Leg Raise",
+      "ja": "レッグレイズ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "케이블 크런치",
+      "en": "Cable Crunch",
+      "ja": "ケーブルクランチ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "케이블 우드찹",
+      "en": "Cable Woodchop",
+      "ja": "ケーブルウッドチョップ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "플랭크",
+      "en": "Plank",
+      "ja": "プランク"
+    },
+    "type": "timeOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "러시안 트위스트",
+      "en": "Russian Twist",
+      "ja": "ロシアンツイスト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "데드버그",
+      "en": "Dead Bug",
+      "ja": "デッドバグ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "AB 슬라이드 (롤아웃)",
+      "en": "Ab Slide Rollout",
+      "ja": "アブスライドロールアウト"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "트레드밀",
+      "en": "Treadmill",
+      "ja": "トレッドミル"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "무동력 트레드밀",
+      "en": "Curved Treadmill",
+      "ja": "自走式トレッドミル"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "야외 러닝",
+      "en": "Outdoor Running",
+      "ja": "屋外ランニング"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "일립티컬 머신",
+      "en": "Elliptical Machine",
+      "ja": "エリプティカルマシン"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "실내 자전거",
+      "en": "Indoor Cycling",
+      "ja": "エアロバイク"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "천국의 계단",
+      "en": "Stair Climber",
+      "ja": "ステアマスター"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "로잉 머신",
+      "en": "Rowing Machine",
+      "ja": "ローイングマシン"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "버피 테스트",
+      "en": "Burpee",
+      "ja": "バーピー"
+    },
+    "type": "repsOnly",
+    "bodyPart": "other"
+  },
+  {
+    "names": {
+      "ko": "체스트 프레스 머신",
+      "en": "Chest Press Machine",
+      "ja": "チェストプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "숄더 프레스 머신",
+      "en": "Shoulder Press Machine",
+      "ja": "ショルダープレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "덤벨 사이드 레터럴 레이즈",
+      "en": "Dumbbell Lateral Raise",
+      "ja": "ダンベルサイドレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "케이블 푸쉬다운",
+      "en": "Cable Pushdown",
+      "ja": "ケーブルプッシュダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "시티드 케이블 로우 (롱 풀)",
+      "en": "Seated Cable Row Long Pull",
+      "ja": "シーテッドケーブルロウロングプル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 인클라인 벤치 프레스",
+      "en": "Incline Dumbbell Bench Press",
+      "ja": "インクラインダンベルベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 해머 컬",
+      "en": "Dumbbell Hammer Curl",
+      "ja": "ダンベルハンマーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "풀업 (턱걸이)",
+      "en": "Pull-Up",
+      "ja": "懸垂"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "딥스",
+      "en": "Dips",
+      "ja": "ディップス"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "라잉 트라이셉스 익스텐션 (스컬 크러셔)",
+      "en": "Lying Triceps Extension",
+      "ja": "ライイングトライセプスエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "힙 어덕션 (이너 타이)",
+      "en": "Hip Adduction",
+      "ja": "ヒップアダクション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "힙 어브덕션 (아웃 타이)",
+      "en": "Hip Abduction",
+      "ja": "ヒップアブダクション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 인클라인 벤치 프레스",
+      "en": "Smith Machine Incline Bench Press",
+      "ja": "スミスマシンインクラインベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "어시스트 풀업 머신",
+      "en": "Assisted Pull-Up Machine",
+      "ja": "アシスト懸垂マシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "시티드 로우 머신",
+      "en": "Seated Row Machine",
+      "ja": "シーテッドロウマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "푸쉬업 (팔굽혀펴기)",
+      "en": "Push-Up",
+      "ja": "腕立て伏せ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "페이스 풀",
+      "en": "Face Pull",
+      "ja": "フェイスプル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "인클라인 체스트 프레스 머신",
+      "en": "Incline Chest Press Machine",
+      "ja": "インクラインチェストプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "케이블 컬",
+      "en": "Cable Curl",
+      "ja": "ケーブルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "암 컬 머신",
+      "en": "Arm Curl Machine",
+      "ja": "アームカールマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 숄더 프레스",
+      "en": "Smith Machine Shoulder Press",
+      "ja": "スミスマシンショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "이지바(EZ바) 컬",
+      "en": "EZ-Bar EZ-Bar Curl",
+      "ja": "EZバーEZバーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "덤벨 벤트 오버 레터럴 레이즈",
+      "en": "Dumbbell Bent Over Lateral Raise",
+      "ja": "ダンベルベントオーバーラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 시티드 로우",
+      "en": "One-Arm Seated Row",
+      "ja": "ワンアームシーテッドロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 로프 푸쉬다운",
+      "en": "Cable Rope Pushdown",
+      "ja": "ケーブルローププッシュダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "어시스트 딥스",
+      "en": "Assisted Dips",
+      "ja": "アシストディップス"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "하이 로우 머신",
+      "en": "High Row Machine",
+      "ja": "ハイロウマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 오버헤드 트라이셉스 익스텐션",
+      "en": "Dumbbell Overhead Triceps Extension",
+      "ja": "ダンベルオーバーヘッドトライセプスエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "케이블 오버헤드 트라이셉스 익스텐션",
+      "en": "Cable Overhead Triceps Extension",
+      "ja": "ケーブルオーバーヘッドトライセプスエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "케이블 플라이",
+      "en": "Cable Fly",
+      "ja": "ケーブルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "행잉 레그 레이즈",
+      "en": "Hanging Leg Raise",
+      "ja": "ハンギングレッグレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "바벨 업라이트 로우",
+      "en": "Barbell Upright Row",
+      "ja": "バーベルアップライトロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "러닝 (트레드밀)",
+      "en": "Running Treadmill",
+      "ja": "ランニングトレッドミル"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "클로즈 그립 랫 풀다운",
+      "en": "Close Grip Lat Pulldown",
+      "ja": "クロースグリップラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 스쿼트",
+      "en": "Smith Machine Squat",
+      "ja": "スミスマシンスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "사이드 레터럴 레이즈 머신",
+      "en": "Lateral Raise Machine",
+      "ja": "サイドレイズマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "체스트 서포티드 티 바 로우",
+      "en": "Chest Supported T-Bar Row",
+      "ja": "チェストサポートTバーロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "시티드 레그 컬",
+      "en": "Seated Leg Curl",
+      "ja": "シーテッドレッグカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "디클라인 체스트 프레스 머신",
+      "en": "Decline Chest Press Machine",
+      "ja": "デクラインチェストプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 벤치 프레스",
+      "en": "Smith Machine Bench Press",
+      "ja": "スミスマシンベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "시티드 레그 프레스",
+      "en": "Seated Leg Press",
+      "ja": "シーテッドレッグプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "와이드 그립 랫 풀다운",
+      "en": "Wide Grip Lat Pulldown",
+      "ja": "ワイドグリップラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "유산소",
+      "en": "Cardio",
+      "ja": "有酸素"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "라잉 레그 레이즈",
+      "en": "Lying Leg Raise",
+      "ja": "ライイングレッグレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "클로즈 그립 벤치 프레스",
+      "en": "Close Grip Bench Press",
+      "ja": "クロースグリップベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "케이블 트라이셉스 익스텐션",
+      "en": "Cable Triceps Extension",
+      "ja": "ケーブルトライセプスエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 레터럴 레이즈",
+      "en": "One-Arm Cable Lateral Raise",
+      "ja": "ワンアームケーブルラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스티프레그 데드리프트",
+      "en": "Stiff-Leg Deadlift",
+      "ja": "スティフレッグデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 킥백",
+      "en": "Dumbbell Kickback",
+      "ja": "ダンベルキックバック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "케이블 해머 컬",
+      "en": "Cable Hammer Curl",
+      "ja": "ケーブルハンマーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "로우 로우 (Low Row)",
+      "en": "Row Row Low Row",
+      "ja": "ロウロウLowRow"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "밀리터리 프레스",
+      "en": "Military Press",
+      "ja": "ミリタリープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "덤벨 프론트 레이즈",
+      "en": "Dumbbell Front Raise",
+      "ja": "ダンベルフロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "맥 그립 랫 풀다운",
+      "en": "MAG Grip Lat Pulldown",
+      "ja": "MAGグリップラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "언더 그립 랫 풀다운",
+      "en": "Underhand Lat Pulldown",
+      "ja": "アンダーグリップラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "인클라인 벤치 프레스 머신",
+      "en": "Incline Bench Press Machine",
+      "ja": "インクラインベンチプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "프론트 스쿼트",
+      "en": "Front Squat",
+      "ja": "フロントスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "스텝밀 (천국의계단)",
+      "en": "Stair Climber",
+      "ja": "ステアマスター"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "덤벨 시티드 오버헤드 프레스",
+      "en": "Seated Dumbbell Overhead Press",
+      "ja": "シーテッドダンベルオーバーヘッドプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "인클라인 덤벨 플라이",
+      "en": "Incline Dumbbell Fly",
+      "ja": "インクラインダンベルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "비하인드 넥 프레스",
+      "en": "Behind Neck Press",
+      "ja": "ビハインドネックプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "크런치 머신 (업도미널 머신)",
+      "en": "Crunch Machine",
+      "ja": "クランチマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "덤벨 풀오버",
+      "en": "Dumbbell Pullover",
+      "ja": "ダンベルプルオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 스티프레그 데드리프트",
+      "en": "Dumbbell Stiff-Leg Deadlift",
+      "ja": "ダンベルスティフレッグデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "펜들레이 로우",
+      "en": "Pendlay Row",
+      "ja": "ペンレイロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "바벨 힙 쓰러스트",
+      "en": "Barbell Hip Thrust",
+      "ja": "バーベルヒップスラスト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "와이드 그립 시티드 케이블 로우",
+      "en": "Wide Grip Seated Cable Row",
+      "ja": "ワイドグリップシーテッドケーブルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "벤치 프레스 머신",
+      "en": "Bench Press Machine",
+      "ja": "ベンチプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "케이블 사이드 레터럴 레이즈",
+      "en": "Cable Lateral Raise",
+      "ja": "ケーブルサイドレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 하이 로우",
+      "en": "One-Arm High Row",
+      "ja": "ワンアームハイロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "힙 쓰러스트 머신",
+      "en": "Hip Thrust Machine",
+      "ja": "ヒップスラストマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "원 암 시티드 케이블 로우 (롱 풀)",
+      "en": "One-Arm Seated Cable Row Long Pull",
+      "ja": "ワンアームシーテッドケーブルロウロングプル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "고블릿 스쿼트",
+      "en": "Goblet Squat",
+      "ja": "ゴブレットスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "파워 레그 프레스",
+      "en": "Power Leg Press",
+      "ja": "パワーレッグプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "와이드 풀다운",
+      "en": "Wide Pulldown",
+      "ja": "ワイドプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "프리처 컬 머신",
+      "en": "Preacher Curl Machine",
+      "ja": "プリーチャーカールマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "싯업 (윗몸 일으키기)",
+      "en": "Sit-Up",
+      "ja": "上体起こし"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "언더 그립 시티드 로우",
+      "en": "Underhand Grip Seated Row",
+      "ja": "アンダーグリップシーテッドロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 런지",
+      "en": "Dumbbell Lunge",
+      "ja": "ダンベルランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 바벨 로우",
+      "en": "Smith Machine Barbell Row",
+      "ja": "スミスマシンバーベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "사이클",
+      "en": "Cycling",
+      "ja": "サイクリング"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "아놀드 프레스",
+      "en": "Arnold Press",
+      "ja": "アーノルドプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "라잉 레그 컬",
+      "en": "Lying Leg Curl",
+      "ja": "ライイングレッグカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "케이블 리버스 플라이",
+      "en": "Cable Reverse Fly",
+      "ja": "ケーブルリバースフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "체스트 서포티드 덤벨 로우",
+      "en": "Chest Supported Dumbbell Row",
+      "ja": "チェストサポートダンベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 클로즈 그립 벤치 프레스",
+      "en": "Smith Machine Close Grip Bench Press",
+      "ja": "スミスマシンクロースグリップベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 슈러그",
+      "en": "Dumbbell Shrug",
+      "ja": "ダンベルシュラッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 푸쉬다운",
+      "en": "One Arm Cable Pushdown",
+      "ja": "ワンアームケーブルプッシュダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "시티드 덤벨 벤트 오버 레터럴 레이즈",
+      "en": "Seated Dumbbell Bent Over Lateral Raise",
+      "ja": "シーテッドダンベルベントオーバーラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 비하인드 넥 프레스",
+      "en": "Smith Machine Behind Neck Press",
+      "ja": "スミスマシンビハインドネックプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "시티드 딥스 머신",
+      "en": "Seated Dips Machine",
+      "ja": "シーテッドディップスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "바벨 루마니안 데드리프트",
+      "en": "Barbell Romanian Deadlift",
+      "ja": "バーベルルーマニアンデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 플라이 (플랫 벤치)",
+      "en": "Dumbbell Fly",
+      "ja": "ダンベルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "벤트 오버 바벨 로우",
+      "en": "Bent Over Barbell Row",
+      "ja": "ベントオーバーバーベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "로우 로우 머신",
+      "en": "Row Row Machine",
+      "ja": "ロウロウマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 로우",
+      "en": "Cable Row",
+      "ja": "ケーブルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 레그 익스텐션",
+      "en": "Single Leg Extension",
+      "ja": "シングルレッグエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 풀다운",
+      "en": "One Arm Cable Pulldown",
+      "ja": "ワンアームケーブルプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "컨벤셔널 데드리프트",
+      "en": "Conventional Deadlift",
+      "ja": "コンベンショナルデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "디클라인 케이블 플라이",
+      "en": "Decline Cable Fly",
+      "ja": "デクラインケーブルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "바벨 슈러그",
+      "en": "Barbell Shrug",
+      "ja": "バーベルシュラッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "프론트 풀다운",
+      "en": "Front Pulldown",
+      "ja": "フロントプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "언더 그립 바벨 로우",
+      "en": "Underhand Grip Barbell Row",
+      "ja": "アンダーグリップバーベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "풀오버 머신",
+      "en": "Pullover Machine",
+      "ja": "プルオーバーマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "원 레그 프레스",
+      "en": "Single Leg Press",
+      "ja": "シングルレッグプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "어깨 후면",
+      "en": "Rear Delt",
+      "ja": "リアデルト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "시티드 사이드 레터럴 레이즈",
+      "en": "Seated Lateral Raise",
+      "ja": "シーテッドサイドレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 런지",
+      "en": "Smith Machine Lunge",
+      "ja": "スミスマシンランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "행잉 니 레이즈",
+      "en": "Hanging Knee Raise",
+      "ja": "ハンギングニーレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "프리처 컬",
+      "en": "Preacher Curl",
+      "ja": "プリーチャーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "인클라인 푸쉬업",
+      "en": "Incline Push-Up",
+      "ja": "インクラインプッシュダウン"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "원 암 로우 로우",
+      "en": "One-Arm Row Row",
+      "ja": "ワンアームロウロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스모 데드리프트",
+      "en": "Sumo Deadlift",
+      "ja": "スモウデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "레그 프레스 머신",
+      "en": "Leg Press Machine",
+      "ja": "レッグプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "케이블 하이 로우",
+      "en": "Cable High Row",
+      "ja": "ケーブルハイロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "벤치 딥스",
+      "en": "Bench Dips",
+      "ja": "ベンチディップス"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 로우",
+      "en": "One-Arm Cable Row",
+      "ja": "ワンアームケーブルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 후면",
+      "en": "Cable Rear",
+      "ja": "ケーブルリア"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 카프 레이즈",
+      "en": "Standing Calf Raise",
+      "ja": "スタンディングカーフレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "랫 풀다운 머신",
+      "en": "Lat Pulldown Machine",
+      "ja": "ラットプルダウンマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "시티드 벤트 오버 리어 델트 레이즈",
+      "en": "Seated Bent Over Rear Delt Raise",
+      "ja": "シーテッドベントオーバーリアデルトレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "시티드 카프 레이즈",
+      "en": "Seated Calf Raise",
+      "ja": "シーテッドカーフレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "풀다운",
+      "en": "Pulldown",
+      "ja": "プルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 카프레이즈",
+      "en": "Smith Machine CalfRaise",
+      "ja": "スミスマシンカーフレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "덤벨 컨센트레이션 컬",
+      "en": "Dumbbell Concentration Curl",
+      "ja": "ダンベルコンセントレーションカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "케이블 와이(Y) 레이즈",
+      "en": "Cable Y Raise",
+      "ja": "ケーブルYレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 컬",
+      "en": "One-Arm Cable Curl",
+      "ja": "ワンアームケーブルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "시티드 오버헤드 프레스",
+      "en": "Seated Overhead Press",
+      "ja": "シーテッドオーバーヘッドプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 밀리터리 프레스",
+      "en": "Smith Machine Military Press",
+      "ja": "スミスマシンミリタリープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "풀다운 머신",
+      "en": "Pulldown Machine",
+      "ja": "プルダウンマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "로프 암 풀다운",
+      "en": "Rope Straight Arm Pulldown",
+      "ja": "ロープストレートアームプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 어퍼 플라이",
+      "en": "Cable Upper Fly",
+      "ja": "ケーブルアッパーフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "버터플라이",
+      "en": "Butterfly",
+      "ja": "バタフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "디클라인 프레스 머신",
+      "en": "Decline Press Machine",
+      "ja": "デクラインプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스트레이트 암 풀다운",
+      "en": "Straight Arm Pulldown",
+      "ja": "ストレートアームプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원판 프론트 레이즈",
+      "en": "Plate Front Raise",
+      "ja": "プレートフロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "덤벨 리스트 컬",
+      "en": "Dumbbell Wrist Curl",
+      "ja": "ダンベルリストカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "forearms"
+  },
+  {
+    "names": {
+      "ko": "덤벨 백 익스텐션",
+      "en": "Dumbbell Back Extension",
+      "ja": "ダンベルバックエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "AB 슬라이드",
+      "en": "Ab Slide",
+      "ja": "アブスライド"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "케이블 업라이트 로우",
+      "en": "Cable Upright Row",
+      "ja": "ケーブルアップライトロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "와이드 풀다운 리어",
+      "en": "Wide Pulldown Rear",
+      "ja": "ワイドプルダウンリア"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "트라이셉스 딥스",
+      "en": "Triceps Dips",
+      "ja": "トライセプスディップス"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "시티드 덤벨 컬",
+      "en": "Seated Dumbbell Curl",
+      "ja": "シーテッドダンベルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "체스트 서포티드 덤벨 리어 델트 레이즈",
+      "en": "Chest Supported Dumbbell Rear Delt Raise",
+      "ja": "チェストサポートダンベルリアデルトレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "와이드 체스트 프레스",
+      "en": "Wide Chest Press",
+      "ja": "ワイドチェストプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "바벨 런지",
+      "en": "Barbell Lunge",
+      "ja": "バーベルランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "랙 풀",
+      "en": "Rack Pull",
+      "ja": "ラックプル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 오버헤드 프레스",
+      "en": "Smith Machine Overhead Press",
+      "ja": "スミスマシンオーバーヘッドプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "펜듈럼 스쿼트",
+      "en": "Pendulum Squat",
+      "ja": "ペンデュラムスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "리어 델트 플라이",
+      "en": "Rear Delt Fly",
+      "ja": "リアデルトフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "스플릿 스쿼트",
+      "en": "Split Squat",
+      "ja": "スプリットスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 케이블 플라이",
+      "en": "Standing Cable Fly",
+      "ja": "スタンディングケーブルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "원 레그 컬",
+      "en": "Single Leg Curl",
+      "ja": "シングルレッグカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "원 암 풀다운",
+      "en": "One Arm Pulldown",
+      "ja": "ワンアームプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "리버스 컬",
+      "en": "Reverse Curl",
+      "ja": "リバースカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "forearms"
+  },
+  {
+    "names": {
+      "ko": "인클라인 덤벨 바이셉스 컬",
+      "en": "Incline Dumbbell Bicep Curl",
+      "ja": "インクラインダンベルバイセプスカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "클로즈 그립 벤치 프레스 5T2P",
+      "en": "Close Grip Bench Press",
+      "ja": "クロースグリップベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "프론트 로우",
+      "en": "Front Row",
+      "ja": "フロントロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "벤트 오버 레터럴 레이즈 머신",
+      "en": "Bent Over Lateral Raise Machine",
+      "ja": "ベントオーバーラテラルレイズマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "케이블 풀다운",
+      "en": "Cable Pulldown",
+      "ja": "ケーブルプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "삼두",
+      "en": "Triceps",
+      "ja": "上腕三頭筋"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "어시스트 친업",
+      "en": "Assisted Chin-Up",
+      "ja": "アシストチンニング"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 익스텐션",
+      "en": "Cable Extension",
+      "ja": "ケーブルエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "시티드 케이블 플라이 프레스",
+      "en": "Seated Cable Fly Press",
+      "ja": "シーテッドケーブルフライプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "원 암 사이드 레터럴 레이즈",
+      "en": "One Arm Lateral Raise",
+      "ja": "ワンアームサイドレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "DY 로우 머신",
+      "en": "DY Row Machine",
+      "ja": "DYロウマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 리버스 플라이",
+      "en": "One Arm Cable Reverse Fly",
+      "ja": "ワンアームケーブルリバースフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 프리처 컬",
+      "en": "Dumbbell Preacher Curl",
+      "ja": "ダンベルプリーチャーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 오버헤드 익스텐션",
+      "en": "One Arm Dumbbell Overhead Extension",
+      "ja": "ワンアームダンベルオーバーヘッドエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "리버스 브이 스쿼트",
+      "en": "Reverse V-Squat",
+      "ja": "リバースVスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "덤벨 스탠딩 숄더 프레스",
+      "en": "Standing Dumbbell Shoulder Press",
+      "ja": "スタンディングダンベルショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "몬스터 글루트 (링크 아웃타이)",
+      "en": "Monster Glute",
+      "ja": "モンスターグルート"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "이지바(EZ바) 리버스 컬",
+      "en": "EZ Bar Reverse Curl",
+      "ja": "EZバーリバースカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "forearms"
+  },
+  {
+    "names": {
+      "ko": "슈러그",
+      "en": "Shrug",
+      "ja": "シュラッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "트라이셉스 익스텐션 머신",
+      "en": "Triceps Extension Machine",
+      "ja": "トライセプスエクステンションマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "중량 풀업",
+      "en": "Weighted Pull-Up",
+      "ja": "加重懸垂"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "해머 숄더 프레스",
+      "en": "Hammer Shoulder Press",
+      "ja": "ハンマーショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "인클라인 플라이 머신",
+      "en": "Incline Fly Machine",
+      "ja": "インクラインフライマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "걷기",
+      "en": "Walking",
+      "ja": "ウォーキング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "덤벨 루마니안 데드리프트",
+      "en": "Dumbbell Romanian Deadlift",
+      "ja": "ダンベルルーマニアンデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "바이킹 프레스",
+      "en": "Viking Press",
+      "ja": "バイキングプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "니업",
+      "en": "Knee Up",
+      "ja": "ニーアップ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "인클라인 케이블 플라이",
+      "en": "Incline Cable Fly",
+      "ja": "インクラインケーブルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "비하인드 랫 풀다운",
+      "en": "Behind the Neck Lat Pulldown",
+      "ja": "ビハインドネックラットプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "카프 프레스",
+      "en": "Calf Press",
+      "ja": "カーフプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "밴드 풀업",
+      "en": "Band Pull-Up",
+      "ja": "バンド懸垂"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "인클라인 해머 컬",
+      "en": "Incline Hammer Curl",
+      "ja": "インクラインハンマーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "원 레그 데드리프트",
+      "en": "Single Leg Deadlift",
+      "ja": "シングルレッグデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 풀오버",
+      "en": "Cable Pullover",
+      "ja": "ケーブルプルオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "복근",
+      "en": "Abs",
+      "ja": "腹筋"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "파이크 푸쉬업",
+      "en": "Pike Push-Up",
+      "ja": "パイクプッシュアップ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "스쿼트 머신",
+      "en": "Squat Machine",
+      "ja": "スクワットマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "핵 프레스",
+      "en": "Hack Press",
+      "ja": "ハックプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "리니어 로우 머신",
+      "en": "Linear Row Machine",
+      "ja": "リニアロウマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "레터럴 레이즈 머신",
+      "en": "Lateral Raise Machine",
+      "ja": "ラテラルレイズマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "케이블 킥 백",
+      "en": "Cable Kickback",
+      "ja": "ケーブルキックバック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "other"
+  },
+  {
+    "names": {
+      "ko": "클로즈 그립 풀다운",
+      "en": "Close Grip Pulldown",
+      "ja": "クロースグリッププルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "벤트 오버 덤벨 로우",
+      "en": "Bent Over Dumbbell Row",
+      "ja": "ベントオーバーダンベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 업라이트 로우",
+      "en": "Dumbbell Upright Row",
+      "ja": "ダンベルアップライトロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 디클라인 벤치 프레스",
+      "en": "Decline Dumbbell Bench Press",
+      "ja": "デクラインダンベルベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "시티드 트라이셉스 익스텐션",
+      "en": "Seated Triceps Extension",
+      "ja": "シーテッドトライセプスエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "레터럴 로우",
+      "en": "Lateral Row",
+      "ja": "ラテラルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "인클라인 러닝 (트레드밀)",
+      "en": "Incline Running Treadmill",
+      "ja": "インクラインランニングトレッドミル"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "얼터네이티드 덤벨 컬",
+      "en": "Alternating Dumbbell Curl",
+      "ja": "オルタネイトダンベルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "이지바(EZ바) 프리처 컬",
+      "en": "EZ-Bar EZ-Bar Preacher Curl",
+      "ja": "EZバーEZバープリーチャーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "인클라인 해머 프레스",
+      "en": "Incline Hammer Press",
+      "ja": "インクラインハンマープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "사이드 크런치",
+      "en": "Side Crunch",
+      "ja": "サイドクランチ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "덤벨 스쿼트",
+      "en": "Dumbbell Squat",
+      "ja": "ダンベルスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "씰 로우",
+      "en": "Seal Row",
+      "ja": "シールロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "바이시클 크런치",
+      "en": "Bicycle Crunch",
+      "ja": "バイシクルクランチ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "덤벨 워킹 런지",
+      "en": "Dumbbell Walking Lunge",
+      "ja": "ダンベルウォーキングランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "레터럴 숄더 프레스",
+      "en": "Lateral Shoulder Press",
+      "ja": "ラテラルショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "디클라인 크런치",
+      "en": "Decline Crunch",
+      "ja": "デクラインクランチ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 숄더 프레스 머신",
+      "en": "Standing Shoulder Press Machine",
+      "ja": "スタンディングショルダープレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "암 컬",
+      "en": "Arm Curl",
+      "ja": "アームカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "어깨 스트레칭",
+      "en": "Shoulder Stretch",
+      "ja": "肩ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "사이드 플랭크",
+      "en": "Side Plank",
+      "ja": "サイドプランク"
+    },
+    "type": "timeOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "인버티드 로우",
+      "en": "Inverted Row",
+      "ja": "インバーテッドロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "리버스 리스트 컬",
+      "en": "Reverse Wrist Curl",
+      "ja": "リバースリストカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "forearms"
+  },
+  {
+    "names": {
+      "ko": "로프 해머 컬",
+      "en": "Rope Hammer Curl",
+      "ja": "ロープハンマーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "바벨 프론트 레이즈",
+      "en": "Barbell Front Raise",
+      "ja": "バーベルフロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "체스트 서포티드 덤벨 레터럴 레이즈",
+      "en": "Chest Supported Dumbbell Lateral Raise",
+      "ja": "チェストサポートダンベルラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "마이 마운틴",
+      "en": "My Mountain",
+      "ja": "マイマウンテン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "굿모닝",
+      "en": "Good Morning",
+      "ja": "グッドモーニング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "익스터널 로테이션",
+      "en": "External Rotation",
+      "ja": "エクスターナルローテーション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "체스트 서포티드 덤벨 프론트 로우",
+      "en": "Chest Supported Dumbbell Front Row",
+      "ja": "チェストサポートダンベルフロントロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "전완근",
+      "en": "Forearms",
+      "ja": "前腕"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "forearms"
+  },
+  {
+    "names": {
+      "ko": "케이블 로프 컬",
+      "en": "Cable Rope Curl",
+      "ja": "ケーブルロープカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "스파이더 컬",
+      "en": "Spider Curl",
+      "ja": "スパイダーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "매달리기",
+      "en": "Hanging",
+      "ja": "ぶら下がり"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "timeOnly"
+  },
+  {
+    "names": {
+      "ko": "스쿼트 프레스 머신",
+      "en": "Squat Press Machine",
+      "ja": "スクワットプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "체스트 서포티드 덤벨 리어 델트 로우",
+      "en": "Chest Supported Dumbbell Rear Delt Row",
+      "ja": "チェストサポートダンベルリアデルトロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "카프 레이즈 머신",
+      "en": "Calf Raise Machine",
+      "ja": "カーフレイズマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "원 암 덤벨 킥백",
+      "en": "One-Arm Dumbbell Kickback",
+      "ja": "ワンアームダンベルキックバック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "언더 그립 풀다운",
+      "en": "Underhand Pulldown",
+      "ja": "アンダーグリッププルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "디클라인 푸쉬업",
+      "en": "Decline Push-Up",
+      "ja": "デクラインプッシュダウン"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "스트레칭",
+      "en": "Stretching",
+      "ja": "ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "덤벨 와이(Y) 레이즈",
+      "en": "Dumbbell Y Raise",
+      "ja": "ダンベルYレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "덤벨 와이드 스쿼트",
+      "en": "Dumbbell Wide Squat",
+      "ja": "ダンベルワイドスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "원 암 체스트 프레스 머신",
+      "en": "One Arm Chest Press Machine",
+      "ja": "ワンアームチェストプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 레터럴 레이즈",
+      "en": "Standing Lateral Raise",
+      "ja": "スタンディングラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "V 스쿼트",
+      "en": "V Squat",
+      "ja": "Vスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "케이블 프레스 다운",
+      "en": "Cable Pressdown",
+      "ja": "ケーブルプレスダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "점프 스쿼트",
+      "en": "Jump Squat",
+      "ja": "ジャンプスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "덤벨 어퍼 플라이",
+      "en": "Dumbbell Upper Fly",
+      "ja": "ダンベルアッパーフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "클로즈 그립 덤벨 프레스",
+      "en": "Close Grip Dumbbell Press",
+      "ja": "クロースグリップダンベルプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "트라이셉스 프레스 머신",
+      "en": "Triceps Press Machine",
+      "ja": "トライセプスプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "마운틴 클라이머",
+      "en": "Mountain Climber",
+      "ja": "マウンテンクライマー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "케이블 딥스",
+      "en": "Cable Dips",
+      "ja": "ケーブルディップス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "다이아몬드 푸쉬업",
+      "en": "Diamond Push-Up",
+      "ja": "ダイヤモンドプッシュダウン"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "하이 바 스쿼트",
+      "en": "High Bar Squat",
+      "ja": "ハイバースクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "리닝 덤벨 레터럴 레이즈",
+      "en": "Leaning Dumbbell Lateral Raise",
+      "ja": "リーニングダンベルラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "뉴트럴 그립 풀업",
+      "en": "Neutral Grip Pull-Up",
+      "ja": "パラレルグリップ懸垂"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 트라이셉스 익스텐션",
+      "en": "Standing Triceps Extension",
+      "ja": "スタンディングトライセプスエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "가슴 스트레칭",
+      "en": "Chest Stretch",
+      "ja": "胸ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 데드리프트",
+      "en": "Dumbbell Deadlift",
+      "ja": "ダンベルデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "클로즈 그립 푸쉬업",
+      "en": "Close Grip Push-Up",
+      "ja": "クロースグリップ腕立て伏せ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "케이블 프레스",
+      "en": "Cable Press",
+      "ja": "ケーブルプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "하이퍼 익스텐션",
+      "en": "Hyperextension",
+      "ja": "ハイパーエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "힐 터치",
+      "en": "Heel Touch",
+      "ja": "ヒールタッチ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "인터벌",
+      "en": "Interval",
+      "ja": "インターバル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "케틀벨 스윙",
+      "en": "Kettlebell Swing",
+      "ja": "ケトルベルスイング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "미드 로우",
+      "en": "Mid Row",
+      "ja": "ミッドロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "오버헤드 익스텐션 머신",
+      "en": "Overhead Extension Machine",
+      "ja": "オーバーヘッドエクステンションマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "스미스 루마니안 데드리프트",
+      "en": "Smith Machine Romanian Deadlift",
+      "ja": "スミスマシンルーマニアンデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 레그 컬",
+      "en": "Standing Leg Curl",
+      "ja": "スタンディングレッグカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "워킹 런지",
+      "en": "Walking Lunge",
+      "ja": "ウォーキングランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "얼터네이트 덤벨 해머 컬",
+      "en": "Alternating Dumbbell Hammer Curl",
+      "ja": "オルタネイトダンベルハンマーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "하체 스트레칭",
+      "en": "Lower Body Stretch",
+      "ja": "下半身ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "리버스 크런치",
+      "en": "Reverse Crunch",
+      "ja": "リバースクランチ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "와이드 스쿼트",
+      "en": "Wide Squat",
+      "ja": "ワイドスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "이두",
+      "en": "Biceps",
+      "ja": "上腕二頭筋"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "케이블 로우 플라이",
+      "en": "Low Cable Fly",
+      "ja": "ローケーブルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 데드리프트",
+      "en": "Smith Machine Deadlift",
+      "ja": "スミスマシンデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "덤벨 프론트 프레스",
+      "en": "Dumbbell Front Press",
+      "ja": "ダンベルフロントプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "바벨 리스트 컬",
+      "en": "Barbell Wrist Curl",
+      "ja": "バーベルリストカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "forearms"
+  },
+  {
+    "names": {
+      "ko": "해머 벤치 프레스",
+      "en": "Hammer Bench Press",
+      "ja": "ハンマーベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "실외 러닝",
+      "en": "Outdoor Running",
+      "ja": "屋外ランニング"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "JM 프레스",
+      "en": "JM Press",
+      "ja": "JMプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스미스 슈러그",
+      "en": "Smith Machine Shrug",
+      "ja": "スミスマシンシュラッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "로우바 스쿼트",
+      "en": "Low Bar Squat",
+      "ja": "ローバースクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "리버스 바벨 컬",
+      "en": "Reverse Barbell Curl",
+      "ja": "リバースバーベルカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "케이블 45도 프론트 레이즈",
+      "en": "Cable 45 Degree Front Raise",
+      "ja": "ケーブル45度フロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "등 스트레칭",
+      "en": "Back Stretch",
+      "ja": "背中ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "원 암 케이블 플라이",
+      "en": "One-Arm Cable Fly",
+      "ja": "ワンアームケーブルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "체스트 서포티드 덤벨 리버스 플라이",
+      "en": "Chest Supported Dumbbell Reverse Fly",
+      "ja": "チェストサポートダンベルリバースフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "MTS 로우",
+      "en": "MTS Row",
+      "ja": "MTSロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "추감기",
+      "en": "Wrist Roller",
+      "ja": "リストローラー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "forearms"
+  },
+  {
+    "names": {
+      "ko": "브릿지",
+      "en": "Bridge",
+      "ja": "ブリッジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "디클라인 케이블 크로스 오버",
+      "en": "Decline Cable Crossover",
+      "ja": "デクラインケーブルクロスオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "후면 로우",
+      "en": "Rear Row",
+      "ja": "リアロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "힙 프레스",
+      "en": "Hip Press",
+      "ja": "ヒッププレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "밴드 후면 어깨",
+      "en": "Band Rear Delt",
+      "ja": "バンドリアデルト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "아스날 숄더 프레스",
+      "en": "Arsenal Shoulder Press",
+      "ja": "アーセナルショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "니 푸쉬업(무릎 푸쉬업)",
+      "en": "Knee Push-Up",
+      "ja": "膝立て伏せ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 크로스오버",
+      "en": "Dumbbell Crossover",
+      "ja": "ダンベルクロスオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "슈퍼맨",
+      "en": "Superman",
+      "ja": "スーパーマン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "슈러그 머신",
+      "en": "Shrug Machine",
+      "ja": "シュラッグマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "벨트 스쿼트 머신",
+      "en": "Belt Squat Machine",
+      "ja": "ベルトスクワットマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "덤벨 크로스 바디 해머 컬",
+      "en": "Dumbbell Cross Body Hammer Curl",
+      "ja": "ダンベルクロスボディハンマーカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "드래그 컬",
+      "en": "Drag Curl",
+      "ja": "ドラッグカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "벨트리스 데드리프트",
+      "en": "Beltless Deadlift",
+      "ja": "ベルトレスデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "와이드 풀다운 프론트",
+      "en": "Wide Pulldown Front",
+      "ja": "ワイドプルダウンフロント"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "와이(Y) 레이즈",
+      "en": "Y Raise",
+      "ja": "Yレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "해머 로우",
+      "en": "Hammer Row",
+      "ja": "ハンマーロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "플러터 킥",
+      "en": "Flutter Kicks",
+      "ja": "フラッターキック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "풀오버",
+      "en": "Pullover",
+      "ja": "プルオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "맨몸 힙 쓰러스트",
+      "en": "Bodyweight Hip Thrust",
+      "ja": "自重ヒップスラスト"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "3:2:0 벤치 프레스",
+      "en": "Pause Bench Press",
+      "ja": "ポーズベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "케틀벨 스쿼트",
+      "en": "Kettlebell Squat",
+      "ja": "ケトルベルスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "할로우 바디 홀드",
+      "en": "Hollow Body Hold",
+      "ja": "ハロウボディホールド"
+    },
+    "type": "timeOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "하프 데드리프트",
+      "en": "Half Deadlift",
+      "ja": "ハーフデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "글루트",
+      "en": "Glute",
+      "ja": "グルート"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "스미스 머신 푸쉬업",
+      "en": "Smith Machine Push-Up",
+      "ja": "スミスマシンプッシュダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "버드 독",
+      "en": "Bird Dog",
+      "ja": "バードドッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "케이블 프론트 프레스",
+      "en": "Cable Front Press",
+      "ja": "ケーブルフロントプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "원 레그 브릿지",
+      "en": "Single Leg Bridge",
+      "ja": "シングルレッグブリッジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "벤트 니 싯업",
+      "en": "Bent Knee Sit-Up",
+      "ja": "ベントニーシットアップ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "트라이셉스 풀다운",
+      "en": "Triceps Pulldown",
+      "ja": "トライセプスプルダウン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "리버스 바벨 레이즈",
+      "en": "Reverse Barbell Raise",
+      "ja": "リバースバーベルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "바벨 풀오버",
+      "en": "Barbell Pullover",
+      "ja": "バーベルプルオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "인클라인 케이블 크로스오버",
+      "en": "Incline Cable Crossover",
+      "ja": "インクラインケーブルクロスオーバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "네거티브 풀업",
+      "en": "Negative Pull-Up",
+      "ja": "ネガティブ懸垂"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "고관절 스트레칭",
+      "en": "Hip Stretch",
+      "ja": "股関節ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "파워 클린",
+      "en": "Power Clean",
+      "ja": "パワークリーン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "덩키 킥",
+      "en": "Donkey Kick",
+      "ja": "ドンキーキック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "트위스트 플랭크",
+      "en": "Twisting Plank",
+      "ja": "ツイストプランク"
+    },
+    "type": "timeOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "스미스 디클라인 벤치프레스",
+      "en": "Smith Machine Decline Bench Press",
+      "ja": "スミスマシンデクラインベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "사이드 밴드",
+      "en": "Side Bend",
+      "ja": "サイドベンド"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 등",
+      "en": "Foam Roller Back",
+      "ja": "フォームローラー背中"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "시티드 트위스트",
+      "en": "Seated Twist",
+      "ja": "シーテッドツイスト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "원 레그 덤벨 데드리프트",
+      "en": "Single Leg Dumbbell Deadlift",
+      "ja": "シングルレッグダンベルデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 숄더 프레스",
+      "en": "Cable Shoulder Press",
+      "ja": "ケーブルショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 아웃타이",
+      "en": "Standing Outer Thigh",
+      "ja": "スタンディングアウターサイ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "로프 크런치",
+      "en": "Rope Crunch",
+      "ja": "ロープクランチ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "와이드 푸쉬업",
+      "en": "Wide Push-Up",
+      "ja": "ワイド腕立て伏せ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "스텝퍼",
+      "en": "Stepper",
+      "ja": "ステッパー"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "버티컬 트랙션",
+      "en": "Vertical Traction",
+      "ja": "バーティカルトラクション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "백 익스텐션 머신",
+      "en": "Back Extension Machine",
+      "ja": "バックエクステンションマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "글루트 킥 백 머신",
+      "en": "Glute Kickback Machine",
+      "ja": "グルートキックバックマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 가슴",
+      "en": "Foam Roller Chest",
+      "ja": "フォームローラー胸"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "햄스트링 스트레칭",
+      "en": "Hamstring Stretch",
+      "ja": "ハムストリングストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "덤벨 카프레이즈",
+      "en": "Dumbbell CalfRaise",
+      "ja": "ダンベルカーフレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "노르딕 컬",
+      "en": "Nordic Curl",
+      "ja": "ノルディックカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "벤트 오버 바벨 레이즈",
+      "en": "Bent Over Barbell Raise",
+      "ja": "ベントオーバーバーベルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "푸쉬 프레스",
+      "en": "Push Press",
+      "ja": "プッシュプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "리버스 런지",
+      "en": "Reverse Lunge",
+      "ja": "リバースランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "디클라인 덤벨 플라이",
+      "en": "Decline Dumbbell Fly",
+      "ja": "デクラインダンベルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "암 익스텐션",
+      "en": "Arm Extension",
+      "ja": "アームエクステンション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "니 레이즈",
+      "en": "Knee Raise",
+      "ja": "ニーレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "어깨",
+      "en": "Shoulders",
+      "ja": "肩"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "시티드 덤벨 로우",
+      "en": "Seated Dumbbell Row",
+      "ja": "シーテッドダンベルロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "사이드 스텝",
+      "en": "Side Step",
+      "ja": "サイドステップ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "와이드 그립 벤치 프레스",
+      "en": "Wide Grip Bench Press",
+      "ja": "ワイドグリップベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 싱글 레그 데드리프트",
+      "en": "Dumbbell Single Leg Deadlift",
+      "ja": "ダンベルシングルレッグデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "개구리 자세 스트레칭",
+      "en": "Frog Pose Stretch",
+      "ja": "カエルポーズストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "오버헤드 슈러그",
+      "en": "Overhead Shrug",
+      "ja": "オーバーヘッドシュラッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "줄넘기",
+      "en": "Jump Rope",
+      "ja": "縄跳び"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "핏업 벤치 프레스",
+      "en": "Feet-Up Bench Press",
+      "ja": "フィートアップベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "씨씨 스쿼트",
+      "en": "Sissy Squat",
+      "ja": "シシースクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "바벨 워킹 런지",
+      "en": "Barbell Walking Lunge",
+      "ja": "バーベルウォーキングランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "덤벨 리버스 런지",
+      "en": "Dumbbell Reverse Lunge",
+      "ja": "ダンベルリバースランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "가슴",
+      "en": "Chest",
+      "ja": "胸"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "데드리프트 (1인치 데피싯)",
+      "en": "Deficit Deadlift",
+      "ja": "デフィシットデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 광배",
+      "en": "Foam Roller Lats",
+      "ja": "フォームローラー広背筋"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "사이드 런지",
+      "en": "Side Lunge",
+      "ja": "サイドランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "로우 풀리",
+      "en": "Low Pulley",
+      "ja": "ロープーリー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "박스 스쿼트",
+      "en": "Box Squat",
+      "ja": "ボックススクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "에어 바이시클",
+      "en": "Air Bicycle",
+      "ja": "エアバイシクル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "얼터네이트 덤벨 숄더 프레스",
+      "en": "Alternating Dumbbell Shoulder Press",
+      "ja": "オルタネイトダンベルショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "데드 행",
+      "en": "Dead Hang",
+      "ja": "デッドハング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "케이블 레그 킥 백",
+      "en": "Cable Leg Kickback",
+      "ja": "ケーブルレッグキックバック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "덤벨 스벤드 프레스",
+      "en": "Dumbbell Svend Press",
+      "ja": "ダンベルスベンドプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "디클라인 벤치 러시안 트위스트",
+      "en": "Decline Bench Russian Twist",
+      "ja": "デクラインベンチロシアンツイスト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "덤벨 웨이터 컬",
+      "en": "Dumbbell Waiter Curl",
+      "ja": "ダンベルウェイターカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "라슨 프레스",
+      "en": "Larsen Press",
+      "ja": "ラーセンプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 종아리",
+      "en": "Foam Roller Calf",
+      "ja": "フォームローラーふくらはぎ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "밴드 벤트 오버 레터럴 레이즈",
+      "en": "Band Bent Over Lateral Raise",
+      "ja": "バンドベントオーバーラテラルレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "중량 푸쉬업",
+      "en": "Weighted Push-Up",
+      "ja": "加重腕立て伏せ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "수영",
+      "en": "Swimming",
+      "ja": "水泳"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "스내치",
+      "en": "Snatch",
+      "ja": "スナッチ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "세계 최고 스트레칭",
+      "en": "World's Greatest Stretch",
+      "ja": "ワールドグレイテストストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "핸드스탠드 푸쉬업",
+      "en": "Handstand Push-Up",
+      "ja": "ハンドスタンドプッシュダウン"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "쓰러스터",
+      "en": "Thruster",
+      "ja": "スラスター"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "풋살",
+      "en": "Futsal",
+      "ja": "フットサル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "케이블 우드 촙",
+      "en": "Cable Wood Chop",
+      "ja": "ケーブルウッドチョップ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "덤벨 스텝업",
+      "en": "Dumbbell Step Up",
+      "ja": "ダンベルステップアップ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "엉덩이(둔근) 스트레칭",
+      "en": "Glute Stretch",
+      "ja": "臀部ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "힙 허거",
+      "en": "Hip Hugger",
+      "ja": "ヒップハガー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "종아리 스트레칭",
+      "en": "Calf Stretch",
+      "ja": "ふくらはぎストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "버터플라이 요가 스트레칭",
+      "en": "Butterfly Yoga Stretch",
+      "ja": "バタフライヨガストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 대퇴사두",
+      "en": "Foam Roller Quads",
+      "ja": "フォームローラー大腿四頭筋"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "덤벨 점프 불가리안 스플릿 스쿼트",
+      "en": "Dumbbell Jump Bulgarian Split Squat",
+      "ja": "ダンベルジャンプブルガリアンスプリットスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "스내치 데드리프트",
+      "en": "Snatch Deadlift",
+      "ja": "スナッチデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "베이지안 컬",
+      "en": "Bayesian Curl",
+      "ja": "ベイズカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "베어 플랭크",
+      "en": "Bear Plank",
+      "ja": "ベアプランク"
+    },
+    "type": "timeOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "클린 앤 저크",
+      "en": "Clean and Jerk",
+      "ja": "クリーンアンドジャーク"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "동키 카프 레이즈",
+      "en": "Donkey Calf Raise",
+      "ja": "ドンキーカーフレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "케틀벨 프레스",
+      "en": "Kettlebell Press",
+      "ja": "ケトルベルプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스텝업",
+      "en": "Step Up",
+      "ja": "ステップアップ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "슈퍼맨 홀딩",
+      "en": "Superman Hold",
+      "ja": "スーパーマンホールド"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "파머스 워크",
+      "en": "Farmer's Walk",
+      "ja": "ファーマーズウォーク"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 내전근",
+      "en": "Foam Roller Adductors",
+      "ja": "フォームローラー内転筋"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "루 레이즈",
+      "en": "Lu Raise",
+      "ja": "ルーレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "저쳐 스쿼트",
+      "en": "Zercher Squat",
+      "ja": "ゼッチャースクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "1CT 클로즈 그립 벤치 프레스",
+      "en": "1CT Close Grip Bench Press",
+      "ja": "1CTクロースグリップベンチプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "맨몸 점프 불가리안 스플릿 스쿼트",
+      "en": "Bodyweight Jump Bulgarian Split Squat",
+      "ja": "自重ジャンプブルガリアンスプリットスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "장요근 스트레칭",
+      "en": "Iliopsoas Stretch",
+      "ja": "腸腰筋ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "허리 스트레칭",
+      "en": "Lower Back Stretch",
+      "ja": "腰ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "브이스쿼트 스티프 레그 데드리프트",
+      "en": "V-Squat Stiff Leg Deadlift",
+      "ja": "Vスクワットスティフレッグデッドリフト"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "오버헤드 트라이셉스 스트레칭",
+      "en": "Overhead Triceps Stretch",
+      "ja": "オーバーヘッドトライセプスストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "점핑잭",
+      "en": "Jumping Jack",
+      "ja": "ジャンピングジャック"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "힌두 푸쉬업 (배밀기)",
+      "en": "Hindu Push-Up Dive Bomber",
+      "ja": "ヒンズープッシュダウンダイブボマー"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "팔 스트레칭",
+      "en": "Arm Stretch",
+      "ja": "腕ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "중량 친업",
+      "en": "Weighted Chin-Up",
+      "ja": "加重チンニング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "플랫 벤치 케이블 플라이",
+      "en": "Flat Bench Cable Fly",
+      "ja": "フラットベンチケーブルフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "허벅지(대퇴사두) 스트레칭",
+      "en": "Quad Stretch",
+      "ja": "大腿四頭筋ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "핀 스쿼트",
+      "en": "Pin Squat",
+      "ja": "ピンスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "토투바",
+      "en": "Toes To Bar",
+      "ja": "トゥズトゥバー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "팔로프 프레스 (1min)",
+      "en": "Pallof Press 1min",
+      "ja": "パロフプレス1min"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "등산",
+      "en": "Hiking",
+      "ja": "登山"
+    },
+    "type": "timeOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "쉬림프 스쿼트",
+      "en": "Shrimp Squat",
+      "ja": "シュリンプスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "플레이트 컬",
+      "en": "Plate Curl",
+      "ja": "プレートカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "forearms"
+  },
+  {
+    "names": {
+      "ko": "차일드 포즈 스트레칭",
+      "en": "Child's Pose Stretch",
+      "ja": "チャイルドポーズストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "핀 프레스",
+      "en": "Pin Press",
+      "ja": "ピンプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "클로즈 스쿼트",
+      "en": "Close Stance Squat",
+      "ja": "クローススタンススクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "리버스 하이퍼",
+      "en": "Reverse Hyperextension",
+      "ja": "リバースハイパー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "잭나이프",
+      "en": "Jackknife",
+      "ja": "ジャックナイフ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "팔 돌리기 스트레칭",
+      "en": "Arm Circle Stretch",
+      "ja": "腕回しストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "축구",
+      "en": "Soccer",
+      "ja": "サッカー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "덤벨 크런치",
+      "en": "Dumbbell Crunch",
+      "ja": "ダンベルクランチ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "크록 로우",
+      "en": "Kroc Row",
+      "ja": "クロックロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "오버헤드 스쿼트",
+      "en": "Overhead Squat",
+      "ja": "オーバーヘッドスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "트랩바 데드리프트",
+      "en": "Trap Bar Deadlift",
+      "ja": "トラップバーデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "물구나무 푸쉬업",
+      "en": "Handstand Push-Up",
+      "ja": "逆立ち腕立て伏せ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "밴드 푸쉬업",
+      "en": "Band Push-Up",
+      "ja": "バンドプッシュダウン"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "무릎 자세 허리 회전 스트레칭",
+      "en": "Kneeling Torso Rotation Stretch",
+      "ja": "膝立ちトルソーローテーションストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "복싱",
+      "en": "Boxing",
+      "ja": "ボクシング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "숄더 익스텐션 스트레칭",
+      "en": "Shoulder Extension Stretch",
+      "ja": "肩伸展ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "보수 볼 마운틴 클라이머",
+      "en": "Bosu Ball Mountain Climber",
+      "ja": "ボスボールマウンテンクライマー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "워킹 레터럴 런지",
+      "en": "Walking Lateral Lunge",
+      "ja": "ウォーキングラテラルランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "필라테스",
+      "en": "Pilates",
+      "ja": "ピラティス"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "스포토 프레스",
+      "en": "Spoto Press",
+      "ja": "スポトプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "   슬업",
+      "en": "Muscle-Up",
+      "ja": "マッスルアップ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "other"
+  },
+  {
+    "names": {
+      "ko": "레터럴 런지",
+      "en": "Lateral Lunge",
+      "ja": "ラテラルランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "링 딥스",
+      "en": "Ring Dips",
+      "ja": "リングディップス"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "슬로우 버피",
+      "en": "Slow Burpee",
+      "ja": "スローバーピー"
+    },
+    "type": "repsOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "에어바이크",
+      "en": "Airbike",
+      "ja": "エアバイク"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "밴드 프론트 레이즈",
+      "en": "Band Front Raise",
+      "ja": "バンドフロントレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "짐볼 플랭크",
+      "en": "Gym Ball Plank",
+      "ja": "ジムボールプランク"
+    },
+    "type": "timeOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "누워서 반대쪽 무릎 당기기 스트레칭",
+      "en": "Lying Knee to Opposite Chest Stretch",
+      "ja": "寝転がって反対の膝を引くストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "글루트 햄 레이즈",
+      "en": "Glute Ham Raise",
+      "ja": "グルートハムレイズ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "밴드스쿼트",
+      "en": "BandSquat",
+      "ja": "バンドスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "크로스핏",
+      "en": "CrossFit",
+      "ja": "クロスフィット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "중량 러시안 트위스트",
+      "en": "Weighted Russian Twist",
+      "ja": "加重ロシアンツイスト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "배드민턴",
+      "en": "Badminton",
+      "ja": "バドミントン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "주짓수",
+      "en": "Jiu-Jitsu",
+      "ja": "柔術"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "밴드 숄더프레스",
+      "en": "Band Shoulder Press",
+      "ja": "バンドショルダープレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "클라이밍",
+      "en": "Climbing",
+      "ja": "クライミング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "덤벨 리버스 컨센트레이션 컬",
+      "en": "Dumbbell Reverse Concentration Curl",
+      "ja": "ダンベルリバースコンセントレーションカール"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "밴드 데드리프트",
+      "en": "Band Deadlift",
+      "ja": "バンドデッドリフト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "배틀로프",
+      "en": "Battle Rope",
+      "ja": "バトルロープ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "슬레드 풀",
+      "en": "Sled Pull",
+      "ja": "スレッドプル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "SSB 스쿼트",
+      "en": "SSB Squat",
+      "ja": "SSBスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "슬레드 푸시",
+      "en": "Sled Push",
+      "ja": "スレッドプッシュ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "슬레드 드래그",
+      "en": "Sled Drag",
+      "ja": "スレッドドラッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "닐링 힙 플렉서 스트레칭",
+      "en": "Kneeling Hip Flexor Stretch",
+      "ja": "ニーリング股関節屈筋ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "크라우칭 힐 백 카프 스트레칭",
+      "en": "Crouching Heel Back Calf Stretch",
+      "ja": "クラウチングヒールバックカーフストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "베이직 토 터치",
+      "en": "Basic Toe Touch",
+      "ja": "ベーシックトータッチ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "other"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 힙 쓰러스트",
+      "en": "Foam Roller Hip Thrust",
+      "ja": "フォームローラーヒップスラスト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "볼 장경인대 릴리즈",
+      "en": "Ball IT Band Release",
+      "ja": "ボール腸脛靭帯リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "싱글 레그 브릿지",
+      "en": "Single Leg Bridge",
+      "ja": "シングルレッグブリッジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "볼 카프 릴리즈",
+      "en": "Ball Calf Release",
+      "ja": "ボールカーフリリース"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "볼 중둔근 릴리즈",
+      "en": "Ball Gluteus Medius Release",
+      "ja": "ボール中臀筋リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "숄더 비하인드 더 백 스트레칭",
+      "en": "Behind the Back Shoulder Stretch",
+      "ja": "ビハインドザバック肩ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "닐링 원암 크로스바디 스트레칭",
+      "en": "Kneeling One Arm Crossbody Stretch",
+      "ja": "ニーリングワンアームクロスボディストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 숄더 백 로테이션",
+      "en": "Foam Roller Shoulder Back Rotation",
+      "ja": "フォームローラー肩後方ローテーション"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 발바닥 릴리즈",
+      "en": "Foam Roller Sole Release",
+      "ja": "フォームローラー足裏リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "밴드 풀 어파트",
+      "en": "Band Pull Apart",
+      "ja": "バンドプルアパート"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "other"
+  },
+  {
+    "names": {
+      "ko": "어라운드 더 월드",
+      "en": "Around The World",
+      "ja": "アラウンドザワールド"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "박스 스텝 업",
+      "en": "Box Step Up",
+      "ja": "ボックスステップアップ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "코삭 스쿼트",
+      "en": "Cossack Squat",
+      "ja": "コサックスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "월볼 샷",
+      "en": "Wall Ball Shot",
+      "ja": "ウォールボールショット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "스키 에르그",
+      "en": "Ski Erg",
+      "ja": "スキーエルゴ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "버피 박스 점프",
+      "en": "Burpee Box Jump",
+      "ja": "バーピーボックスジャンプ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "덤벨 인클라인 로우 플라이",
+      "en": "Incline Dumbbell Low Fly",
+      "ja": "インクラインダンベルローフライ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "Cycling interval",
+      "en": "Cycling Interval",
+      "ja": "サイクリングインターバル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "리버스 핵스쿼트",
+      "en": "Reverse Hack Squat",
+      "ja": "リバースハックスクワット"
+    },
+    "type": "repsOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "요가",
+      "en": "Yoga",
+      "ja": "ヨガ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "샌드백 런지",
+      "en": "Sandbag Lunge",
+      "ja": "サンドバッグランジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "파머스 캐리",
+      "en": "Farmer's Carry",
+      "ja": "ファーマーズキャリー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "버피 브로드 점프",
+      "en": "Burpee Broad Jump",
+      "ja": "バーピーブロードジャンプ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "fullBody"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 체스트 프레스 머신",
+      "en": "Standing Chest Press Machine",
+      "ja": "スタンディングチェストプレスマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "스피닝",
+      "en": "Spinning",
+      "ja": "スピニング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "엘립티컬",
+      "en": "Elliptical",
+      "ja": "エリプティカル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "벤트 오버 로우 머신",
+      "en": "Bent Over Row Machine",
+      "ja": "ベントオーバーロウマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 AB 슬라이드",
+      "en": "Standing Ab Slide",
+      "ja": "スタンディングアブスライド"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 전경골근 릴리즈",
+      "en": "Foam Roller Tibialis Anterior Release",
+      "ja": "フォームローラー前脛骨筋リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "데드리프트 머신",
+      "en": "Deadlift Machine",
+      "ja": "デッドリフトマシン"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "스미스머신 프론트 스쿼트",
+      "en": "Smith Machine Front Squat",
+      "ja": "スミスマシンフロントスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "일립티컬",
+      "en": "Elliptical",
+      "ja": "エリプティカル"
+    },
+    "type": "timeOnly",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "스미스머신 불가리안 스플릿 스쿼트",
+      "en": "Smith Machine Bulgarian Split Squat",
+      "ja": "スミスマシンブルガリアンスプリットスクワット"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 체스트 릴리즈",
+      "en": "Foam Roller Chest Release",
+      "ja": "フォームローラーチェストリリース"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "앱 휠 롤아웃 (닐링)",
+      "en": "Ab Wheel Rollout Kneeling",
+      "ja": "アブローラーロールアウトニーリング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "앱 휠 롤아웃 (스탠딩)",
+      "en": "Ab Wheel Rollout Standing",
+      "ja": "アブローラーロールアウトスタンディング"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "숄더 내회전 스트레칭",
+      "en": "Shoulder Internal Rotation Stretch",
+      "ja": "肩内旋ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "핵 슬라이스",
+      "en": "Hack Slice",
+      "ja": "ハックスライス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "크로스 체스트 숄더 스트레칭",
+      "en": "Cross Chest Shoulder Stretch",
+      "ja": "クロスチェスト肩ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "디클라인 덤벨 트위스트",
+      "en": "Decline Dumbbell Twist",
+      "ja": "デクラインダンベルツイスト"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "드래곤 플래그",
+      "en": "Dragon Flag",
+      "ja": "ドラゴンフラッグ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "다이애고널",
+      "en": "Diagonal",
+      "ja": "ダイアゴナル"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 카프 레이즈 (해머 스트렝스)",
+      "en": "Standing Calf Raise (Hammer Strength)",
+      "ja": "スタンディングカーフレイズ(ハマーストレングス)"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "핀 수영",
+      "en": "Fin Swimming",
+      "ja": "フィンスイミング"
+    },
+    "type": "timeOnly",
+    "bodyPart": "cardio"
+  },
+  {
+    "names": {
+      "ko": "스파인 스트레칭",
+      "en": "Spine Stretch",
+      "ja": "スパインストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "첸강 프레스",
+      "en": "Chen Kang Press",
+      "ja": "チェンカンプレス"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "스미스머신 업라이트로우",
+      "en": "Smith Machine UprightRow",
+      "ja": "スミスマシンアップライトロウ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "다이내믹 체스트 스트레칭",
+      "en": "Dynamic Chest Stretch",
+      "ja": "ダイナミックチェストストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "캣 스트레칭",
+      "en": "Cat Stretch",
+      "ja": "キャットストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "슬로프 투워드 스트레칭",
+      "en": "Slope Toward Stretch",
+      "ja": "スロープトゥワードストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "닐링 백 로테이션 스트레칭",
+      "en": "Kneeling Back Rotation Stretch",
+      "ja": "ニーリングバックローテーションストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 트라이셉스 릴리즈",
+      "en": "Foam Roller Triceps Release",
+      "ja": "フォームローラートライセプスリリース"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "triceps"
+  },
+  {
+    "names": {
+      "ko": "파이크 투 코브라 푸시업",
+      "en": "Pike to Cobra Push-Up",
+      "ja": "パイクからコブラプッシュアップ"
+    },
+    "type": "repsOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 체스트 오프너",
+      "en": "Foam Roller Chest Opener",
+      "ja": "フォームローラーチェストオープナー"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 흉추 릴리즈",
+      "en": "Foam Roller Thoracic Spine Release",
+      "ja": "フォームローラー胸椎リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 리버스 숄더 스트레칭",
+      "en": "Standing Reverse Shoulder Stretch",
+      "ja": "スタンディングリバース肩ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 후면 어깨 릴리즈",
+      "en": "Foam Roller Rear Delt Release",
+      "ja": "フォームローラーリアデルトリリース"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "shoulders"
+  },
+  {
+    "names": {
+      "ko": "헌드레드",
+      "en": "Hundred",
+      "ja": "ハンドレッド"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "펠빅 틸트 인투 브릿지",
+      "en": "Pelvic Tilt Into Bridge",
+      "ja": "骨盤後傾イントゥブリッジ"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "코브라 요가 포즈",
+      "en": "Cobra Yoga Pose",
+      "ja": "コブラヨガポーズ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "힙 롤 플랭크",
+      "en": "Hip Roll Plank",
+      "ja": "ヒップロールプランク"
+    },
+    "type": "timeOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "시팅 토 풀 카프 스트레칭",
+      "en": "Sitting Toe Pull Calf Stretch",
+      "ja": "シッティングトウプルカーフストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "legs"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 힙 랫 스트레칭",
+      "en": "Foam Roller Hip Lat Stretch",
+      "ja": "フォームローラーヒップラットストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "back"
+  },
+  {
+    "names": {
+      "ko": "볼 이상근 릴리즈",
+      "en": "Ball Piriformis Release",
+      "ja": "ボール梨状筋リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 넥 로테이션",
+      "en": "Foam Roller Neck Rotation",
+      "ja": "フォームローラーネックローテーション"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "슈퍼맨 체스트 스트레칭",
+      "en": "Superman Chest Stretch",
+      "ja": "スーパーマンチェストストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "chest"
+  },
+  {
+    "names": {
+      "ko": "볼 대퇴직근 릴리즈",
+      "en": "Ball Rectus Femoris Release",
+      "ja": "ボール大腿直筋リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "볼 발바닥 릴리즈",
+      "en": "Ball Sole Release",
+      "ja": "ボール足裏リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 바이셉스 릴리즈",
+      "en": "Foam Roller Biceps Release",
+      "ja": "フォームローラーバイセプスリリース"
+    },
+    "type": "weightAndReps",
+    "bodyPart": "biceps"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 능형근 릴리즈",
+      "en": "Foam Roller Rhomboid Release",
+      "ja": "フォームローラー菱形筋リリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "폼롤러 허리 사이드 릴리즈",
+      "en": "Foam Roller Side Lower Back Release",
+      "ja": "フォームローラー腰サイドリリース"
+    },
+    "type": "timeOnly",
+    "bodyPart": "stretching"
+  },
+  {
+    "names": {
+      "ko": "백워드 복근 스트레칭",
+      "en": "Backward Abdominal Stretch",
+      "ja": "バックワード腹筋ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "core"
+  },
+  {
+    "names": {
+      "ko": "스탠딩 오버헤드 숄더 스트레칭",
+      "en": "Standing Overhead Shoulder Stretch",
+      "ja": "スタンディングオーバーヘッド肩ストレッチ"
+    },
+    "type": "timeOnly",
+    "bodyPart": "shoulders"
+  }
+]

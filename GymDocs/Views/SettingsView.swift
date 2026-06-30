@@ -11,6 +11,7 @@ struct SettingsView: View {
     @State private var showImportAlert = false
     @State private var importMessage = ""
     @State private var exportURL: URL?
+    @State private var showClearAlert = false
 
     var body: some View {
         NavigationStack {
@@ -56,6 +57,14 @@ struct SettingsView: View {
                 } header: {
                     Text(String(localized: "settings.about"))
                 }
+
+                Section {
+                    Button(role: .destructive) {
+                        showClearAlert = true
+                    } label: {
+                        Text(String(localized: "settings.clearAllData"))
+                    }
+                }
             }
             .navigationTitle(String(localized: "settings.title"))
             .sheet(isPresented: $showExportShare) {
@@ -75,6 +84,30 @@ struct SettingsView: View {
             } message: {
                 Text(importMessage)
             }
+            .alert(String(localized: "settings.clearAlertTitle"), isPresented: $showClearAlert) {
+                Button(String(localized: "common.cancel"), role: .cancel) { }
+                Button(String(localized: "common.delete"), role: .destructive) {
+                    clearAllData()
+                }
+            } message: {
+                Text(String(localized: "settings.clearAlertMessage"))
+            }
+        }
+    }
+
+    private func clearAllData() {
+        do {
+            try modelContext.delete(model: SetRecord.self)
+            try modelContext.delete(model: WorkoutRecord.self)
+            try modelContext.delete(model: Exercise.self)
+            
+            Exercise.seedDefaultExercises(into: modelContext)
+            
+            importMessage = String(localized: "settings.clearSuccess")
+            showImportAlert = true
+        } catch {
+            importMessage = error.localizedDescription
+            showImportAlert = true
         }
     }
 
@@ -145,6 +178,7 @@ struct SettingsView: View {
                         setRecord.reps = dto.reps
                         setRecord.timeDuration = dto.timeDuration
                         setRecord.restTimeAfterSet = dto.restTimeAfterSet
+                        setRecord.rangeOfMotion = dto.rangeOfMotion
                         setRecord.isCompleted = dto.isCompleted
                         modelContext.insert(setRecord)
                     }
