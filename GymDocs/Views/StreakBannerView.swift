@@ -2,10 +2,10 @@ import SwiftUI
 import SwiftData
 
 struct StreakBannerView: View {
-    let allRecords: [WorkoutRecord]
+    let dailySummaries: [DailySummary]
 
     private var weeklyStreak: Int {
-        calculateWeeklyStreak(from: allRecords)
+        calculateWeeklyStreak(from: dailySummaries)
     }
 
     var body: some View {
@@ -43,17 +43,18 @@ struct StreakBannerView: View {
     }
 }
 
-/// Calculates the number of consecutive weeks (ending with the current week) that have at least one workout record.
-func calculateWeeklyStreak(from records: [WorkoutRecord]) -> Int {
-    guard !records.isEmpty else { return 0 }
+/// Calculates the number of consecutive weeks (ending with the current week) that have at least one finished workout.
+func calculateWeeklyStreak(from summaries: [DailySummary]) -> Int {
+    let finishedSummaries = summaries.filter { $0.isFinished }
+    guard !finishedSummaries.isEmpty else { return 0 }
 
     let calendar = Calendar.current
     let today = Date()
 
-    // Get unique weeks that have records (using year + weekOfYear)
+    // Get unique weeks that have finished records (using year + weekOfYear)
     var weeksWithRecords = Set<DateComponents>()
-    for record in records {
-        let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: record.date)
+    for summary in finishedSummaries {
+        let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: summary.date)
         weeksWithRecords.insert(components)
     }
 

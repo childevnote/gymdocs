@@ -7,6 +7,6 @@ struct GymDocsApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Exercise.self, WorkoutRecord.self, SetRecord.self, Routine.self, RoutineExercise.self])
+        .modelContainer(for: [Exercise.self, WorkoutRecord.self, SetRecord.self, Routine.self, RoutineExercise.self, DailySummary.self])
     }
 }

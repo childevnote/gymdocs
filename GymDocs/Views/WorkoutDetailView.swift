@@ -4,14 +4,17 @@ import SwiftData
 struct WorkoutDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Bindable var record: WorkoutRecord
+    var isLocked: Bool = false
 
     var body: some View {
         List {
             Section {
                 ForEach(record.sortedSets) { setRecord in
-                    SetRecordRow(setRecord: setRecord, exerciseType: record.exercise?.type ?? .weightAndReps)
+                    SetRecordRow(setRecord: setRecord, exerciseType: record.exercise?.type ?? .weightAndReps, isLocked: isLocked)
+                }
                 }
                 .onDelete { indexSet in
+                    if isLocked { return }
                     let sorted = record.sortedSets
                     for index in indexSet {
                         modelContext.delete(sorted[index])
@@ -31,6 +34,7 @@ struct WorkoutDetailView: View {
                 } label: {
                     Label(String(localized: "detail.addSet"), systemImage: "plus.circle")
                 }
+                .disabled(isLocked)
             } header: {
                 Text(record.exercise?.localizedName ?? "")
             } footer: {
@@ -56,6 +60,7 @@ struct SetRecordRow: View {
     @Environment(\.modelContext) private var modelContext
     @Bindable var setRecord: SetRecord
     let exerciseType: ExerciseType
+    var isLocked: Bool = false
     private var timerManager = RestTimerManager.shared
 
     private var isTimerActiveForThis: Bool {
@@ -84,6 +89,7 @@ struct SetRecordRow: View {
                         .font(.title3)
                 }
                 .buttonStyle(.plain)
+                .disabled(isLocked)
                 .sensoryFeedback(.success, trigger: setRecord.isCompleted)
             }
 
@@ -141,6 +147,7 @@ struct SetRecordRow: View {
                     .pickerStyle(.menu)
                     .labelsHidden()
                     .controlSize(.mini)
+                    .disabled(isLocked)
                     
                     Spacer()
                 }
@@ -172,10 +179,12 @@ struct SetRecordRow: View {
                 .buttonStyle(.bordered)
                 .controlSize(.small)
                 .tint(isTimerActiveForThis ? .red : .blue)
+                .disabled(isLocked)
                 .sensoryFeedback(.impact(flexibility: .solid), trigger: isTimerActiveForThis)
             }
         }
         .padding(.vertical, 4)
+        .disabled(isLocked)
     }
 }
 

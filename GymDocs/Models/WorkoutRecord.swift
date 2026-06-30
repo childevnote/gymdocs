@@ -51,7 +51,18 @@ final class WorkoutRecord {
             return completed.reduce(0) { total, setRecord in
                 let baseVolume = setRecord.weight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
-                let restMult = 1.0 + max(0, (90.0 - Double(setRecord.restTimeAfterSet)) / 100.0)
+                
+                let rest = Double(setRecord.restTimeAfterSet)
+                var restMult = 1.0
+                if rest <= 180.0 {
+                    let effectiveRest = max(30.0, rest)
+                    restMult += (180.0 - effectiveRest) / 300.0
+                } else if rest > 240.0 {
+                    let overMinutes = (rest - 240.0) / 60.0
+                    let penalty = min(0.2, overMinutes * 0.01)
+                    restMult -= penalty
+                }
+                
                 return total + (baseVolume * romMult * restMult)
             }
         case .repsOnly:
@@ -60,7 +71,18 @@ final class WorkoutRecord {
                 let weight = userWeight > 0 ? (userWeight * bwMult) : 1.0
                 let baseVolume = weight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
-                let restMult = 1.0 + max(0, (90.0 - Double(setRecord.restTimeAfterSet)) / 100.0)
+                
+                let rest = Double(setRecord.restTimeAfterSet)
+                var restMult = 1.0
+                if rest <= 180.0 {
+                    let effectiveRest = max(30.0, rest)
+                    restMult += (180.0 - effectiveRest) / 300.0
+                } else if rest > 240.0 {
+                    let overMinutes = (rest - 240.0) / 60.0
+                    let penalty = min(0.2, overMinutes * 0.01)
+                    restMult -= penalty
+                }
+                
                 return total + (baseVolume * romMult * restMult)
             }
         case .timeOnly:
@@ -75,7 +97,18 @@ final class WorkoutRecord {
                 let effectiveWeight = userWeight > 0 ? max(0, (userWeight * bwMult) - (setRecord.weight * assistMult)) : setRecord.weight
                 let baseVolume = effectiveWeight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
-                let restMult = 1.0 + max(0, (90.0 - Double(setRecord.restTimeAfterSet)) / 100.0)
+                
+                let rest = Double(setRecord.restTimeAfterSet)
+                var restMult = 1.0
+                if rest <= 180.0 {
+                    let effectiveRest = max(30.0, rest)
+                    restMult += (180.0 - effectiveRest) / 300.0
+                } else if rest > 240.0 {
+                    let overMinutes = (rest - 240.0) / 60.0
+                    let penalty = min(0.2, overMinutes * 0.01)
+                    restMult -= penalty
+                }
+                
                 return total + (baseVolume * romMult * restMult)
             }
         }

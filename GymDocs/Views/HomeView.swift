@@ -4,6 +4,7 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var allRecords: [WorkoutRecord]
+    @Query private var dailySummaries: [DailySummary]
     @State private var selectedDate: Date = Date()
     @State private var recordToNavigate: WorkoutRecord?
     @State private var showAddSheet = false
@@ -14,11 +15,26 @@ struct HomeView: View {
         return allRecords.filter { calendar.startOfDay(for: $0.date) == startOfDay }
     }
 
+    private var currentSummary: DailySummary? {
+        let startOfDay = Calendar.current.startOfDay(for: selectedDate)
+        return dailySummaries.first(where: { $0.date == startOfDay })
+    }
+
+    private var isFinished: Bool {
+        currentSummary?.isFinished == true
+    }
+
+    private var hasAtLeastOneCompletedSet: Bool {
+        recordsForSelectedDate.contains(where: { record in
+            record.sets.contains(where: { $0.isCompleted })
+        })
+    }
+
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    StreakBannerView(allRecords: allRecords)
+                    StreakBannerView(dailySummaries: dailySummaries)
                 }
 
                 Section {
@@ -40,11 +56,12 @@ struct HomeView: View {
                         .listRowBackground(Color.clear)
                     } else {
                         ForEach(recordsForSelectedDate) { record in
-                            NavigationLink(destination: WorkoutDetailView(record: record)) {
+                            NavigationLink(destination: WorkoutDetailView(record: record, isLocked: isFinished)) {
                                 WorkoutRecordRow(record: record)
                             }
                         }
                         .onDelete { indexSet in
+                            if isFinished { return }
                             for index in indexSet {
                                 modelContext.delete(recordsForSelectedDate[index])
                             }
@@ -52,6 +69,38 @@ struct HomeView: View {
                     }
                 } header: {
                     Text(String(localized: "home.workouts"))
+                }
+
+                if !recordsForSelectedDate.isEmpty {
+                    Section {
+                        if isFinished {
+                            Button {
+                                currentSummary?.isFinished = false
+                            } label: {
+                                Label("수정 잠금 해제", systemImage: "lock.open.fill")
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .tint(.orange)
+                        } else {
+                            Button {
+                                if let summary = currentSummary {
+                                    summary.isFinished = true
+                                } else {
+                                    let newSummary = DailySummary(date: selectedDate, isFinished: true)
+                                    modelContext.insert(newSummary)
+                                }
+                            } label: {
+                                Label("오늘 운동 완료 🏁", systemImage: "flag.checkered")
+                                    .frame(maxWidth: .infinity)
+                                    .font(.headline)
+                            }
+                            .tint(.teal)
+                            .buttonStyle(.borderedProminent)
+                            .disabled(!hasAtLeastOneCompletedSet)
+                        }
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                 }
             }
             .navigationTitle(String(localized: "home.title"))
@@ -62,6 +111,7 @@ struct HomeView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    .disabled(isFinished)
                 }
             }
             .sheet(isPresented: $showAddSheet) {
@@ -70,7 +120,7 @@ struct HomeView: View {
                 }
             }
             .navigationDestination(item: $recordToNavigate) { record in
-                WorkoutDetailView(record: record)
+                WorkoutDetailView(record: record, isLocked: isFinished)
             }
         }
     }
