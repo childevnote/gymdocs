@@ -1,6 +1,6 @@
 # GymDocs - Pro Fitness Tracker
 
-[English](#english) | [한국어](#korean) | [日本語](#japanese)
+[한국어](#korean) | [English](#english) | [日本語](#japanese)
 
 ---
 
