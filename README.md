@@ -4,7 +4,7 @@
 
 ---
 
-## 🛠 Technical Specifications & Architecture
+## Technical Specifications & Architecture
 
 본 프로젝트는 외부 서버 연동 없이 디바이스 내부에서 동작하는 로컬 전용 iOS 피트니스 애플리케이션입니다.
 
