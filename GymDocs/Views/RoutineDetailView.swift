@@ -30,7 +30,6 @@ struct RoutineDetailView: View {
                             .frame(maxWidth: .infinity)
                             .font(.headline)
                     }
-                    }
                     .tint(.teal)
                     .buttonStyle(.borderedProminent)
                     .listRowBackground(Color.clear)
@@ -172,6 +171,8 @@ struct RoutineExercisePickerView: View {
                                                 .foregroundStyle(.blue)
                                         } else {
                                             Image(systemName: "circle")
+                                        }
+                                    }
                                 }
                                 .buttonStyle(.plain)
                             }

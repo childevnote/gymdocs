@@ -12,7 +12,6 @@ struct WorkoutDetailView: View {
                 ForEach(record.sortedSets) { setRecord in
                     SetRecordRow(setRecord: setRecord, exerciseType: record.exercise?.type ?? .weightAndReps, isLocked: isLocked)
                 }
-                }
                 .onDelete { indexSet in
                     if isLocked { return }
                     let sorted = record.sortedSets
@@ -61,7 +60,7 @@ struct SetRecordRow: View {
     @Bindable var setRecord: SetRecord
     let exerciseType: ExerciseType
     var isLocked: Bool = false
-    private var timerManager = RestTimerManager.shared
+    var timerManager = RestTimerManager.shared
 
     private var isTimerActiveForThis: Bool {
         timerManager.isRunning && timerManager.activeSetId == setRecord.id

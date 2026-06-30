@@ -1,433 +1,1424 @@
 {
-  "sourceLanguage": "ko",
-  "strings": {
-    "tab.home": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "홈" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Home" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "ホーム" } }
+  "sourceLanguage" : "ko",
+  "strings" : {
+    "·" : {
+
+    },
+    "%@" : {
+
+    },
+    "💪" : {
+
+    },
+    "🔥" : {
+
+    },
+    "add.noExercises" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Exercises"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種目なし"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 종목 없음"
+          }
+        }
       }
     },
-    "tab.exercises": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 종목" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Exercises" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "種目" } }
+    "add.noExercisesDescription" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add exercises in the Exercises tab first."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "まず種目タブで種目を追加してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 종목 탭에서 먼저 종목을 추가하세요."
+          }
+        }
       }
     },
-    "tab.settings": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "설정" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Settings" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "設定" } }
+    "add.selectExercise" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Exercise"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種目を選択"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 종목 선택"
+          }
+        }
       }
     },
-    "home.title": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "GymDocs" } },
-        "en": { "stringUnit": { "state": "translated", "value": "GymDocs" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "GymDocs" } }
+    "add.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Workout"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トレーニング追加"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 추가"
+          }
+        }
       }
     },
-    "home.date": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "날짜" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Date" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "日付" } }
+    "chart.date" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日付"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "날짜"
+          }
+        }
       }
     },
-    "home.noRecords": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "기록 없음" } },
-        "en": { "stringUnit": { "state": "translated", "value": "No Records" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "記録なし" } }
+    "chart.history" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録履歴"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기록 히스토리"
+          }
+        }
       }
     },
-    "home.noRecordsDescription": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "이 날짜에 운동 기록이 없습니다.\n+ 버튼으로 운동을 추가하세요." } },
-        "en": { "stringUnit": { "state": "translated", "value": "No workout records for this date.\nTap + to add a workout." } },
-        "ja": { "stringUnit": { "state": "translated", "value": "この日付のトレーニング記録がありません。\n+ボタンでトレーニングを追加してください。" } }
+    "chart.noData" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Data"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データなし"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터 없음"
+          }
+        }
       }
     },
-    "home.workouts": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 기록" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Workouts" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "トレーニング記録" } }
+    "chart.noDataDescription" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add workout records to see your progress chart."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トレーニング記録を追加すると成長グラフが表示されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 기록을 추가하면 성장 그래프를 볼 수 있습니다."
+          }
+        }
       }
     },
-    "home.sets": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "세트" } },
-        "en": { "stringUnit": { "state": "translated", "value": "sets" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "セット" } }
+    "chart.progressiveOverload" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progressive Overload"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "漸進的過負荷"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "점진적 과부하"
+          }
+        }
       }
     },
-    "streak.weeks": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "주 연속 운동중" } },
-        "en": { "stringUnit": { "state": "translated", "value": " week streak" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "週連続トレーニング中" } }
+    "chart.seconds" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sec"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "秒"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "초"
+          }
+        }
       }
     },
-    "streak.keepGoing": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "이번 주도 힘내세요!" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Keep it up!" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "今週も頑張りましょう！" } }
+    "chart.volume" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボリューム"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "볼륨"
+          }
+        }
       }
     },
-    "streak.noStreak": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "이번 주 운동을 시작하세요" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Start your workout this week" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "今週のトレーニングを始めましょう" } }
+    "common.cancel" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "취소"
+          }
+        }
       }
     },
-    "streak.startNow": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "첫 운동을 기록해보세요" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Record your first workout" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "最初のトレーニングを記録しましょう" } }
+    "common.ok" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
+          }
+        }
       }
     },
-    "detail.title": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 기록" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Workout Record" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "トレーニング記録" } }
+    "common.save" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장"
+          }
+        }
       }
     },
-    "detail.addSet": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "세트 추가" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Add Set" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "セット追加" } }
+    "detail.addSet" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Set"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "セット追加"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세트 추가"
+          }
+        }
       }
     },
-    "detail.totalVolume": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "총 볼륨" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Total Volume" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "合計ボリューム" } }
+    "detail.duration" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duration (sec)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "時間 (秒)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시간 (초)"
+          }
+        }
       }
     },
-    "detail.totalTime": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "총 시간" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Total Time" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "合計時間" } }
+    "detail.reps" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reps"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回数"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "횟수"
+          }
+        }
       }
     },
-    "detail.viewChart": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "성장 그래프 보기" } },
-        "en": { "stringUnit": { "state": "translated", "value": "View Progress Chart" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "成長グラフを見る" } }
+    "detail.rest" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "休憩"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "휴식"
+          }
+        }
       }
     },
-    "detail.set": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "세트" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Set" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "セット" } }
+    "detail.seconds" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter in seconds"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "秒単位で入力"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "초 단위로 입력"
+          }
+        }
       }
     },
-    "detail.weight": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "무게 (kg)" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Weight (kg)" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "重量 (kg)" } }
+    "detail.set" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "セット"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세트"
+          }
+        }
       }
     },
-    "detail.reps": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "횟수" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Reps" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "回数" } }
+    "detail.startRest" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Rest"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "休憩開始"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "휴식 시작"
+          }
+        }
       }
     },
-    "detail.duration": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "시간 (초)" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Duration (sec)" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "時間 (秒)" } }
+    "detail.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Workout Record"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トレーニング記録"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 기록"
+          }
+        }
       }
     },
-    "detail.seconds": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "초 단위로 입력" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Enter in seconds" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "秒単位で入力" } }
+    "detail.totalTime" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Time"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "合計時間"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "총 시간"
+          }
+        }
       }
     },
-    "detail.rest": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "휴식" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Rest" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "休憩" } }
+    "detail.totalVolume" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Volume"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "合計ボリューム"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "총 볼륨"
+          }
+        }
       }
     },
-    "detail.startRest": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "휴식 시작" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Start Rest" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "休憩開始" } }
+    "detail.viewChart" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View Progress Chart"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成長グラフを見る"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "성장 그래프 보기"
+          }
+        }
       }
     },
-    "add.title": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 추가" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Add Workout" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "トレーニング追加" } }
+    "detail.weight" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weight (kg)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重量 (kg)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "무게 (kg)"
+          }
+        }
       }
     },
-    "add.selectExercise": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 종목 선택" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Select Exercise" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "種目を選択" } }
+    "exercises.addTitle" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Exercise"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種目追加"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 추가"
+          }
+        }
       }
     },
-    "add.noExercises": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 종목 없음" } },
-        "en": { "stringUnit": { "state": "translated", "value": "No Exercises" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "種目なし" } }
+    "exercises.empty" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Exercises"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種目なし"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 종목 없음"
+          }
+        }
       }
     },
-    "add.noExercisesDescription": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 종목 탭에서 먼저 종목을 추가하세요." } },
-        "en": { "stringUnit": { "state": "translated", "value": "Add exercises in the Exercises tab first." } },
-        "ja": { "stringUnit": { "state": "translated", "value": "まず種目タブで種目を追加してください。" } }
+    "exercises.emptyDescription" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap + to add an exercise."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+ボタンで種目を追加してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+ 버튼으로 운동 종목을 추가하세요."
+          }
+        }
       }
     },
-    "exercises.title": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 종목" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Exercises" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "種目" } }
+    "exercises.name" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exercise Name"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種目名"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 이름"
+          }
+        }
       }
     },
-    "exercises.empty": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 종목 없음" } },
-        "en": { "stringUnit": { "state": "translated", "value": "No Exercises" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "種目なし" } }
+    "exercises.nameHeader" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이름"
+          }
+        }
       }
     },
-    "exercises.emptyDescription": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "+ 버튼으로 운동 종목을 추가하세요." } },
-        "en": { "stringUnit": { "state": "translated", "value": "Tap + to add an exercise." } },
-        "ja": { "stringUnit": { "state": "translated", "value": "+ボタンで種目を追加してください。" } }
+    "exercises.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exercises"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種目"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 종목"
+          }
+        }
       }
     },
-    "exercises.addTitle": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 추가" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Add Exercise" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "種目追加" } }
+    "exercises.type" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record Type"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録タイプ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기록 타입"
+          }
+        }
       }
     },
-    "exercises.name": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 이름" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Exercise Name" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "種目名" } }
+    "exercises.typeHeader" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record Type"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録方式"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기록 방식"
+          }
+        }
       }
     },
-    "exercises.nameHeader": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "이름" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Name" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "名前" } }
+    "exerciseType.timeOnly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "時間"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시간"
+          }
+        }
       }
     },
-    "exercises.type": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "기록 타입" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Record Type" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "記録タイプ" } }
+    "exerciseType.weightAndReps" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weight+Reps"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重量+回数"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "무게+횟수"
+          }
+        }
       }
     },
-    "exercises.typeHeader": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "기록 방식" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Record Type" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "記録方式" } }
+    "GymDocs v1.0" : {
+
+    },
+    "home.date" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日付"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "날짜"
+          }
+        }
       }
     },
-    "exerciseType.weightAndReps": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "무게+횟수" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Weight+Reps" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "重量+回数" } }
+    "home.noRecords" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Records"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録なし"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기록 없음"
+          }
+        }
       }
     },
-    "exerciseType.timeOnly": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "시간" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Time" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "時間" } }
+    "home.noRecordsDescription" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No workout records for this date.\nTap + to add a workout."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この日付のトレーニング記録がありません。\n+ボタンでトレーニングを追加してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 날짜에 운동 기록이 없습니다.\n+ 버튼으로 운동을 추가하세요."
+          }
+        }
       }
     },
-    "chart.noData": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "데이터 없음" } },
-        "en": { "stringUnit": { "state": "translated", "value": "No Data" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "データなし" } }
+    "home.sets" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sets"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "セット"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세트"
+          }
+        }
       }
     },
-    "chart.noDataDescription": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 기록을 추가하면 성장 그래프를 볼 수 있습니다." } },
-        "en": { "stringUnit": { "state": "translated", "value": "Add workout records to see your progress chart." } },
-        "ja": { "stringUnit": { "state": "translated", "value": "トレーニング記録を追加すると成長グラフが表示されます。" } }
+    "home.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GymDocs"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GymDocs"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GymDocs"
+          }
+        }
       }
     },
-    "chart.date": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "날짜" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Date" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "日付" } }
+    "home.workouts" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Workouts"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トレーニング記録"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 기록"
+          }
+        }
       }
     },
-    "chart.volume": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "볼륨" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Volume" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "ボリューム" } }
+    "settings.about" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "情報"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정보"
+          }
+        }
       }
     },
-    "chart.seconds": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "초" } },
-        "en": { "stringUnit": { "state": "translated", "value": "sec" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "秒" } }
+    "settings.backup" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Backup"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データバックアップ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터 백업"
+          }
+        }
       }
     },
-    "chart.progressiveOverload": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "점진적 과부하" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Progressive Overload" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "漸進的過負荷" } }
+    "settings.backupFooter" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back up or restore your data as a JSON file."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSONファイルでデータをバックアップまたは復元できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON 파일로 데이터를 백업하거나 복원할 수 있습니다."
+          }
+        }
       }
     },
-    "chart.history": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "기록 히스토리" } },
-        "en": { "stringUnit": { "state": "translated", "value": "History" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "記録履歴" } }
+    "settings.export" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Data (JSON)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データエクスポート (JSON)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터 내보내기 (JSON)"
+          }
+        }
       }
     },
-    "settings.title": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "설정" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Settings" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "設定" } }
+    "settings.import" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Data (JSON)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データインポート (JSON)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터 가져오기 (JSON)"
+          }
+        }
       }
     },
-    "settings.stats": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "통계" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Statistics" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "統計" } }
+    "settings.importAccessError" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot access the file."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルにアクセスできません。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일에 접근할 수 없습니다."
+          }
+        }
       }
     },
-    "settings.totalExercises": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "등록된 운동" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Total Exercises" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "登録済み種目" } }
+    "settings.importResult" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Result"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "インポート結果"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가져오기 결과"
+          }
+        }
       }
     },
-    "settings.totalRecords": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "운동 기록 수" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Total Records" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "トレーニング記録数" } }
+    "settings.importSuccess" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data imported successfully."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データのインポートに成功しました。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터를 성공적으로 가져왔습니다."
+          }
+        }
       }
     },
-    "settings.backup": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "데이터 백업" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Data Backup" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "データバックアップ" } }
+    "settings.stats" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistics"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "統計"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "통계"
+          }
+        }
       }
     },
-    "settings.export": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "데이터 내보내기 (JSON)" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Export Data (JSON)" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "データエクスポート (JSON)" } }
+    "settings.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정"
+          }
+        }
       }
     },
-    "settings.import": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "데이터 가져오기 (JSON)" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Import Data (JSON)" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "データインポート (JSON)" } }
+    "settings.totalExercises" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Exercises"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録済み種目"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "등록된 운동"
+          }
+        }
       }
     },
-    "settings.backupFooter": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "JSON 파일로 데이터를 백업하거나 복원할 수 있습니다." } },
-        "en": { "stringUnit": { "state": "translated", "value": "Back up or restore your data as a JSON file." } },
-        "ja": { "stringUnit": { "state": "translated", "value": "JSONファイルでデータをバックアップまたは復元できます。" } }
+    "settings.totalRecords" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Records"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トレーニング記録数"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 기록 수"
+          }
+        }
       }
     },
-    "settings.about": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "정보" } },
-        "en": { "stringUnit": { "state": "translated", "value": "About" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "情報" } }
+    "streak.keepGoing" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep it up!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今週も頑張りましょう！"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이번 주도 힘내세요!"
+          }
+        }
       }
     },
-    "settings.importResult": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "가져오기 결과" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Import Result" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "インポート結果" } }
+    "streak.noStreak" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start your workout this week"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今週のトレーニングを始めましょう"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이번 주 운동을 시작하세요"
+          }
+        }
       }
     },
-    "settings.importSuccess": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "데이터를 성공적으로 가져왔습니다." } },
-        "en": { "stringUnit": { "state": "translated", "value": "Data imported successfully." } },
-        "ja": { "stringUnit": { "state": "translated", "value": "データのインポートに成功しました。" } }
+    "streak.startNow" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record your first workout"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最初のトレーニングを記録しましょう"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "첫 운동을 기록해보세요"
+          }
+        }
       }
     },
-    "settings.importAccessError": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "파일에 접근할 수 없습니다." } },
-        "en": { "stringUnit": { "state": "translated", "value": "Cannot access the file." } },
-        "ja": { "stringUnit": { "state": "translated", "value": "ファイルにアクセスできません。" } }
+    "streak.weeks" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " week streak"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "週連続トレーニング中"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "주 연속 운동중"
+          }
+        }
       }
     },
-    "common.cancel": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "취소" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Cancel" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "キャンセル" } }
+    "tab.exercises" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exercises"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "種目"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운동 종목"
+          }
+        }
       }
     },
-    "common.save": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "저장" } },
-        "en": { "stringUnit": { "state": "translated", "value": "Save" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "保存" } }
+    "tab.home" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈"
+          }
+        }
       }
     },
-    "common.ok": {
-      "localizations": {
-        "ko": { "stringUnit": { "state": "translated", "value": "확인" } },
-        "en": { "stringUnit": { "state": "translated", "value": "OK" } },
-        "ja": { "stringUnit": { "state": "translated", "value": "OK" } }
+    "tab.settings" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정"
+          }
+        }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

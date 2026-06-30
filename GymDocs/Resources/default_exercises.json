@@ -2840,8 +2840,8 @@
       "en": "Hanging",
       "ja": "ぶら下がり"
     },
-    "type": "weightAndReps",
-    "bodyPart": "timeOnly"
+    "type": "timeOnly",
+    "bodyPart": "other"
   },
   {
     "names": {

@@ -24,7 +24,7 @@ struct RoutineListView: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(routine.name)
                                     .font(.headline)
-                                Text(String(localized: "routines.exerciseCount \(routine.exercises.count)", defaultValue: "\(routine.exercises.count)개 운동"))
+                                Text(String(localized: "routines.exerciseCount", defaultValue: "\(routine.exercises.count)개 운동"))
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
