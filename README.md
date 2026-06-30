@@ -4,6 +4,36 @@
 
 ---
 
+## 🛠 Technical Specifications & Architecture
+
+본 프로젝트는 외부 서버 연동 없이 디바이스 내부에서 동작하는 로컬 전용 iOS 피트니스 애플리케이션입니다.
+
+### 1. 기술 스택 (Tech Stack)
+- **UI Framework:** SwiftUI (iOS 17.0+)
+- **Database:** SwiftData
+- **Data Visualization:** Swift Charts
+- **Localization:** String Catalogs (ko, en, ja)
+- **Haptic Feedback:** `.sensoryFeedback`
+
+### 2. 아키텍처 및 데이터 모델 (Architecture & Models)
+SwiftUI와 SwiftData를 활용하여 View와 Model 계층을 연결한 구조입니다. 별도의 뷰모델을 두지 않고 `@Query`와 `@Environment(\.modelContext)`를 통해 상태를 관리합니다.
+
+- **`Exercise`**: 운동 종목 모델. 앱 구동 시 `default_exercises.json`을 파싱하여 시드 데이터를 구축합니다.
+- **`WorkoutRecord` & `SetRecord`**: 1:N 관계로 구성된 운동 기록 모델. 무게, 횟수, 시간, 가동 범위(ROM), 휴식 시간 데이터를 저장합니다.
+- **`DailySummary`**: 일 단위(Date) 운동 완료 상태(`isFinished`)를 저장하여 기록 수정 잠금(Lock) 및 주간 스트릭(Streak) 계산에 사용됩니다.
+- **`Routine` & `RoutineExercise`**: 사용자가 사전 정의한 운동 묶음(루틴) 모델.
+
+### 3. 주요 구현 방식 (Key Implementations)
+- **다국어 처리 (Dynamic Localization):** 데이터베이스에 번역된 문자열을 직접 저장하지 않고, 영문 기준 이름을 `ExerciseTranslator`를 통해 런타임에 다국어(ko, ja)로 변환하여 렌더링합니다.
+- **볼륨 및 강도 연산:** 
+  - `WorkoutRecord` 객체 내부에서 연산 프로퍼티를 통해 총 볼륨을 산출합니다.
+  - 맨몸 운동 및 어시스트 머신의 경우 지정된 보정 상수(예: 풀업 0.94, 푸시업 0.64)를 곱해 유효 하중(Effective Load)을 계산합니다.
+  - 세트 간 휴식 시간에 따라 강도(Intensity) 가중치를 부여 및 차감하는 공식을 적용했습니다.
+- **세트 타이머 처리:** `RestTimerManager` 싱글턴 객체를 통해 세트별 휴식 시간을 추적합니다.
+- **데이터 내보내기:** `CSVExporter` 유틸리티를 통해 SwiftData의 기록을 가공하여 `.csv` 형식으로 내보내고 iOS 공유 시트를 통해 저장 및 공유할 수 있습니다.
+
+---
+
 ## English
 <div id="english"></div>
 
