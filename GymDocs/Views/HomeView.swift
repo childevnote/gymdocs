@@ -4,11 +4,17 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var allRecords: [WorkoutRecord]
+    @Query(sort: \Routine.createdAt) private var routines: [Routine]
+    @State private var showAddRoutineAlert = false
+    @State private var showRoutineLimitAlert = false
+    @State private var newRoutineName = ""
     @Query private var dailySummaries: [DailySummary]
     @State private var selectedDate: Date = Date()
     @State private var recordToNavigate: WorkoutRecord?
     @State private var showAddSheet = false
     @State private var weekOffset: Int = 0
+    @State private var showUpdateRoutineAlert = false
+    @State private var routinesToUpdate: [Routine] = []
 
     private var weekDays: [Date] {
         let calendar = Calendar.current
@@ -46,6 +52,59 @@ struct HomeView: View {
         })
     }
 
+    private var monthLabel: String {
+        guard let firstDay = weekDays.first, let lastDay = weekDays.last else { return "" }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM"
+        let firstMonth = formatter.string(from: firstDay)
+        let lastMonth = formatter.string(from: lastDay)
+        if firstMonth == lastMonth {
+            return "\(firstMonth) \(Calendar.current.component(.year, from: firstDay))"
+        } else {
+            return "\(firstMonth) - \(lastMonth)"
+        }
+    }
+
+    private var weekDaysView: some View {
+        VStack(spacing: 12) {
+            HStack {
+                Button { weekOffset -= 1 } label: { Image(systemName: "chevron.left").padding(.horizontal, 8) }
+                Spacer()
+                if !monthLabel.isEmpty { Text(monthLabel).font(.subheadline).bold() }
+                Spacer()
+                Button { weekOffset += 1 } label: { Image(systemName: "chevron.right").padding(.horizontal, 8) }
+                .disabled(weekOffset >= 0)
+            }
+            .buttonStyle(.plain)
+            
+            HStack {
+                ForEach(weekDays, id: \.self) { day in
+                    let isSelected = Calendar.current.isDate(day, inSameDayAs: selectedDate)
+                    let hasRecords = allRecords.contains { Calendar.current.isDate($0.date, inSameDayAs: day) }
+                    
+                    Button { selectedDate = day } label: {
+                        VStack(spacing: 8) {
+                            Text(day.formatted(.dateTime.weekday(.abbreviated)))
+                                .font(.caption)
+                                .foregroundStyle(isSelected ? .white : .secondary)
+                            Text("\(Calendar.current.component(.day, from: day))")
+                                .font(.callout).bold()
+                                .foregroundStyle(isSelected ? .white : .primary)
+                            Circle()
+                                .fill(hasRecords ? (isSelected ? .white : Color(hex: "FFD52E")) : Color.clear)
+                                .frame(width: 4, height: 4)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                        .background(isSelected ? Color(hex: "FFD52E") : Color.clear)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -54,144 +113,75 @@ struct HomeView: View {
                 }
 
                 Section {
-                    VStack(spacing: 12) {
-                        HStack {
-                            Button {
-                                weekOffset -= 1
-                            } label: {
-                                Image(systemName: "chevron.left")
-                                    .padding(.horizontal, 8)
-                            }
-                            
-                            Spacer()
-                            
-                            if let firstDay = weekDays.first, let lastDay = weekDays.last {
-                                let formatter = DateFormatter()
-                                formatter.dateFormat = "MMM"
-                                let firstMonth = formatter.string(from: firstDay)
-                                let lastMonth = formatter.string(from: lastDay)
-                                if firstMonth == lastMonth {
-                                    Text("\(firstMonth) \(Calendar.current.component(.year, from: firstDay))")
-                                        .font(.subheadline).bold()
-                                } else {
-                                    Text("\(firstMonth) - \(lastMonth)")
-                                        .font(.subheadline).bold()
-                                }
-                            }
-                            
-                            Spacer()
-                            
-                            Button {
-                                weekOffset += 1
-                            } label: {
-                                Image(systemName: "chevron.right")
-                                    .padding(.horizontal, 8)
-                            }
-                            .disabled(weekOffset >= 0)
-                        }
-                        .buttonStyle(.plain)
-                        
-                        HStack {
-                            ForEach(weekDays, id: \.self) { day in
-                                let isSelected = Calendar.current.isDate(day, inSameDayAs: selectedDate)
-                                let hasRecords = allRecords.contains { Calendar.current.isDate($0.date, inSameDayAs: day) }
-                                
-                                Button {
-                                    selectedDate = day
-                                } label: {
-                                    VStack(spacing: 8) {
-                                        Text(day.formatted(.dateTime.weekday(.abbreviated)))
-                                            .font(.caption)
-                                            .foregroundStyle(isSelected ? .white : .secondary)
-                                        
-                                        Text("\(Calendar.current.component(.day, from: day))")
-                                            .font(.callout).bold()
-                                            .foregroundStyle(isSelected ? .white : .primary)
-                                            
-                                        Circle()
-                                            .fill(hasRecords ? (isSelected ? .white : Color(hex: "FFD52E")) : Color.clear)
-                                            .frame(width: 4, height: 4)
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 8)
-                                    .background(isSelected ? Color(hex: "FFD52E") : Color.clear)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                                }
-                                .buttonStyle(.plain)
-                            }
-                        }
-                    }
+                    weekDaysView
                 }
 
                 Section {
-                    if recordsForSelectedDate.isEmpty {
-                        ContentUnavailableView(
-                            String(localized: "home.noRecords"),
-                            systemImage: "tray",
-                            description: Text(String(localized: "home.noRecordsDescription"))
-                        )
-                        .listRowBackground(Color.clear)
+                    if routines.isEmpty {
+                        Text(String(localized: "routines.emptyDescription", defaultValue: "새로운 루틴을 추가해보세요."))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
                     } else {
-                        ForEach(recordsForSelectedDate) { record in
-                            NavigationLink(destination: WorkoutDetailView(record: record, isLocked: isFinished)) {
-                                WorkoutRecordRow(record: record)
+                        ForEach(routines) { routine in
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(Color(.secondarySystemGroupedBackground))
+                                
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(routine.name)
+                                            .font(.headline)
+                                        Text(String(localized: "routines.exerciseCount", defaultValue: "\(routine.exercises.count)개 운동"))
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .font(.footnote.bold())
+                                        .foregroundStyle(.tertiary)
+                                }
+                                .padding(.vertical, 16)
+                                .padding(.horizontal, 20)
+                                
+                                NavigationLink(destination: RoutineDetailView(routine: routine)) {
+                                    EmptyView()
+                                }
+                                .opacity(0)
                             }
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
+                            .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                         }
                         .onDelete { indexSet in
-                            if isFinished { return }
                             for index in indexSet {
-                                modelContext.delete(recordsForSelectedDate[index])
+                                modelContext.delete(routines[index])
                             }
                         }
                     }
                 } header: {
-                    Text(String(localized: "home.workouts"))
+                    HStack {
+                        Text(String(localized: "routines.title", defaultValue: "내 루틴"))
+                        Spacer()
+                        Button {
+                            if routines.count >= 20 {
+                                showRoutineLimitAlert = true
+                            } else {
+                                newRoutineName = ""
+                                showAddRoutineAlert = true
+                            }
+                        } label: {
+                            Image(systemName: "plus")
+                                .font(.body.bold())
+                        }
+                        .textCase(nil)
+                    }
                 }
 
-                if !recordsForSelectedDate.isEmpty {
-                    Section {
-                        if isFinished {
-                            Button {
-                                currentSummary?.isFinished = false
-                            } label: {
-                                Label("수정 잠금 해제", systemImage: "lock.open.fill")
-                                    .frame(maxWidth: .infinity)
-                            }
-                            .tint(.orange)
-                        } else {
-                            Button {
-                                if let summary = currentSummary {
-                                    summary.isFinished = true
-                                } else {
-                                    let newSummary = DailySummary(date: selectedDate, isFinished: true)
-                                    modelContext.insert(newSummary)
-                                }
-                                _ = RestTimerManager.shared.stop()
-                            } label: {
-                                Label("오늘 운동 완료 🏁", systemImage: "flag.checkered")
-                                    .frame(maxWidth: .infinity)
-                                    .font(.headline)
-                            }
-                            .tint(Color(hex: "FFD52E"))
-                            .buttonStyle(.borderedProminent)
-                            .disabled(!hasAtLeastOneCompletedSet)
-                        }
-                    }
-                    .listRowBackground(Color.clear)
-                    .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                }
             }
             .navigationTitle(String(localized: "home.title"))
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button {
-                        showAddSheet = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .disabled(isFinished)
-                }
-            }
+
             .sheet(isPresented: $showAddSheet) {
                 AddWorkoutRecordView(date: selectedDate) { newRecord in
                     recordToNavigate = newRecord
@@ -200,7 +190,65 @@ struct HomeView: View {
             .navigationDestination(item: $recordToNavigate) { record in
                 WorkoutDetailView(record: record, isLocked: isFinished)
             }
+            .alert(String(localized: "routines.addTitle", defaultValue: "루틴 추가"), isPresented: $showAddRoutineAlert) {
+                TextField(String(localized: "routines.namePlaceholder", defaultValue: "루틴 이름"), text: $newRoutineName)
+                Button(String(localized: "common.cancel", defaultValue: "취소"), role: .cancel) { }
+                Button(String(localized: "common.save", defaultValue: "저장")) {
+                    let trimmed = newRoutineName.trimmingCharacters(in: .whitespaces)
+                    if !trimmed.isEmpty {
+                        let routine = Routine(name: trimmed)
+                        modelContext.insert(routine)
+                    }
+                }
+            }
+            .alert(String(localized: "routines.limitTitle", defaultValue: "루틴 개수 제한"), isPresented: $showRoutineLimitAlert) {
+                Button(String(localized: "common.ok", defaultValue: "확인"), role: .cancel) { }
+            } message: {
+                Text(String(localized: "routines.limitMessage", defaultValue: "루틴은 최대 20개까지만 만들 수 있습니다."))
+            }
+            .alert("루틴 업데이트", isPresented: $showUpdateRoutineAlert) {
+                Button("업데이트", role: .destructive) {
+                    updateRoutinesFromToday()
+                }
+                Button("건너뛰기", role: .cancel) { }
+            } message: {
+                if routinesToUpdate.count == 1 {
+                    Text("오늘 진행한 운동 기록을 바탕으로 '\(routinesToUpdate.first?.name ?? "")' 루틴의 기본 중량과 횟수를 업데이트하시겠습니까?")
+                } else {
+                    Text("오늘 진행한 운동 기록을 바탕으로 사용된 루틴들의 기본 중량과 횟수를 업데이트하시겠습니까?")
+                }
+            }
         }
+    }
+    private func updateRoutinesFromToday() {
+        for routine in routinesToUpdate {
+            // Find records for this routine
+            let relevantRecords = recordsForSelectedDate.filter { $0.originRoutineID == routine.id }
+            
+            for record in relevantRecords {
+                guard let exercise = record.exercise else { continue }
+                // Find matching routine exercise
+                if let rExercise = routine.exercises.first(where: { $0.exercise?.id == exercise.id }) {
+                    // Delete old routine sets
+                    for oldSet in rExercise.sets {
+                        modelContext.delete(oldSet)
+                    }
+                    rExercise.sets.removeAll()
+                    
+                    // Create new routine sets from completed sets
+                    let completedSets = record.sets.filter { $0.isCompleted }.sorted { $0.order < $1.order }
+                    for (i, setRecord) in completedSets.enumerated() {
+                        let newRoutineSet = RoutineSet(order: i + 1)
+                        newRoutineSet.weight = setRecord.weight
+                        newRoutineSet.reps = setRecord.reps
+                        newRoutineSet.timeDuration = setRecord.timeDuration
+                        newRoutineSet.routineExercise = rExercise
+                        modelContext.insert(newRoutineSet)
+                    }
+                }
+            }
+        }
+        routinesToUpdate.removeAll()
     }
 }
 

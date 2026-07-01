@@ -88,9 +88,8 @@ struct ExerciseListView: View {
                     }
                 }
             }
-                }
-            }
-            .searchable(text: $searchText, prompt: String(localized: "common.search", defaultValue: "운동 검색"))
+        }
+        .searchable(text: $searchText, prompt: String(localized: "common.search", defaultValue: "운동 검색"))
             .navigationTitle(String(localized: "exercises.title"))
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {

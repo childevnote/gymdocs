@@ -49,11 +49,7 @@ struct ContentView: View {
                 }
                 .tag(0)
 
-            RoutineListView()
-                .tabItem {
-                    Label(String(localized: "tab.routines", defaultValue: "루틴"), systemImage: "list.bullet.clipboard.fill")
-                }
-                .tag(1)
+
 
             ExerciseListView()
                 .tabItem {

@@ -6,6 +6,7 @@ final class WorkoutRecord {
     @Attribute(.unique) var id: UUID
     var date: Date
     var exercise: Exercise?
+    var originRoutineID: UUID?
 
     @Relationship(deleteRule: .cascade, inverse: \SetRecord.workoutRecord)
     var sets: [SetRecord]

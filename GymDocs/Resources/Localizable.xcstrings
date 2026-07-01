@@ -7,6 +7,36 @@
     "%@" : {
 
     },
+    "%@. %@" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@. %2$@"
+          }
+        }
+      }
+    },
+    "%@. %@ × %@" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@. %2$@ × %3$@"
+          }
+        }
+      }
+    },
+    "%@. %@ reps" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@. %2$@ reps"
+          }
+        }
+      }
+    },
     "💪" : {
 
     },
@@ -611,6 +641,9 @@
         }
       }
     },
+    "English" : {
+
+    },
     "exercises.addTitle" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -981,6 +1014,9 @@
           }
         }
       }
+    },
+    "kg" : {
+
     },
     "settings.about" : {
       "extractionState" : "stale",
@@ -1418,6 +1454,27 @@
           }
         }
       }
+    },
+    "오늘 진행한 운동 기록을 바탕으로 '%@' 루틴의 기본 중량과 횟수를 업데이트하시겠습니까?" : {
+
+    },
+    "오늘 진행한 운동 기록을 바탕으로 사용된 루틴들의 기본 중량과 횟수를 업데이트하시겠습니까?" : {
+
+    },
+    "운동 종료됨 (홈으로 돌아가기)" : {
+
+    },
+    "초" : {
+
+    },
+    "한국어" : {
+
+    },
+    "회" : {
+
+    },
+    "日本語" : {
+
     }
   },
   "version" : "1.0"
