@@ -52,21 +52,8 @@ final class WorkoutRecord {
                 let (index, setRecord) = pair
                 let baseVolume = setRecord.weight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
-                
                 let isLastSet = index == (completed.count - 1)
-                let rest = Double(setRecord.restTimeAfterSet)
-                var restMult = 1.0
-                if !isLastSet {
-                    if rest <= 180.0 {
-                        let effectiveRest = max(30.0, rest)
-                        restMult += (180.0 - effectiveRest) / 300.0
-                    } else if rest > 240.0 {
-                        let overMinutes = (rest - 240.0) / 60.0
-                        let penalty = min(0.2, overMinutes * 0.01)
-                        restMult -= penalty
-                    }
-                }
-                
+                let restMult = getRestMultiplier(for: Double(setRecord.restTimeAfterSet), isLastSet: isLastSet)
                 return total + (baseVolume * romMult * restMult)
             }
         case .repsOnly:
@@ -76,21 +63,8 @@ final class WorkoutRecord {
                 let weight = userWeight > 0 ? (userWeight * bwMult) : 1.0
                 let baseVolume = weight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
-                
                 let isLastSet = index == (completed.count - 1)
-                let rest = Double(setRecord.restTimeAfterSet)
-                var restMult = 1.0
-                if !isLastSet {
-                    if rest <= 180.0 {
-                        let effectiveRest = max(30.0, rest)
-                        restMult += (180.0 - effectiveRest) / 300.0
-                    } else if rest > 240.0 {
-                        let overMinutes = (rest - 240.0) / 60.0
-                        let penalty = min(0.2, overMinutes * 0.01)
-                        restMult -= penalty
-                    }
-                }
-                
+                let restMult = getRestMultiplier(for: Double(setRecord.restTimeAfterSet), isLastSet: isLastSet)
                 return total + (baseVolume * romMult * restMult)
             }
         case .timeOnly:
@@ -106,21 +80,8 @@ final class WorkoutRecord {
                 let effectiveWeight = userWeight > 0 ? max(0, (userWeight * bwMult) - (setRecord.weight * assistMult)) : setRecord.weight
                 let baseVolume = effectiveWeight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
-                
                 let isLastSet = index == (completed.count - 1)
-                let rest = Double(setRecord.restTimeAfterSet)
-                var restMult = 1.0
-                if !isLastSet {
-                    if rest <= 180.0 {
-                        let effectiveRest = max(30.0, rest)
-                        restMult += (180.0 - effectiveRest) / 300.0
-                    } else if rest > 240.0 {
-                        let overMinutes = (rest - 240.0) / 60.0
-                        let penalty = min(0.2, overMinutes * 0.01)
-                        restMult -= penalty
-                    }
-                }
-                
+                let restMult = getRestMultiplier(for: Double(setRecord.restTimeAfterSet), isLastSet: isLastSet)
                 return total + (baseVolume * romMult * restMult)
             }
         }
@@ -131,6 +92,20 @@ final class WorkoutRecord {
         self.date = Calendar.current.startOfDay(for: date)
         self.exercise = exercise
         self.sets = []
+    }
+    
+    private func getRestMultiplier(for rest: Double, isLastSet: Bool) -> Double {
+        if isLastSet { return 1.0 }
+        var restMult = 1.0
+        if rest <= 180.0 {
+            let effectiveRest = max(30.0, rest)
+            restMult += (180.0 - effectiveRest) / 300.0
+        } else if rest > 240.0 {
+            let overMinutes = (rest - 240.0) / 60.0
+            let penalty = min(0.2, overMinutes * 0.01)
+            restMult -= penalty
+        }
+        return restMult
     }
 }
 
