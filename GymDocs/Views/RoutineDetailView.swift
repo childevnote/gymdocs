@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import UIKit
 
 struct RoutineDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -59,7 +60,15 @@ struct RoutineDetailView: View {
                     Image(systemName: "plus")
                 }
             }
-            // EditButton removed
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                } label: {
+                    Image(systemName: "checkmark")
+                        .bold()
+                }
+            }
         }
         .sheet(isPresented: $showExercisePicker) {
             RoutineExercisePickerView(routine: routine)
@@ -115,9 +124,28 @@ struct RoutineExerciseRow: View {
     @Bindable var rExercise: RoutineExercise
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
             Text(rExercise.exercise?.localizedName ?? String(localized: "common.unknown", defaultValue: "알 수 없는 운동"))
                 .font(.headline)
+
+            if rExercise.type != .timeOnly {
+                HStack(spacing: 6) {
+                    ForEach(RangeOfMotion.allCases, id: \.self) { rom in
+                        Button {
+                            rExercise.defaultRangeOfMotion = rom
+                        } label: {
+                            Text(rom.displayName)
+                                .font(.system(size: 11, weight: rExercise.defaultRangeOfMotion == rom ? .bold : .regular))
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 6)
+                                .background(rExercise.defaultRangeOfMotion == rom ? Color(hex: "FFD52E") : Color.secondary.opacity(0.1))
+                                .foregroundStyle(rExercise.defaultRangeOfMotion == rom ? .white : .primary)
+                                .clipShape(Capsule())
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
             
             if rExercise.type == .weightAndReps || rExercise.type == .assistedWeightAndReps {
                 HStack(spacing: 12) {
@@ -127,7 +155,11 @@ struct RoutineExerciseRow: View {
                             .foregroundStyle(.secondary)
                         TextField("0", value: $rExercise.defaultWeight, format: .number)
                             .keyboardType(.decimalPad)
-                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(.center)
+                            .font(.title3)
+                            .padding(.vertical, 10)
+                            .background(Color.secondary.opacity(0.1))
+                            .cornerRadius(8)
                     }
                     VStack(alignment: .leading) {
                         Text(String(localized: "detail.reps", defaultValue: "횟수"))
@@ -135,7 +167,11 @@ struct RoutineExerciseRow: View {
                             .foregroundStyle(.secondary)
                         TextField("0", value: $rExercise.defaultReps, format: .number)
                             .keyboardType(.numberPad)
-                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(.center)
+                            .font(.title3)
+                            .padding(.vertical, 10)
+                            .background(Color.secondary.opacity(0.1))
+                            .cornerRadius(8)
                     }
                 }
             } else if rExercise.type == .repsOnly {
@@ -145,7 +181,11 @@ struct RoutineExerciseRow: View {
                         .foregroundStyle(.secondary)
                     TextField("0", value: $rExercise.defaultReps, format: .number)
                         .keyboardType(.numberPad)
-                        .textFieldStyle(.roundedBorder)
+                        .multilineTextAlignment(.center)
+                        .font(.title3)
+                        .padding(.vertical, 10)
+                        .background(Color.secondary.opacity(0.1))
+                        .cornerRadius(8)
                 }
             } else {
                 VStack(alignment: .leading) {
@@ -154,28 +194,18 @@ struct RoutineExerciseRow: View {
                         .foregroundStyle(.secondary)
                     TextField("0", value: $rExercise.defaultTimeDuration, format: .number)
                         .keyboardType(.numberPad)
-                        .textFieldStyle(.roundedBorder)
+                        .multilineTextAlignment(.center)
+                        .font(.title3)
+                        .padding(.vertical, 10)
+                        .background(Color.secondary.opacity(0.1))
+                        .cornerRadius(8)
                     Text(String(localized: "detail.seconds", defaultValue: "초"))
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
                 }
             }
-            
-            if rExercise.type != .timeOnly {
-                HStack {
-                    Picker("ROM", selection: $rExercise.defaultRangeOfMotion) {
-                        ForEach(RangeOfMotion.allCases, id: \.self) { rom in
-                            Text(rom.displayName).tag(rom)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
-                    .controlSize(.mini)
-                    Spacer()
-                }
-            }
         }
-        .padding(.vertical, 4)
+        .padding(.vertical, 8)
     }
 }
 

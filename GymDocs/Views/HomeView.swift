@@ -166,12 +166,13 @@ struct HomeView: View {
                                     let newSummary = DailySummary(date: selectedDate, isFinished: true)
                                     modelContext.insert(newSummary)
                                 }
+                                _ = RestTimerManager.shared.stop()
                             } label: {
                                 Label("오늘 운동 완료 🏁", systemImage: "flag.checkered")
                                     .frame(maxWidth: .infinity)
                                     .font(.headline)
                             }
-                            .tint(.teal)
+                            .tint(Color(hex: "FFD52E"))
                             .buttonStyle(.borderedProminent)
                             .disabled(!hasAtLeastOneCompletedSet)
                         }

@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import UIKit
 
 struct WorkoutDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -52,6 +53,17 @@ struct WorkoutDetailView: View {
         }
         .navigationTitle(String(localized: "detail.title"))
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                } label: {
+                    Image(systemName: "checkmark")
+                        .bold()
+                }
+            }
+        }
     }
 }
 
@@ -67,11 +79,11 @@ struct SetRecordRow: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
             // Set number and completion toggle
             HStack {
                 Text(String(localized: "detail.set") + " \(setRecord.order)")
-                    .font(.subheadline)
+                    .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
                 Button {
@@ -84,76 +96,17 @@ struct SetRecordRow: View {
                     }
                 } label: {
                     Image(systemName: setRecord.isCompleted ? "checkmark.circle.fill" : "circle")
-                        .foregroundStyle(setRecord.isCompleted ? .green : .secondary)
-                        .font(.title3)
+                        .foregroundStyle(setRecord.isCompleted ? Color(hex: "FFD52E") : .secondary)
+                        .font(.system(size: 28, weight: .semibold))
                 }
                 .buttonStyle(.plain)
                 .disabled(isLocked)
                 .sensoryFeedback(.success, trigger: setRecord.isCompleted)
             }
 
-            // Input fields based on exercise type
-            if exerciseType == .weightAndReps || exerciseType == .assistedWeightAndReps {
-                HStack(spacing: 12) {
-                    VStack(alignment: .leading) {
-                        Text(exerciseType == .assistedWeightAndReps ? String(localized: "detail.assistWeight") : String(localized: "detail.weight"))
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        TextField("0", value: $setRecord.weight, format: .number)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(.roundedBorder)
-                    }
-                    VStack(alignment: .leading) {
-                        Text(String(localized: "detail.reps"))
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        TextField("0", value: $setRecord.reps, format: .number)
-                            .keyboardType(.numberPad)
-                            .textFieldStyle(.roundedBorder)
-                    }
-                }
-            } else if exerciseType == .repsOnly {
-                VStack(alignment: .leading) {
-                    Text(String(localized: "detail.reps"))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    TextField("0", value: $setRecord.reps, format: .number)
-                        .keyboardType(.numberPad)
-                        .textFieldStyle(.roundedBorder)
-                }
-            } else {
-                VStack(alignment: .leading) {
-                    Text(String(localized: "detail.duration"))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    TextField("0", value: $setRecord.timeDuration, format: .number)
-                        .keyboardType(.numberPad)
-                        .textFieldStyle(.roundedBorder)
-                    Text(String(localized: "detail.seconds"))
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
-                }
-            }
-
-            // ROM
-            if exerciseType != .timeOnly {
-                HStack {
-                    Picker("ROM", selection: $setRecord.rangeOfMotion) {
-                        ForEach(RangeOfMotion.allCases, id: \.self) { rom in
-                            Text(rom.displayName).tag(rom)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
-                    .controlSize(.mini)
-                    .disabled(isLocked)
-                    
-                    Spacer()
-                }
-            }
-
-            // Rest timer
+            // ROM and Timer (moved above inputs)
             HStack {
+                // Rest timer
                 Button {
                     timerManager.toggle(for: setRecord.id) { elapsed in
                         setRecord.restTimeAfterSet = elapsed
@@ -177,12 +130,94 @@ struct SetRecordRow: View {
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.small)
-                .tint(isTimerActiveForThis ? .red : .blue)
+                .tint(isTimerActiveForThis ? .red : .secondary)
                 .disabled(isLocked)
                 .sensoryFeedback(.impact(flexibility: .solid), trigger: isTimerActiveForThis)
+
+                Spacer()
+
+                // ROM Radio pills
+                if exerciseType != .timeOnly {
+                    HStack(spacing: 6) {
+                        ForEach(RangeOfMotion.allCases, id: \.self) { rom in
+                            Button {
+                                setRecord.rangeOfMotion = rom
+                            } label: {
+                                Text(rom.displayName)
+                                    .font(.system(size: 11, weight: setRecord.rangeOfMotion == rom ? .bold : .regular))
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 6)
+                                    .background(setRecord.rangeOfMotion == rom ? Color(hex: "FFD52E") : Color.secondary.opacity(0.1))
+                                    .foregroundStyle(setRecord.rangeOfMotion == rom ? .white : .primary)
+                                    .clipShape(Capsule())
+                            }
+                            .buttonStyle(.plain)
+                            .disabled(isLocked)
+                        }
+                    }
+                }
+            }
+
+            // Input fields based on exercise type (Bigger inputs with matching corners)
+            if exerciseType == .weightAndReps || exerciseType == .assistedWeightAndReps {
+                HStack(spacing: 12) {
+                    VStack(alignment: .leading) {
+                        Text(exerciseType == .assistedWeightAndReps ? String(localized: "detail.assistWeight") : String(localized: "detail.weight"))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        TextField("0", value: $setRecord.weight, format: .number)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.center)
+                            .font(.title3)
+                            .padding(.vertical, 10)
+                            .background(Color.secondary.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                    VStack(alignment: .leading) {
+                        Text(String(localized: "detail.reps"))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        TextField("0", value: $setRecord.reps, format: .number)
+                            .keyboardType(.numberPad)
+                            .multilineTextAlignment(.center)
+                            .font(.title3)
+                            .padding(.vertical, 10)
+                            .background(Color.secondary.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                }
+            } else if exerciseType == .repsOnly {
+                VStack(alignment: .leading) {
+                    Text(String(localized: "detail.reps"))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    TextField("0", value: $setRecord.reps, format: .number)
+                        .keyboardType(.numberPad)
+                        .multilineTextAlignment(.center)
+                        .font(.title3)
+                        .padding(.vertical, 10)
+                        .background(Color.secondary.opacity(0.1))
+                        .cornerRadius(8)
+                }
+            } else {
+                VStack(alignment: .leading) {
+                    Text(String(localized: "detail.duration"))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    TextField("0", value: $setRecord.timeDuration, format: .number)
+                        .keyboardType(.numberPad)
+                        .multilineTextAlignment(.center)
+                        .font(.title3)
+                        .padding(.vertical, 10)
+                        .background(Color.secondary.opacity(0.1))
+                        .cornerRadius(8)
+                    Text(String(localized: "detail.seconds"))
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
             }
         }
-        .padding(.vertical, 4)
+        .padding(.vertical, 8)
         .disabled(isLocked)
     }
 }

@@ -18,10 +18,10 @@ enum RangeOfMotion: String, Codable, CaseIterable {
     
     var displayName: String {
         switch self {
-        case .full: return String(localized: "rom.full")
-        case .eccentric: return String(localized: "rom.eccentric")
-        case .concentric: return String(localized: "rom.concentric")
-        case .normal: return String(localized: "rom.normal")
+        case .full: return String(localized: "rom.full", defaultValue: "전가동범위")
+        case .eccentric: return String(localized: "rom.eccentric", defaultValue: "네거티브(신장성)")
+        case .concentric: return String(localized: "rom.concentric", defaultValue: "포지티브(단축성)")
+        case .normal: return String(localized: "rom.normal", defaultValue: "일반")
         }
     }
 }

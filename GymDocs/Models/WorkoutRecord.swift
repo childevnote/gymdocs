@@ -48,39 +48,47 @@ final class WorkoutRecord {
         
         switch exercise.type {
         case .weightAndReps:
-            return completed.reduce(0) { total, setRecord in
+            return completed.enumerated().reduce(0) { total, pair in
+                let (index, setRecord) = pair
                 let baseVolume = setRecord.weight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
                 
+                let isLastSet = index == (completed.count - 1)
                 let rest = Double(setRecord.restTimeAfterSet)
                 var restMult = 1.0
-                if rest <= 180.0 {
-                    let effectiveRest = max(30.0, rest)
-                    restMult += (180.0 - effectiveRest) / 300.0
-                } else if rest > 240.0 {
-                    let overMinutes = (rest - 240.0) / 60.0
-                    let penalty = min(0.2, overMinutes * 0.01)
-                    restMult -= penalty
+                if !isLastSet {
+                    if rest <= 180.0 {
+                        let effectiveRest = max(30.0, rest)
+                        restMult += (180.0 - effectiveRest) / 300.0
+                    } else if rest > 240.0 {
+                        let overMinutes = (rest - 240.0) / 60.0
+                        let penalty = min(0.2, overMinutes * 0.01)
+                        restMult -= penalty
+                    }
                 }
                 
                 return total + (baseVolume * romMult * restMult)
             }
         case .repsOnly:
             let bwMult = exercise.bodyweightMultiplier
-            return completed.reduce(0) { total, setRecord in
+            return completed.enumerated().reduce(0) { total, pair in
+                let (index, setRecord) = pair
                 let weight = userWeight > 0 ? (userWeight * bwMult) : 1.0
                 let baseVolume = weight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
                 
+                let isLastSet = index == (completed.count - 1)
                 let rest = Double(setRecord.restTimeAfterSet)
                 var restMult = 1.0
-                if rest <= 180.0 {
-                    let effectiveRest = max(30.0, rest)
-                    restMult += (180.0 - effectiveRest) / 300.0
-                } else if rest > 240.0 {
-                    let overMinutes = (rest - 240.0) / 60.0
-                    let penalty = min(0.2, overMinutes * 0.01)
-                    restMult -= penalty
+                if !isLastSet {
+                    if rest <= 180.0 {
+                        let effectiveRest = max(30.0, rest)
+                        restMult += (180.0 - effectiveRest) / 300.0
+                    } else if rest > 240.0 {
+                        let overMinutes = (rest - 240.0) / 60.0
+                        let penalty = min(0.2, overMinutes * 0.01)
+                        restMult -= penalty
+                    }
                 }
                 
                 return total + (baseVolume * romMult * restMult)
@@ -93,20 +101,24 @@ final class WorkoutRecord {
         case .assistedWeightAndReps:
             let bwMult = exercise.bodyweightMultiplier
             let assistMult = exercise.machineAssistMultiplier
-            return completed.reduce(0) { total, setRecord in
+            return completed.enumerated().reduce(0) { total, pair in
+                let (index, setRecord) = pair
                 let effectiveWeight = userWeight > 0 ? max(0, (userWeight * bwMult) - (setRecord.weight * assistMult)) : setRecord.weight
                 let baseVolume = effectiveWeight * Double(setRecord.reps)
                 let romMult = setRecord.rangeOfMotion.multiplier
                 
+                let isLastSet = index == (completed.count - 1)
                 let rest = Double(setRecord.restTimeAfterSet)
                 var restMult = 1.0
-                if rest <= 180.0 {
-                    let effectiveRest = max(30.0, rest)
-                    restMult += (180.0 - effectiveRest) / 300.0
-                } else if rest > 240.0 {
-                    let overMinutes = (rest - 240.0) / 60.0
-                    let penalty = min(0.2, overMinutes * 0.01)
-                    restMult -= penalty
+                if !isLastSet {
+                    if rest <= 180.0 {
+                        let effectiveRest = max(30.0, rest)
+                        restMult += (180.0 - effectiveRest) / 300.0
+                    } else if rest > 240.0 {
+                        let overMinutes = (rest - 240.0) / 60.0
+                        let penalty = min(0.2, overMinutes * 0.01)
+                        restMult -= penalty
+                    }
                 }
                 
                 return total + (baseVolume * romMult * restMult)
