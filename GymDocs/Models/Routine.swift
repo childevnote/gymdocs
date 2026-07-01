@@ -23,6 +23,10 @@ final class RoutineExercise {
     @Attribute(.unique) var id: UUID
     var order: Int
     var type: ExerciseType
+    var defaultWeight: Double
+    var defaultReps: Int
+    var defaultTimeDuration: Int
+    var defaultRangeOfMotion: RangeOfMotion
     
     var exercise: Exercise?
     var routine: Routine?
@@ -32,5 +36,9 @@ final class RoutineExercise {
         self.order = order
         self.type = type
         self.exercise = exercise
+        self.defaultWeight = 0
+        self.defaultReps = 0
+        self.defaultTimeDuration = 0
+        self.defaultRangeOfMotion = .normal
     }
 }

@@ -8,6 +8,22 @@ struct HomeView: View {
     @State private var selectedDate: Date = Date()
     @State private var recordToNavigate: WorkoutRecord?
     @State private var showAddSheet = false
+    @State private var weekOffset: Int = 0
+
+    private var weekDays: [Date] {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        
+        let currentWeekday = calendar.component(.weekday, from: today)
+        let daysToMonday = currentWeekday == 1 ? -6 : -(currentWeekday - 2)
+        
+        guard let startOfCurrentWeek = calendar.date(byAdding: .day, value: daysToMonday, to: today),
+              let startOfTargetWeek = calendar.date(byAdding: .weekOfYear, value: weekOffset, to: startOfCurrentWeek) else {
+            return []
+        }
+        
+        return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0, to: startOfTargetWeek) }
+    }
 
     private var recordsForSelectedDate: [WorkoutRecord] {
         let calendar = Calendar.current
@@ -38,12 +54,73 @@ struct HomeView: View {
                 }
 
                 Section {
-                    DatePicker(
-                        String(localized: "home.date"),
-                        selection: $selectedDate,
-                        displayedComponents: .date
-                    )
-                    .datePickerStyle(.compact)
+                    VStack(spacing: 12) {
+                        HStack {
+                            Button {
+                                weekOffset -= 1
+                            } label: {
+                                Image(systemName: "chevron.left")
+                                    .padding(.horizontal, 8)
+                            }
+                            
+                            Spacer()
+                            
+                            if let firstDay = weekDays.first, let lastDay = weekDays.last {
+                                let formatter = DateFormatter()
+                                formatter.dateFormat = "MMM"
+                                let firstMonth = formatter.string(from: firstDay)
+                                let lastMonth = formatter.string(from: lastDay)
+                                if firstMonth == lastMonth {
+                                    Text("\(firstMonth) \(Calendar.current.component(.year, from: firstDay))")
+                                        .font(.subheadline).bold()
+                                } else {
+                                    Text("\(firstMonth) - \(lastMonth)")
+                                        .font(.subheadline).bold()
+                                }
+                            }
+                            
+                            Spacer()
+                            
+                            Button {
+                                weekOffset += 1
+                            } label: {
+                                Image(systemName: "chevron.right")
+                                    .padding(.horizontal, 8)
+                            }
+                            .disabled(weekOffset >= 0)
+                        }
+                        .buttonStyle(.plain)
+                        
+                        HStack {
+                            ForEach(weekDays, id: \.self) { day in
+                                let isSelected = Calendar.current.isDate(day, inSameDayAs: selectedDate)
+                                let hasRecords = allRecords.contains { Calendar.current.isDate($0.date, inSameDayAs: day) }
+                                
+                                Button {
+                                    selectedDate = day
+                                } label: {
+                                    VStack(spacing: 8) {
+                                        Text(day.formatted(.dateTime.weekday(.abbreviated)))
+                                            .font(.caption)
+                                            .foregroundStyle(isSelected ? .white : .secondary)
+                                        
+                                        Text("\(Calendar.current.component(.day, from: day))")
+                                            .font(.callout).bold()
+                                            .foregroundStyle(isSelected ? .white : .primary)
+                                            
+                                        Circle()
+                                            .fill(hasRecords ? (isSelected ? .white : Color(hex: "FFD52E")) : Color.clear)
+                                            .frame(width: 4, height: 4)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .background(isSelected ? Color(hex: "FFD52E") : Color.clear)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                    }
                 }
 
                 Section {

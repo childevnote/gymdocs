@@ -8,10 +8,17 @@ struct AddWorkoutRecordView: View {
     let date: Date
     var onRecordCreated: ((WorkoutRecord) -> Void)? = nil
     @State private var searchText = ""
+    @State private var selectedBodyPart: BodyPart? = nil
 
     private var filteredExercises: [Exercise] {
-        if searchText.isEmpty { return exercises }
-        return exercises.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
+        var result = exercises
+        if !searchText.isEmpty {
+            result = result.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
+        }
+        if let bodyPart = selectedBodyPart {
+            result = result.filter { $0.bodyPart == bodyPart }
+        }
+        return result
     }
 
     private var groupedExercises: [(BodyPart, [Exercise])] {
@@ -26,8 +33,36 @@ struct AddWorkoutRecordView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                if exercises.isEmpty {
+            VStack(spacing: 0) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        Button {
+                            selectedBodyPart = nil
+                        } label: {
+                            Text(String(localized: "common.all", defaultValue: "All"))
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(selectedBodyPart == nil ? Color(hex: "FFD52E") : .secondary)
+
+                        ForEach(BodyPart.allCases, id: \.self) { part in
+                            Button {
+                                selectedBodyPart = part
+                            } label: {
+                                Text(part.displayName)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 6)
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(selectedBodyPart == part ? Color(hex: "FFD52E") : .secondary)
+                        }
+                    }
+                    .padding()
+                }
+
+                List {
+                    if exercises.isEmpty {
                     ContentUnavailableView(
                         String(localized: "add.noExercises"),
                         systemImage: "dumbbell",
@@ -63,6 +98,7 @@ struct AddWorkoutRecordView: View {
                     }
                 }
             }
+            }
             .searchable(text: $searchText, prompt: String(localized: "common.search", defaultValue: "운동 검색"))
             .navigationTitle(String(localized: "add.title"))
             .navigationBarTitleDisplayMode(.inline)
@@ -81,6 +117,7 @@ struct AddWorkoutRecordView: View {
         // Add one initial set
         let firstSet = SetRecord(order: 1, workoutRecord: record)
         modelContext.insert(firstSet)
+        searchText = ""
         dismiss()
         onRecordCreated?(record)
     }

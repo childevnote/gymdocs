@@ -14,8 +14,8 @@ struct SettingsView: View {
     @State private var importMessage = ""
     @State private var exportURLs: [URL]?
     @State private var showClearAlert = false
-    
     @AppStorage("appColorScheme") private var appColorScheme = 0 // 0: System, 1: Light, 2: Dark
+    @AppStorage("appLanguage") private var appLanguage = 0 // 0: System, 1: EN, 2: KO, 3: JA
 
     var body: some View {
         NavigationStack {
@@ -29,39 +29,17 @@ struct SettingsView: View {
                         SettingsLabel(title: String(localized: "settings.theme", defaultValue: "화면 모드"), systemImage: "moon.fill", color: .indigo)
                     }
                     .pickerStyle(.navigationLink)
-                    
-                    Button {
-                        if let url = URL(string: UIApplication.openSettingsURLString) {
-                            UIApplication.shared.open(url)
-                        }
+                    Picker(selection: $appLanguage) {
+                        Text(String(localized: "settings.language.system", defaultValue: "시스템 설정")).tag(0)
+                        Text("English").tag(1)
+                        Text("한국어").tag(2)
+                        Text("日本語").tag(3)
                     } label: {
-                        HStack {
-                            SettingsLabel(title: String(localized: "settings.language", defaultValue: "언어 설정"), systemImage: "globe", color: .cyan)
-                            Spacer()
-                            Image(systemName: "arrow.up.forward.app")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
+                        SettingsLabel(title: String(localized: "settings.language", defaultValue: "언어 설정"), systemImage: "globe", color: .cyan)
                     }
+                    .pickerStyle(.navigationLink)
                 } header: {
                     Text(String(localized: "settings.appearance", defaultValue: "화면 및 언어"))
-                }
-                
-                Section {
-                    HStack {
-                        Text(String(localized: "settings.totalExercises"))
-                        Spacer()
-                        Text("\(exercises.count)")
-                            .foregroundStyle(.secondary)
-                    }
-                    HStack {
-                        Text(String(localized: "settings.totalRecords"))
-                        Spacer()
-                        Text("\(records.count)")
-                            .foregroundStyle(.secondary)
-                    }
-                } header: {
-                    Text(String(localized: "settings.stats"))
                 }
 
                 Section {

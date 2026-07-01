@@ -22,30 +22,10 @@ struct RoutineDetailView: View {
                 )
                 .listRowBackground(Color.clear)
             } else {
-                Section {
-                    Button {
-                        startWorkoutFromRoutine()
-                    } label: {
-                        Label(String(localized: "routines.startWorkout", defaultValue: "이 루틴으로 운동 시작"), systemImage: "play.fill")
-                            .frame(maxWidth: .infinity)
-                            .font(.headline)
-                    }
-                    .tint(.teal)
-                    .buttonStyle(.borderedProminent)
-                    .listRowBackground(Color.clear)
-                    .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                    .sensoryFeedback(.success, trigger: showStartedAlert)
-                }
+                // Removed start workout button from here
 
                 ForEach(sortedExercises) { rExercise in
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(rExercise.exercise?.localizedName ?? String(localized: "common.unknown", defaultValue: "알 수 없는 운동"))
-                            .font(.body)
-                        Text(rExercise.type.displayName)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                    .padding(.vertical, 2)
+                    RoutineExerciseRow(rExercise: rExercise)
                 }
                 .onDelete { indexSet in
                     let items = sortedExercises
@@ -79,14 +59,26 @@ struct RoutineDetailView: View {
                     Image(systemName: "plus")
                 }
             }
-            if !routine.exercises.isEmpty {
-                ToolbarItem(placement: .topBarTrailing) {
-                    EditButton()
-                }
-            }
+            // EditButton removed
         }
         .sheet(isPresented: $showExercisePicker) {
             RoutineExercisePickerView(routine: routine)
+        }
+        .safeAreaInset(edge: .bottom) {
+            if !routine.exercises.isEmpty {
+                Button { startWorkoutFromRoutine() } label: {
+                    Text(String(localized: "routines.startWorkout", defaultValue: "이 루틴으로 운동 시작"))
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(Color(hex: "FFD52E"))
+                .clipShape(Capsule())
+                .padding(.horizontal)
+                .padding(.bottom, 8)
+                .sensoryFeedback(.success, trigger: showStartedAlert)
+            }
         }
         .alert(String(localized: "routines.limitTitle", defaultValue: "운동 개수 제한"), isPresented: $showLimitAlert) {
             Button(String(localized: "common.ok", defaultValue: "확인"), role: .cancel) { }
@@ -109,9 +101,81 @@ struct RoutineDetailView: View {
             let record = WorkoutRecord(date: today, exercise: exercise)
             modelContext.insert(record)
             let firstSet = SetRecord(order: 1, workoutRecord: record)
+            firstSet.weight = rExercise.defaultWeight
+            firstSet.reps = rExercise.defaultReps
+            firstSet.timeDuration = rExercise.defaultTimeDuration
+            firstSet.rangeOfMotion = rExercise.defaultRangeOfMotion
             modelContext.insert(firstSet)
         }
         showStartedAlert = true
+    }
+}
+
+struct RoutineExerciseRow: View {
+    @Bindable var rExercise: RoutineExercise
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(rExercise.exercise?.localizedName ?? String(localized: "common.unknown", defaultValue: "알 수 없는 운동"))
+                .font(.headline)
+            
+            if rExercise.type == .weightAndReps || rExercise.type == .assistedWeightAndReps {
+                HStack(spacing: 12) {
+                    VStack(alignment: .leading) {
+                        Text(rExercise.type == .assistedWeightAndReps ? String(localized: "detail.assistWeight", defaultValue: "보조무게") : String(localized: "detail.weight", defaultValue: "무게"))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        TextField("0", value: $rExercise.defaultWeight, format: .number)
+                            .keyboardType(.decimalPad)
+                            .textFieldStyle(.roundedBorder)
+                    }
+                    VStack(alignment: .leading) {
+                        Text(String(localized: "detail.reps", defaultValue: "횟수"))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        TextField("0", value: $rExercise.defaultReps, format: .number)
+                            .keyboardType(.numberPad)
+                            .textFieldStyle(.roundedBorder)
+                    }
+                }
+            } else if rExercise.type == .repsOnly {
+                VStack(alignment: .leading) {
+                    Text(String(localized: "detail.reps", defaultValue: "횟수"))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    TextField("0", value: $rExercise.defaultReps, format: .number)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(.roundedBorder)
+                }
+            } else {
+                VStack(alignment: .leading) {
+                    Text(String(localized: "detail.duration", defaultValue: "시간"))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    TextField("0", value: $rExercise.defaultTimeDuration, format: .number)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(.roundedBorder)
+                    Text(String(localized: "detail.seconds", defaultValue: "초"))
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+            }
+            
+            if rExercise.type != .timeOnly {
+                HStack {
+                    Picker("ROM", selection: $rExercise.defaultRangeOfMotion) {
+                        ForEach(RangeOfMotion.allCases, id: \.self) { rom in
+                            Text(rom.displayName).tag(rom)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                    .controlSize(.mini)
+                    Spacer()
+                }
+            }
+        }
+        .padding(.vertical, 4)
     }
 }
 

@@ -5,11 +5,23 @@ extension Notification.Name {
     static let switchToHomeTab = Notification.Name("switchToHomeTab")
 }
 
+extension Color {
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let r, g, b: UInt64
+        (r, g, b) = ((int >> 16) & 0xFF, (int >> 8) & 0xFF, int & 0xFF)
+        self.init(red: Double(r) / 255, green: Double(g) / 255, blue: Double(b) / 255)
+    }
+}
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var exercises: [Exercise]
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("appColorScheme") private var appColorScheme = 0 // 0: System, 1: Light, 2: Dark
+    @AppStorage("appLanguage") private var appLanguage = 0 // 0: System, 1: EN, 2: KO, 3: JA
     @State private var selectedTab = 0
 
     private var colorScheme: ColorScheme? {
@@ -17,6 +29,15 @@ struct ContentView: View {
         case 1: return .light
         case 2: return .dark
         default: return nil // System
+        }
+    }
+
+    private var appLocale: Locale {
+        switch appLanguage {
+        case 1: return Locale(identifier: "en")
+        case 2: return Locale(identifier: "ko")
+        case 3: return Locale(identifier: "ja")
+        default: return Locale.current
         }
     }
 
@@ -46,8 +67,9 @@ struct ContentView: View {
                 }
                 .tag(3)
         }
-        .tint(.teal)
+        .tint(Color(hex: "FFD52E"))
         .preferredColorScheme(colorScheme)
+        .environment(\.locale, appLocale)
         .fullScreenCover(isPresented: .init(get: { !hasCompletedOnboarding }, set: { _ in })) {
             OnboardingView()
         }

@@ -6,10 +6,17 @@ struct ExerciseListView: View {
     @Query(sort: \Exercise.name) private var exercises: [Exercise]
     @State private var showAddSheet = false
     @State private var searchText = ""
+    @State private var selectedBodyPart: BodyPart? = nil
 
     private var filteredExercises: [Exercise] {
-        if searchText.isEmpty { return exercises }
-        return exercises.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
+        var result = exercises
+        if !searchText.isEmpty {
+            result = result.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
+        }
+        if let bodyPart = selectedBodyPart {
+            result = result.filter { $0.bodyPart == bodyPart }
+        }
+        return result
     }
 
     private var groupedExercises: [(BodyPart, [Exercise])] {
@@ -24,8 +31,36 @@ struct ExerciseListView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                if exercises.isEmpty {
+            VStack(spacing: 0) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        Button {
+                            selectedBodyPart = nil
+                        } label: {
+                            Text(String(localized: "common.all", defaultValue: "All"))
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(selectedBodyPart == nil ? Color(hex: "FFD52E") : .secondary)
+
+                        ForEach(BodyPart.allCases, id: \.self) { part in
+                            Button {
+                                selectedBodyPart = part
+                            } label: {
+                                Text(part.displayName)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 6)
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(selectedBodyPart == part ? Color(hex: "FFD52E") : .secondary)
+                        }
+                    }
+                    .padding()
+                }
+                
+                List {
+                    if exercises.isEmpty {
                     ContentUnavailableView(
                         String(localized: "exercises.empty"),
                         systemImage: "dumbbell",
@@ -40,14 +75,8 @@ struct ExerciseListView: View {
                         Section(header: Text(part.displayName)) {
                             ForEach(items) { exercise in
                                 NavigationLink(destination: ExerciseChartView(exercise: exercise)) {
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        Text(exercise.localizedName)
-                                            .font(.body)
-                                        Text(exercise.type.displayName)
-                                            .font(.caption)
-                                            .foregroundStyle(.secondary)
-                                    }
-                                    .padding(.vertical, 2)
+                                    Text(exercise.localizedName)
+                                        .font(.body)
                                 }
                             }
                             .onDelete { indexSet in
@@ -57,6 +86,8 @@ struct ExerciseListView: View {
                             }
                         }
                     }
+                }
+            }
                 }
             }
             .searchable(text: $searchText, prompt: String(localized: "common.search", defaultValue: "운동 검색"))
