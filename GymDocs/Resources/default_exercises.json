@@ -1153,15 +1153,6 @@
   },
   {
     "names": {
-      "ko": "유산소",
-      "en": "Cardio",
-      "ja": "有酸素"
-    },
-    "type": "weightAndReps",
-    "bodyPart": "cardio"
-  },
-  {
-    "names": {
       "ko": "라잉 레그 레이즈",
       "en": "Lying Leg Raise",
       "ja": "ライイングレッグレイズ"
@@ -2215,15 +2206,6 @@
   },
   {
     "names": {
-      "ko": "삼두",
-      "en": "Triceps",
-      "ja": "上腕三頭筋"
-    },
-    "type": "weightAndReps",
-    "bodyPart": "triceps"
-  },
-  {
-    "names": {
       "ko": "어시스트 친업",
       "en": "Assisted Chin-Up",
       "ja": "アシストチンニング"
@@ -2473,15 +2455,6 @@
     },
     "type": "weightAndReps",
     "bodyPart": "chest"
-  },
-  {
-    "names": {
-      "ko": "복근",
-      "en": "Abs",
-      "ja": "腹筋"
-    },
-    "type": "weightAndReps",
-    "bodyPart": "core"
   },
   {
     "names": {
@@ -2809,15 +2782,6 @@
   },
   {
     "names": {
-      "ko": "전완근",
-      "en": "Forearms",
-      "ja": "前腕"
-    },
-    "type": "weightAndReps",
-    "bodyPart": "forearms"
-  },
-  {
-    "names": {
       "ko": "케이블 로프 컬",
       "en": "Cable Rope Curl",
       "ja": "ケーブルロープカール"
@@ -2896,15 +2860,6 @@
     },
     "type": "repsOnly",
     "bodyPart": "chest"
-  },
-  {
-    "names": {
-      "ko": "스트레칭",
-      "en": "Stretching",
-      "ja": "ストレッチ"
-    },
-    "type": "timeOnly",
-    "bodyPart": "stretching"
   },
   {
     "names": {
@@ -3211,15 +3166,6 @@
     },
     "type": "repsOnly",
     "bodyPart": "legs"
-  },
-  {
-    "names": {
-      "ko": "이두",
-      "en": "Biceps",
-      "ja": "上腕二頭筋"
-    },
-    "type": "weightAndReps",
-    "bodyPart": "biceps"
   },
   {
     "names": {
@@ -3925,15 +3871,6 @@
   },
   {
     "names": {
-      "ko": "어깨",
-      "en": "Shoulders",
-      "ja": "肩"
-    },
-    "type": "weightAndReps",
-    "bodyPart": "shoulders"
-  },
-  {
-    "names": {
       "ko": "시티드 덤벨 로우",
       "en": "Seated Dumbbell Row",
       "ja": "シーテッドダンベルロウ"
@@ -4030,15 +3967,6 @@
     },
     "type": "weightAndReps",
     "bodyPart": "legs"
-  },
-  {
-    "names": {
-      "ko": "가슴",
-      "en": "Chest",
-      "ja": "胸"
-    },
-    "type": "weightAndReps",
-    "bodyPart": "chest"
   },
   {
     "names": {

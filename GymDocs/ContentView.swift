@@ -76,6 +76,13 @@ struct ContentView: View {
         .onAppear {
             if exercises.isEmpty {
                 Exercise.seedDefaultExercises(into: modelContext)
+            } else {
+                // Cleanup bad data (body parts saved as exercises)
+                let badNames = ["가슴", "등", "하체", "어깨", "이두", "삼두", "전완근", "코어/복근", "코어", "복근", "유산소", "전신", "스트레칭", "기타", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps", "Forearms", "Core/Abs", "Cardio", "Full Body", "Stretching", "Other", "Core", "胸", "背中", "脚", "肩", "上腕二頭筋", "上腕三頭筋", "前腕", "腹筋/体幹", "有酸素", "全身", "ストレッチ", "その他"]
+                let badExercises = exercises.filter { badNames.contains($0.name) }
+                for ex in badExercises {
+                    modelContext.delete(ex)
+                }
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: .switchToHomeTab)) { _ in
