@@ -44,6 +44,7 @@ struct RoutineSingleExercisePickerView: View {
                                         Text(exercise.type.displayName).font(.caption).foregroundStyle(.tertiary)
                                     }
                                 }
+                                .buttonStyle(.hapticPress)
                             }
                         }
                     }
@@ -115,7 +116,7 @@ struct RoutineExercisePickerView: View {
                                         }
                                     }
                                 }
-                                .buttonStyle(.plain)
+                                .buttonStyle(.hapticPress)
                             }
                         }
                     }

@@ -101,6 +101,7 @@ struct AddWorkoutRecordView: View {
                                             .foregroundStyle(.blue)
                                     }
                                 }
+                                .buttonStyle(.hapticPress)
                             }
                         }
                     }

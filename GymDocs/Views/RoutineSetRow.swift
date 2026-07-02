@@ -33,7 +33,7 @@ struct RoutineSetRow: View {
                             .background(isCompleted ? Color(hex: "FFD52E") : Color.secondary.opacity(0.1))
                             .cornerRadius(8)
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(.hapticPress)
                     .sensoryFeedback(.success, trigger: isCompleted)
                 } else {
                     Text("\(rSet.order)")
@@ -93,6 +93,7 @@ struct RoutineSetRow: View {
                         .padding(.leading, 8)
                         .frame(width: 24, height: 24)
                 }
+                .buttonStyle(.hapticPress(dimBackground: false))
             }
             
             // ROM 슬라이더 (타입에 따라, 항상 표시)
@@ -123,3 +124,4 @@ struct RoutineSetRow: View {
 
 // MARK: - Exercise Picker (단일 교체)
 
+

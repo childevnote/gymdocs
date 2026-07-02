@@ -200,8 +200,8 @@ struct SettingsView: View {
     }
 
     private func exportCSV() {
-        if let urls = CSVExporter.generateCSVURLs(routines: routines, records: records) {
-            exportURLs = urls
+        if let url = ExcelExporter.generateExcelXML(routines: routines, records: records) {
+            exportURLs = [url]
             showExportShare = true
         } else {
             importMessage = String(localized: "settings.noDataToExport", defaultValue: "내보낼 데이터가 없습니다.")

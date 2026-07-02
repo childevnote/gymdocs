@@ -20,6 +20,10 @@ import UIKit
     @State private var showFinishAlert = false
     @State private var showSyncRoutineAlert = false
     
+    // Summary
+    @State private var showSummary = false
+    @State private var summaryRecords: [WorkoutRecord] = []
+    
     var timerManager = RestTimerManager.shared
     
     // "다른 루틴이 활성화 중" 경고
@@ -238,6 +242,12 @@ import UIKit
         } message: {
             Text("수정된 세트 값(무게, 횟수, 가동범위 등)을 루틴 기본값에 반영하시겠습니까?")
         }
+        .fullScreenCover(isPresented: $showSummary, onDismiss: {
+            NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
+            dismiss()
+        }) {
+            WorkoutSummaryView(records: summaryRecords)
+        }
     }
     
     private func finishAndAskSync() {
@@ -262,6 +272,7 @@ import UIKit
     /// 실제 WorkoutRecord를 저장하고 세션 종료
     private func commitWorkout(syncRoutine: Bool) {
         let today = Date()
+        var newRecords: [WorkoutRecord] = []
         
         for rExercise in sortedExercises {
             guard let exercise = rExercise.exercise else { continue }
@@ -285,6 +296,7 @@ import UIKit
                 modelContext.insert(setRecord)
             }
             record.updateStats() // 추가: DB 반영
+            newRecords.append(record)
             
             // 루틴에 반영: 완료된 첫 번째 세트 기준으로 루틴 세트들 값 업데이트
             if syncRoutine {
@@ -305,8 +317,13 @@ import UIKit
         session.end()
         completedSets = []
         
-        NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
-        dismiss()
+        if !newRecords.isEmpty {
+            self.summaryRecords = newRecords
+            self.showSummary = true
+        } else {
+            NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
+            dismiss()
+        }
     }
 }
 
