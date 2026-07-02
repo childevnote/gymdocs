@@ -15,6 +15,8 @@ struct HomeView: View {
     @State private var weekOffset: Int = 0
     @State private var showUpdateRoutineAlert = false
     @State private var routinesToUpdate: [Routine] = []
+    
+    @State private var routineToNavigate: Routine?
 
     private var weekDays: [Date] {
         let calendar = Calendar.current
@@ -246,6 +248,15 @@ struct HomeView: View {
             }
             .navigationDestination(item: $recordToNavigate) { record in
                 WorkoutDetailView(record: record, isLocked: isFinished)
+            }
+            .navigationDestination(item: $routineToNavigate) { routine in
+                RoutineDetailView(routine: routine)
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .startWorkoutWithRoutine)) { notification in
+                if let routineId = notification.object as? UUID,
+                   let matched = routines.first(where: { $0.id == routineId }) {
+                    routineToNavigate = matched
+                }
             }
             .alert(String(localized: "routines.addTitle", defaultValue: "루틴 추가"), isPresented: $showAddRoutineAlert) {
                 TextField(String(localized: "routines.namePlaceholder", defaultValue: "루틴 이름"), text: $newRoutineName)

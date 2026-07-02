@@ -5,6 +5,7 @@ import SwiftData
 
 extension Notification.Name {
     static let switchToHomeTab = Notification.Name("switchToHomeTab")
+    static let startWorkoutWithRoutine = Notification.Name("startWorkoutWithRoutine")
 }
 
 // MARK: - Color Hex Extension
@@ -26,11 +27,15 @@ extension Color {
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var exercises: [Exercise]
+    @Query private var routines: [Routine]
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("appColorScheme") private var appColorScheme = 0 // 0=System 1=Light 2=Dark
     @AppStorage("appLanguage")    private var appLanguage    = 0 // 0=System 1=EN 2=KO 3=JA
     @State private var selectedTab = 0
+    @State private var previousTab = 0
     @State private var showLanguageRestartAlert = false
+    @State private var showStartRoutineSheet = false
+    @State private var session = ActiveRoutineSession.shared
 
     private var colorScheme: ColorScheme? {
         switch appColorScheme {
@@ -50,8 +55,9 @@ struct ContentView: View {
     }
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            HomeView()
+        ZStack {
+            TabView(selection: $selectedTab) {
+                HomeView()
                 .tabItem { Label(String(localized: "tab.home", defaultValue: "홈"), systemImage: "house.fill") }
                 .tag(0)
 
@@ -74,6 +80,38 @@ struct ContentView: View {
             SettingsView()
                 .tabItem { Label(String(localized: "tab.settings", defaultValue: "설정"), systemImage: "gearshape.fill") }
                 .tag(5)
+            }
+            
+            if session.isActive && !session.isViewingActiveRoutine {
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button {
+                            if let id = session.activeRoutineID {
+                                selectedTab = 0
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    NotificationCenter.default.post(name: .startWorkoutWithRoutine, object: id)
+                                }
+                            }
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "figure.run")
+                                Text(String(localized: "home.activeWorkout", defaultValue: "진행 중인 운동"))
+                            }
+                            .font(.headline)
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 20)
+                            .background(Color.blue)
+                            .foregroundStyle(.white)
+                            .clipShape(Capsule())
+                            .shadow(radius: 4, y: 2)
+                        }
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 64)
+                    }
+                }
+            }
         }
         .tint(.primary)
         .preferredColorScheme(colorScheme)
@@ -90,6 +128,15 @@ struct ContentView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: .switchToHomeTab)) { _ in
             selectedTab = 0
+        }
+        .onChange(of: selectedTab) { old, new in
+            if new == 2 {
+                // Intercept "Start" tab
+                selectedTab = old
+                showStartRoutineSheet = true
+            } else {
+                previousTab = new
+            }
         }
         .onChange(of: appLanguage) { _, newValue in
             // AppleLanguages에 저장해두면 다음 실행 시 해당 언어 번들이 자동 로드됨
@@ -110,6 +157,17 @@ struct ContentView: View {
             Button("확인", role: .cancel) { }
         } message: {
             Text("언어 변경이 저장되었습니다.\n앱을 완전히 종료 후 다시 실행하면 선택한 언어로 표시됩니다.")
+        }
+        .sheet(isPresented: $showStartRoutineSheet) {
+            StartRoutineSelectionView(routines: routines, isPresented: $showStartRoutineSheet) { selectedRoutine in
+                showStartRoutineSheet = false
+                selectedTab = 0 // Switch to Home tab first
+                ActiveRoutineSession.shared.start(routineID: selectedRoutine.id)
+                // Slight delay to allow tab switch to settle
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    NotificationCenter.default.post(name: .startWorkoutWithRoutine, object: selectedRoutine.id)
+                }
+            }
         }
     }
 

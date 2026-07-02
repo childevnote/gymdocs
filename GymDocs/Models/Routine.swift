@@ -5,19 +5,32 @@ import SwiftData
 @Observable
 final class ActiveRoutineSession {
     static let shared = ActiveRoutineSession()
-    private init() {}
-    
     /// 현재 진행 중인 루틴 ID (nil이면 비활성)
     var activeRoutineID: UUID? = nil
+    
+    /// 현재 유저가 활성화된 루틴 화면을 보고 있는지 여부
+    var isViewingActiveRoutine: Bool = false
+    
+    private let storageKey = "ActiveRoutineSession_activeRoutineID"
+    
+    private init() {
+        if let uuidString = UserDefaults.standard.string(forKey: storageKey),
+           let id = UUID(uuidString: uuidString) {
+            activeRoutineID = id
+        }
+    }
     
     var isActive: Bool { activeRoutineID != nil }
     
     func start(routineID: UUID) {
         activeRoutineID = routineID
+        UserDefaults.standard.set(routineID.uuidString, forKey: storageKey)
     }
     
     func end() {
         activeRoutineID = nil
+        isViewingActiveRoutine = false
+        UserDefaults.standard.removeObject(forKey: storageKey)
     }
     
     func isCurrentRoutine(_ routineID: UUID) -> Bool {
