@@ -55,6 +55,7 @@ struct RoutineListView: View {
                     }
                 }
             }
+            .listStyle(.plain)
             .navigationTitle(String(localized: "routines.title", defaultValue: "내 루틴"))
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -88,4 +89,3 @@ struct RoutineListView: View {
             }
         }
     }
-}

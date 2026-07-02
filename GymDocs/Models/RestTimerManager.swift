@@ -46,7 +46,9 @@ final class RestTimerManager {
         UserDefaults.standard.set(startDate, forKey: startDateKey)
         UserDefaults.standard.set(setId.uuidString, forKey: activeSetIdKey)
         
-        startLiveActivity(startDate: startDate)
+        if let st = startDate {
+            startLiveActivity(startDate: st)
+        }
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self, let start = self.startDate else { return }

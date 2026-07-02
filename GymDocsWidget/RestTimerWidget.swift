@@ -9,12 +9,6 @@ import ActivityKit
 // 2. 추가된 위젯 타겟에 이 `RestTimerWidget.swift` 파일과 `RestTimerAttributes.swift` 파일이 포함되도록 Target Membership을 체크하세요.
 // 3. 메인 앱 타겟의 Info.plist에 `NSSupportsLiveActivities` 키를 추가하고 값을 `YES`로 설정하세요.
 
-@main
-struct GymDocsWidgetBundle: WidgetBundle {
-    var body: some Widget {
-        RestTimerWidget()
-    }
-}
 
 struct RestTimerWidget: Widget {
     var body: some WidgetConfiguration {

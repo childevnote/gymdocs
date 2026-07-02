@@ -3,14 +3,18 @@ import SwiftData
 
 struct RoutineExerciseSection: View {
     @Environment(\.modelContext) private var modelContext
-    let rExercise: RoutineExercise
+    @Bindable var rExercise: RoutineExercise
     let routine: Routine
     let isWorkoutActive: Bool
     @Binding var completedSets: Set<UUID>
     let onReplace: () -> Void
     
+    
+    @State private var refreshTrigger = false
+    
     var sortedSets: [RoutineSet] {
-        rExercise.sets.sorted { $0.order < $1.order }
+        _ = refreshTrigger
+        return rExercise.sets.sorted { $0.order < $1.order }
     }
     
     var body: some View {
@@ -82,13 +86,20 @@ struct RoutineExerciseSection: View {
                         isWorkoutActive: isWorkoutActive,
                         completedSets: $completedSets,
                         onDelete: {
-                            modelContext.delete(rSet)
-                            reorderSets()
+                            withAnimation {
+                                if let idx = rExercise.sets.firstIndex(where: { $0.id == rSet.id }) {
+                                    rExercise.sets.remove(at: idx)
+                                }
+                                modelContext.delete(rSet)
+                                reorderSets()
+                                try? modelContext.save()
+                                refreshTrigger.toggle()
+                            }
                         },
                         isLastSet: rSet == sortedSets.last
                     )
                     
-                    if rSet.restTimeAfterSet > 0 && rSet != sortedSets.last {
+                    if isWorkoutActive && rSet.restTimeAfterSet > 0 && rSet != sortedSets.last {
                         HStack {
                             Spacer()
                             Image(systemName: "timer")
@@ -104,31 +115,42 @@ struct RoutineExerciseSection: View {
         }
         .padding(.vertical, 16)
         .padding(.horizontal, 16)
-        .background(RoundedRectangle(cornerRadius: 16).fill(Color(.secondarySystemGroupedBackground)))
+        .background(Color(.secondarySystemGroupedBackground))
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)
-        .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+        .listRowInsets(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
     }
     
     private func addSet() {
-        let newOrder = (sortedSets.last?.order ?? 0) + 1
-        let newSet = RoutineSet(order: newOrder)
-        if let lastSet = sortedSets.last {
-            newSet.weight = lastSet.weight
-            newSet.reps = lastSet.reps
-            newSet.timeDuration = lastSet.timeDuration
-            newSet.rangeOfMotion = lastSet.rangeOfMotion
+        withAnimation {
+            let newOrder = (sortedSets.last?.order ?? 0) + 1
+            let newSet = RoutineSet(order: newOrder)
+            if let lastSet = sortedSets.last {
+                newSet.weight = lastSet.weight
+                newSet.reps = lastSet.reps
+                newSet.timeDuration = lastSet.timeDuration
+                newSet.rangeOfMotion = lastSet.rangeOfMotion
+            }
+            rExercise.sets.append(newSet)
+            modelContext.insert(newSet)
+            newSet.routineExercise = rExercise
+            try? modelContext.save()
+            refreshTrigger.toggle()
         }
-        rExercise.sets.append(newSet)
-        modelContext.insert(newSet)
-        newSet.routineExercise = rExercise
     }
     
     private func removeLastSet() {
-        guard let lastSet = sortedSets.last else { return }
-        completedSets.remove(lastSet.id)
-        modelContext.delete(lastSet)
-        reorderSets()
+        withAnimation {
+            guard let lastSet = sortedSets.last else { return }
+            completedSets.remove(lastSet.id)
+            if let idx = rExercise.sets.firstIndex(where: { $0.id == lastSet.id }) {
+                rExercise.sets.remove(at: idx)
+            }
+            modelContext.delete(lastSet)
+            reorderSets()
+            try? modelContext.save()
+            refreshTrigger.toggle()
+        }
     }
     
     private func reorderSets() {
@@ -147,4 +169,4 @@ struct RoutineExerciseSection: View {
 }
 
 // MARK: - Set Row
-
+

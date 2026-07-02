@@ -3,7 +3,8 @@ import SwiftData
 import UIKit
 
 // MARK: - ROM Slider View
-struct RoutineDetailView: View {
+
+struct RoutineDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     var session = ActiveRoutineSession.shared
@@ -18,6 +19,7 @@ import UIKit
     
     // Finish-related
     @State private var showFinishAlert = false
+    @State private var showEmptyWorkoutAlert = false
     @State private var showSyncRoutineAlert = false
     
     // Summary
@@ -183,7 +185,13 @@ import UIKit
                             .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 5)
                         } else {
                             // 운동 완료 버튼
-                            Button { showFinishAlert = true } label: {
+                            Button { 
+                                if completedSets.isEmpty {
+                                    showEmptyWorkoutAlert = true
+                                } else {
+                                    showFinishAlert = true 
+                                }
+                            } label: {
                                 Text(String(localized: "routines.finishWorkout", defaultValue: "이 루틴 운동 완료 🏁"))
                                     .font(.headline)
                                     .foregroundStyle(.black)
@@ -219,6 +227,14 @@ import UIKit
             Button("확인", role: .cancel) { }
         } message: {
             Text("현재 진행 중인 루틴이 있습니다. 먼저 완료 후 다른 루틴을 시작할 수 있습니다.")
+        }
+        .alert("완료된 세트 없음", isPresented: $showEmptyWorkoutAlert) {
+            Button("종료하기", role: .destructive) {
+                commitWorkout(syncRoutine: false)
+            }
+            Button("계속 운동하기", role: .cancel) { }
+        } message: {
+            Text("완료(체크)된 세트가 1개도 없습니다.\n기록을 저장하지 않고 운동을 종료하시겠습니까?")
         }
         // 운동 완료 확인
         .alert("운동 완료", isPresented: $showFinishAlert) {
@@ -328,4 +344,4 @@ import UIKit
 }
 
 // MARK: - Exercise Section
-
+

@@ -175,6 +175,7 @@ struct WorkoutSummaryView: View {
             self.shareImage = uiImage
             self.showShareSheet = true
         }
+    }
     
     private func getEncouragingMessage() -> String {
         let messages = [

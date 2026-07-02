@@ -96,8 +96,8 @@ struct RoutineSetRow: View {
                 .buttonStyle(.hapticPress(dimBackground: false))
             }
             
-            // ROM 슬라이더 (타입에 따라, 항상 표시)
-            if type != .timeOnly {
+            // ROM 슬라이더 (타입에 따라, 운동 중에만 표시)
+            if isWorkoutActive && type != .timeOnly {
                 ROMSliderView(value: $rSet.rangeOfMotion, disabled: false)
                     .padding(.top, 4)
             }
@@ -123,5 +123,6 @@ struct RoutineSetRow: View {
 }
 
 // MARK: - Exercise Picker (단일 교체)
-
+
+
 

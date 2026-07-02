@@ -111,17 +111,11 @@ struct AnalysisView: View {
                             y: .value("Intensity", data.intensity)
                         )
                         .foregroundStyle(.orange)
-                        .symbol(Square())
+                        .symbol(BasicChartSymbolShape.square)
                     }
                 }
                 .chartXAxis {
-                    AxisMarks(values: .stride(by: .weekOfYear)) { value in
-                        if let date = value.as(Date.self) {
-                            let formatter = DateFormatter()
-                            formatter.dateFormat = "M/d"
-                            AxisValueLabel(formatter.string(from: date))
-                        }
-                    }
+                    AxisMarks(format: .dateTime.month().day())
                 }
                 .frame(height: 200)
                 .padding(.top, 8)

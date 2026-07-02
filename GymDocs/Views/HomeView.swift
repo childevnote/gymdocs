@@ -148,10 +148,10 @@ struct HomeView: View {
     
     private func setText(for setRecord: SetRecord, exerciseType: ExerciseType) -> String {
         switch exerciseType {
-        case .weightAndReps, .assistedBodyweight:
+        case .weightAndReps, .assistedWeightAndReps:
             let weightStr = setRecord.weight.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", setRecord.weight) : String(format: "%.1f", setRecord.weight)
             return "\(setRecord.order)세트: \(weightStr)kg × \(setRecord.reps)회"
-        case .bodyweightReps:
+        case .repsOnly:
             return "\(setRecord.order)세트: \(setRecord.reps)회"
         case .timeOnly:
             return "\(setRecord.order)세트: \(setRecord.timeDuration)초"

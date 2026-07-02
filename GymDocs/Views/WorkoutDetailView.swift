@@ -89,6 +89,7 @@ struct WorkoutDetailView: View {
                     Image(systemName: "checkmark")
                         .bold()
                 }
+            }
         }
         .safeAreaInset(edge: .bottom) {
             if !isLocked && timerManager.isRunning {
@@ -246,4 +247,3 @@ struct SetRecordRow: View {
         .onChange(of: setRecord.rangeOfMotion) { _, _ in setRecord.workoutRecord?.updateStats() }
     }
 }
-
