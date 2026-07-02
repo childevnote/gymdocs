@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import UIKit
 
 struct WorkoutSummaryView: View {
     @Environment(\.dismiss) private var dismiss
@@ -155,7 +156,7 @@ struct WorkoutSummaryView: View {
             .padding(.horizontal, 24)
             .padding(.bottom, 16)
         }
-        .background(Color(.systemGroupedBackground).ignoresSafeArea())
+        .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
         .sheet(isPresented: $showShareSheet) {
             if let img = shareImage {
                 ShareSheet(activityItems: [img])
