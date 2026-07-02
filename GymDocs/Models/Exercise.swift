@@ -1,29 +1,83 @@
 import Foundation
 import SwiftData
 
+// MARK: - Language Helper
+
+/// 시스템 언어를 ko/ja/en 중 하나로 정규화 (앱 전역 공통 사용)
+var preferredLanguageCode: String {
+    let id = Locale.current.language.languageCode?.identifier ?? "en"
+    if id.hasPrefix("ko") { return "ko" }
+    if id.hasPrefix("ja") { return "ja" }
+    return "en"
+}
+
+// MARK: - BodyPart
+
 enum BodyPart: String, Codable, CaseIterable {
     case chest, back, legs, shoulders, biceps, triceps, forearms, core, cardio, fullBody, stretching, other
 
     var displayName: String {
-        let lang = Locale.current.language.languageCode?.identifier ?? "en"
-        let baseLang = lang.hasPrefix("ko") ? "ko" : (lang.hasPrefix("ja") ? "ja" : "en")
-        
-        switch self {
-        case .chest: return baseLang == "ko" ? "가슴" : (baseLang == "ja" ? "胸" : "Chest")
-        case .back: return baseLang == "ko" ? "등" : (baseLang == "ja" ? "背中" : "Back")
-        case .legs: return baseLang == "ko" ? "하체" : (baseLang == "ja" ? "脚" : "Legs")
-        case .shoulders: return baseLang == "ko" ? "어깨" : (baseLang == "ja" ? "肩" : "Shoulders")
-        case .biceps: return baseLang == "ko" ? "이두" : (baseLang == "ja" ? "上腕二頭筋" : "Biceps")
-        case .triceps: return baseLang == "ko" ? "삼두" : (baseLang == "ja" ? "上腕三頭筋" : "Triceps")
-        case .forearms: return baseLang == "ko" ? "전완근" : (baseLang == "ja" ? "前腕" : "Forearms")
-        case .core: return baseLang == "ko" ? "코어/복근" : (baseLang == "ja" ? "腹筋/体幹" : "Core/Abs")
-        case .cardio: return baseLang == "ko" ? "유산소" : (baseLang == "ja" ? "有酸素" : "Cardio")
-        case .fullBody: return baseLang == "ko" ? "전신" : (baseLang == "ja" ? "全身" : "Full Body")
-        case .stretching: return baseLang == "ko" ? "스트레칭" : (baseLang == "ja" ? "ストレッチ" : "Stretching")
-        case .other: return baseLang == "ko" ? "기타" : (baseLang == "ja" ? "その他" : "Other")
+        // 각 케이스별 ko/ja/en 이름 테이블
+        switch (self, preferredLanguageCode) {
+        case (.chest,      "ko"): return "가슴"
+        case (.chest,      "ja"): return "胸"
+        case (.chest,        _): return "Chest"
+        case (.back,       "ko"): return "등"
+        case (.back,       "ja"): return "背中"
+        case (.back,         _): return "Back"
+        case (.legs,       "ko"): return "하체"
+        case (.legs,       "ja"): return "脚"
+        case (.legs,         _): return "Legs"
+        case (.shoulders,  "ko"): return "어깨"
+        case (.shoulders,  "ja"): return "肩"
+        case (.shoulders,    _): return "Shoulders"
+        case (.biceps,     "ko"): return "이두"
+        case (.biceps,     "ja"): return "上腕二頭筋"
+        case (.biceps,       _): return "Biceps"
+        case (.triceps,    "ko"): return "삼두"
+        case (.triceps,    "ja"): return "上腕三頭筋"
+        case (.triceps,      _): return "Triceps"
+        case (.forearms,   "ko"): return "전완근"
+        case (.forearms,   "ja"): return "前腕"
+        case (.forearms,     _): return "Forearms"
+        case (.core,       "ko"): return "코어/복근"
+        case (.core,       "ja"): return "腹筋/体幹"
+        case (.core,         _): return "Core/Abs"
+        case (.cardio,     "ko"): return "유산소"
+        case (.cardio,     "ja"): return "有酸素"
+        case (.cardio,       _): return "Cardio"
+        case (.fullBody,   "ko"): return "전신"
+        case (.fullBody,   "ja"): return "全身"
+        case (.fullBody,     _): return "Full Body"
+        case (.stretching, "ko"): return "스트레칭"
+        case (.stretching, "ja"): return "ストレッチ"
+        case (.stretching,   _): return "Stretching"
+        case (.other,      "ko"): return "기타"
+        case (.other,      "ja"): return "その他"
+        case (.other,        _): return "Other"
         }
     }
 }
+
+// MARK: - ExerciseType
+
+enum ExerciseType: String, Codable, CaseIterable {
+    case weightAndReps
+    case assistedWeightAndReps
+    case repsOnly
+    case timeOnly
+
+    var displayName: String {
+        switch self {
+        case .weightAndReps:         return String(localized: "exerciseType.weightAndReps")
+        case .assistedWeightAndReps: return String(localized: "exerciseType.assistedWeightAndReps")
+        case .repsOnly:              return String(localized: "exerciseType.repsOnly")
+        case .timeOnly:              return String(localized: "exerciseType.timeOnly")
+        }
+    }
+}
+
+// MARK: - Exercise Model
 
 @Model
 final class Exercise {
@@ -50,45 +104,25 @@ final class Exercise {
     }
 }
 
-enum ExerciseType: String, Codable, CaseIterable {
-    case weightAndReps
-    case assistedWeightAndReps
-    case repsOnly
-    case timeOnly
-
-    var displayName: String {
-        switch self {
-        case .weightAndReps:
-            return String(localized: "exerciseType.weightAndReps")
-        case .assistedWeightAndReps:
-            return String(localized: "exerciseType.assistedWeightAndReps")
-        case .repsOnly:
-            return String(localized: "exerciseType.repsOnly")
-        case .timeOnly:
-            return String(localized: "exerciseType.timeOnly")
-        }
-    }
-}
+// MARK: - Seed
 
 extension Exercise {
     static func seedDefaultExercises(into context: ModelContext) {
-        struct DefaultExerciseDTO: Codable {
+        struct DTO: Codable {
             let names: [String: String]
             let type: ExerciseType
             let bodyPart: BodyPart
         }
-        
+
         guard let url = Bundle.main.url(forResource: "default_exercises", withExtension: "json"),
               let data = try? Data(contentsOf: url),
-              let dtos = try? JSONDecoder().decode([DefaultExerciseDTO].self, from: data) else { return }
-        
-        let langCode = Locale.current.language.languageCode?.identifier ?? "en"
-        let baseLang = langCode.hasPrefix("ko") ? "ko" : (langCode.hasPrefix("ja") ? "ja" : "en")
-        
+              let dtos = try? JSONDecoder().decode([DTO].self, from: data)
+        else { return }
+
+        let lang = preferredLanguageCode
         for dto in dtos {
-            let name = dto.names[baseLang] ?? dto.names["en"] ?? "Unknown"
-            let exercise = Exercise(name: name, type: dto.type, bodyPart: dto.bodyPart)
-            context.insert(exercise)
+            let name = dto.names[lang] ?? dto.names["en"] ?? "Unknown"
+            context.insert(Exercise(name: name, type: dto.type, bodyPart: dto.bodyPart))
         }
     }
 }

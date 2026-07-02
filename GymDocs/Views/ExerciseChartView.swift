@@ -1,5 +1,4 @@
 import SwiftUI
-import SwiftData
 import Charts
 
 struct ChartEntry: Identifiable {
@@ -13,13 +12,14 @@ struct ExerciseChartView: View {
     let exercise: Exercise
 
     private var chartData: [ChartEntry] {
-        let sorted = exercise.records.sorted { $0.date < $1.date }
-        var entries: [ChartEntry] = []
-        for record in sorted {
-            entries.append(ChartEntry(date: record.date, value: record.totalVolume, series: String(localized: "chart.volume", defaultValue: "Volume")))
-            entries.append(ChartEntry(date: record.date, value: record.intensityScore, series: String(localized: "chart.intensity", defaultValue: "Intensity")))
-        }
-        return entries
+        exercise.records
+            .sorted { $0.date < $1.date }
+            .flatMap { record in [
+                ChartEntry(date: record.date, value: record.totalVolume,
+                           series: String(localized: "chart.volume", defaultValue: "Volume")),
+                ChartEntry(date: record.date, value: record.intensityScore,
+                           series: String(localized: "chart.intensity", defaultValue: "Intensity"))
+            ]}
     }
 
     private var sortedRecordsDesc: [WorkoutRecord] {

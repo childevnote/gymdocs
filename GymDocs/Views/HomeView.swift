@@ -32,9 +32,9 @@ struct HomeView: View {
     }
 
     private var recordsForSelectedDate: [WorkoutRecord] {
-        let calendar = Calendar.current
-        let startOfDay = calendar.startOfDay(for: selectedDate)
-        return allRecords.filter { calendar.startOfDay(for: $0.date) == startOfDay }
+        let cal = Calendar.current
+        let startOfDay = cal.startOfDay(for: selectedDate)
+        return allRecords.filter { cal.startOfDay(for: $0.date) == startOfDay }
     }
 
     private var currentSummary: DailySummary? {
@@ -78,9 +78,10 @@ struct HomeView: View {
             .buttonStyle(.plain)
             
             HStack {
+                let cal = Calendar.current
                 ForEach(weekDays, id: \.self) { day in
-                    let isSelected = Calendar.current.isDate(day, inSameDayAs: selectedDate)
-                    let hasRecords = allRecords.contains { Calendar.current.isDate($0.date, inSameDayAs: day) }
+                    let isSelected = cal.isDate(day, inSameDayAs: selectedDate)
+                    let hasRecords = allRecords.contains { cal.isDate($0.date, inSameDayAs: day) }
                     
                     Button { selectedDate = day } label: {
                         VStack(spacing: 8) {

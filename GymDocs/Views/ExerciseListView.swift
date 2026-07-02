@@ -79,11 +79,6 @@ struct ExerciseListView: View {
                                         .font(.body)
                                 }
                             }
-                            .onDelete { indexSet in
-                                for index in indexSet {
-                                    modelContext.delete(items[index])
-                                }
-                            }
                         }
                     }
                 }
