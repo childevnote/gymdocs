@@ -6,12 +6,32 @@ struct WorkoutDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Bindable var record: WorkoutRecord
     var isLocked: Bool = false
+    var timerManager = RestTimerManager.shared
 
     var body: some View {
         List {
             Section {
                 ForEach(record.sortedSets) { setRecord in
-                    SetRecordRow(setRecord: setRecord, exerciseType: record.exercise?.type ?? .weightAndReps, isLocked: isLocked)
+                    VStack(spacing: 4) {
+                        SetRecordRow(
+                            setRecord: setRecord,
+                            exerciseType: record.exercise?.type ?? .weightAndReps,
+                            isLocked: isLocked,
+                            isLastSet: setRecord == record.sortedSets.last
+                        )
+                        
+                        if setRecord.restTimeAfterSet > 0 && setRecord != record.sortedSets.last {
+                            HStack {
+                                Spacer()
+                                Image(systemName: "timer")
+                                Text(formatDuration(setRecord.restTimeAfterSet))
+                            }
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                            .padding(.vertical, 4)
+                            .padding(.horizontal, 12)
+                        }
+                    }
                 }
                 .onDelete { indexSet in
                     if isLocked { return }
@@ -62,6 +82,45 @@ struct WorkoutDetailView: View {
                     Image(systemName: "checkmark")
                         .bold()
                 }
+        }
+        .safeAreaInset(edge: .bottom) {
+            if !isLocked && timerManager.isRunning {
+                HStack {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("휴식 타이머")
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.8))
+                        Text(formatDuration(timerManager.elapsedSeconds))
+                            .font(.system(size: 34, weight: .bold, design: .monospaced))
+                            .foregroundStyle(.white)
+                    }
+                    Spacer()
+                    Button {
+                        if let activeId = timerManager.activeSetId,
+                           let s = record.sets.first(where: { $0.id == activeId }) {
+                            let elapsed = timerManager.stop()
+                            s.restTimeAfterSet = elapsed
+                        } else {
+                            _ = timerManager.stop()
+                        }
+                    } label: {
+                        Text("휴식 종료")
+                            .font(.headline)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 14)
+                            .background(Color.white)
+                            .foregroundStyle(.black)
+                            .clipShape(Capsule())
+                    }
+                    .buttonStyle(.hapticPress)
+                }
+                .padding(.horizontal, 24)
+                .padding(.vertical, 16)
+                .background(Color.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 24))
+                .padding(.horizontal)
+                .padding(.bottom, 8)
+                .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 5)
             }
         }
     }
@@ -72,6 +131,8 @@ struct SetRecordRow: View {
     @Bindable var setRecord: SetRecord
     let exerciseType: ExerciseType
     var isLocked: Bool = false
+    let isLastSet: Bool
+    
     var timerManager = RestTimerManager.shared
 
     private var isTimerActiveForThis: Bool {
@@ -88,7 +149,7 @@ struct SetRecordRow: View {
                 Spacer()
                 Button {
                     setRecord.isCompleted.toggle()
-                    if setRecord.isCompleted && !isTimerActiveForThis {
+                    if setRecord.isCompleted && !isTimerActiveForThis && !isLastSet {
                         timerManager.start(for: setRecord.id)
                     } else if !setRecord.isCompleted && isTimerActiveForThis {
                         let elapsed = timerManager.stop()
@@ -104,37 +165,6 @@ struct SetRecordRow: View {
                 .sensoryFeedback(.success, trigger: setRecord.isCompleted)
             }
 
-            // Timer row
-            HStack {
-                Button {
-                    timerManager.toggle(for: setRecord.id) { elapsed in
-                        setRecord.restTimeAfterSet = elapsed
-                    }
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: isTimerActiveForThis ? "stop.fill" : "timer")
-                            .font(.caption)
-                        if isTimerActiveForThis {
-                            Text(formatDuration(timerManager.elapsedSeconds))
-                                .font(.caption)
-                                .monospacedDigit()
-                        } else if setRecord.restTimeAfterSet > 0 {
-                            Text(String(localized: "detail.rest") + ": " + formatDuration(setRecord.restTimeAfterSet))
-                                .font(.caption)
-                        } else {
-                            Text(String(localized: "detail.startRest"))
-                                .font(.caption)
-                        }
-                    }
-                }
-                .buttonStyle(.bordered)
-                .controlSize(.small)
-                .tint(isTimerActiveForThis ? .red : .secondary)
-                .disabled(isLocked)
-                .sensoryFeedback(.impact(flexibility: .solid), trigger: isTimerActiveForThis)
-                Spacer()
-            }
-            
             // ROM Slider (full width)
             if exerciseType != .timeOnly {
                 ROMSliderView(value: $setRecord.rangeOfMotion, disabled: isLocked)

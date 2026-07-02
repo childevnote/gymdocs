@@ -87,10 +87,10 @@ struct HomeView: View {
                         VStack(spacing: 8) {
                             Text(day.formatted(.dateTime.weekday(.abbreviated)))
                                 .font(.caption)
-                                .foregroundStyle(isSelected ? .white : .secondary)
+                                .foregroundStyle(isSelected ? .black : .secondary)
                             Text("\(Calendar.current.component(.day, from: day))")
                                 .font(.callout).bold()
-                                .foregroundStyle(isSelected ? .white : .primary)
+                                .foregroundStyle(isSelected ? .black : .primary)
                             Circle()
                                 .fill(hasRecords ? (isSelected ? .white : Color(hex: "FFD52E")) : Color.clear)
                                 .frame(width: 4, height: 4)
@@ -100,9 +100,59 @@ struct HomeView: View {
                         .background(isSelected ? Color(hex: "FFD52E") : Color.clear)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(.hapticPress(dimBackground: false))
                 }
             }
+        }
+    }
+
+    private var selectedDateRecordsView: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            if recordsForSelectedDate.isEmpty {
+                Text(String(localized: "home.noRecords", defaultValue: "해당 날짜의 운동 기록이 없습니다."))
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.vertical, 20)
+            } else {
+                ForEach(recordsForSelectedDate) { record in
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(record.exercise?.localizedName ?? "알 수 없는 운동")
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+                        
+                        let completedSets = record.sets.filter { $0.isCompleted }.sorted { $0.order < $1.order }
+                        if completedSets.isEmpty {
+                            Text(String(localized: "home.noCompletedSets", defaultValue: "완료된 세트 없음"))
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            ForEach(completedSets) { setRecord in
+                                Text(setText(for: setRecord, exerciseType: record.exercise?.type ?? .weightAndReps))
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                    .padding(.bottom, 8)
+                }
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.secondarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+    
+    private func setText(for setRecord: SetRecord, exerciseType: ExerciseType) -> String {
+        switch exerciseType {
+        case .weightAndReps, .assistedBodyweight:
+            let weightStr = setRecord.weight.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", setRecord.weight) : String(format: "%.1f", setRecord.weight)
+            return "\(setRecord.order)세트: \(weightStr)kg × \(setRecord.reps)회"
+        case .bodyweightReps:
+            return "\(setRecord.order)세트: \(setRecord.reps)회"
+        case .timeOnly:
+            return "\(setRecord.order)세트: \(setRecord.timeDuration)초"
         }
     }
 
@@ -114,8 +164,14 @@ struct HomeView: View {
                 }
 
                 Section {
-                    weekDaysView
+                    VStack(spacing: 16) {
+                        weekDaysView
+                        selectedDateRecordsView
+                    }
                 }
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
 
                 Section {
                     if routines.isEmpty {
@@ -126,31 +182,29 @@ struct HomeView: View {
                             .listRowSeparator(.hidden)
                     } else {
                         ForEach(routines) { routine in
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 16)
-                                    .fill(Color(.secondarySystemGroupedBackground))
-                                
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text(routine.name)
-                                            .font(.headline)
-                                        Text(String(localized: "routines.exerciseCount", defaultValue: "\(routine.exercises.count)개 운동"))
-                                            .font(.caption)
-                                            .foregroundStyle(.secondary)
+                            NavigationLink(destination: RoutineDetailView(routine: routine)) {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color(.secondarySystemGroupedBackground))
+                                    
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text(routine.name)
+                                                .font(.headline)
+                                            Text(String(localized: "routines.exerciseCount", defaultValue: "\(routine.exercises.count)개 운동"))
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
+                                        }
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .font(.footnote.bold())
+                                            .foregroundStyle(.tertiary)
                                     }
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .font(.footnote.bold())
-                                        .foregroundStyle(.tertiary)
+                                    .padding(.vertical, 16)
+                                    .padding(.horizontal, 20)
                                 }
-                                .padding(.vertical, 16)
-                                .padding(.horizontal, 20)
-                                
-                                NavigationLink(destination: RoutineDetailView(routine: routine)) {
-                                    EmptyView()
-                                }
-                                .opacity(0)
                             }
+                            .buttonStyle(.hapticPress)
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))

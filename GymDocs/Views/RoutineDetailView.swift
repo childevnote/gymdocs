@@ -99,6 +99,8 @@ struct RoutineDetailView: View {
     @State private var showFinishAlert = false
     @State private var showSyncRoutineAlert = false
     
+    var timerManager = RestTimerManager.shared
+    
     // "다른 루틴이 활성화 중" 경고
     @State private var showOtherActiveAlert = false
     
@@ -200,26 +202,69 @@ struct RoutineDetailView: View {
                     } label: {
                         Text(String(localized: "routines.startWorkout", defaultValue: "이 루틴으로 운동 시작"))
                             .font(.headline)
+                            .foregroundStyle(.white)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
+                            .padding(.vertical, 16)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Color.blue)
+                    .buttonStyle(.hapticPress)
+                    .background(Color.blue)
                     .clipShape(Capsule())
                     .padding(.horizontal)
                     .padding(.bottom, 8)
                 } else {
-                    // 운동 완료 버튼
-                    Button { showFinishAlert = true } label: {
-                        Text(String(localized: "routines.finishWorkout", defaultValue: "이 루틴 운동 완료 🏁"))
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
+                    VStack(spacing: 8) {
+                        if timerManager.isRunning {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("휴식 타이머")
+                                        .font(.caption)
+                                        .foregroundStyle(.white.opacity(0.8))
+                                    Text(formatDuration(timerManager.elapsedSeconds))
+                                        .font(.system(size: 34, weight: .bold, design: .monospaced))
+                                        .foregroundStyle(.white)
+                                }
+                                Spacer()
+                                Button {
+                                    if let activeId = timerManager.activeSetId,
+                                       let ex = routine.exercises.first(where: { $0.sets.contains(where: { s in s.id == activeId }) }),
+                                       let rSet = ex.sets.first(where: { $0.id == activeId }) {
+                                        let elapsed = timerManager.stop()
+                                        rSet.restTimeAfterSet = elapsed
+                                    } else {
+                                        _ = timerManager.stop()
+                                    }
+                                } label: {
+                                    Text("휴식 종료")
+                                        .font(.headline)
+                                        .padding(.horizontal, 24)
+                                        .padding(.vertical, 14)
+                                        .background(Color.white)
+                                        .foregroundStyle(.black)
+                                        .clipShape(Capsule())
+                                }
+                                .buttonStyle(.hapticPress)
+                            }
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 16)
+                            .background(Color.blue)
+                            .clipShape(RoundedRectangle(cornerRadius: 24))
+                            .padding(.horizontal)
+                            .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 5)
+                        } else {
+                            // 운동 완료 버튼
+                            Button { showFinishAlert = true } label: {
+                                Text(String(localized: "routines.finishWorkout", defaultValue: "이 루틴 운동 완료 🏁"))
+                                    .font(.headline)
+                                    .foregroundStyle(.black)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 16)
+                            }
+                            .buttonStyle(.hapticPress)
+                            .background(Color(hex: "FFD52E"))
+                            .clipShape(Capsule())
+                            .padding(.horizontal)
+                        }
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Color(hex: "FFD52E"))
-                    .clipShape(Capsule())
-                    .padding(.horizontal)
                     .padding(.bottom, 8)
                 }
             }
@@ -402,7 +447,7 @@ struct RoutineExerciseSection: View {
             .padding(.horizontal, 4)
             
             // Sets
-            VStack(spacing: 12) {
+            VStack(spacing: 4) {
                 ForEach(sortedSets) { rSet in
                     RoutineSetRow(
                         rSet: rSet,
@@ -412,8 +457,21 @@ struct RoutineExerciseSection: View {
                         onDelete: {
                             modelContext.delete(rSet)
                             reorderSets()
-                        }
+                        },
+                        isLastSet: rSet == sortedSets.last
                     )
+                    
+                    if rSet.restTimeAfterSet > 0 && rSet != sortedSets.last {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "timer")
+                            Text(formatDuration(rSet.restTimeAfterSet))
+                        }
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 12)
+                    }
                 }
             }
         }
@@ -469,6 +527,7 @@ struct RoutineSetRow: View {
     let isWorkoutActive: Bool
     @Binding var completedSets: Set<UUID>
     let onDelete: () -> Void
+    let isLastSet: Bool
     
     var timerManager = RestTimerManager.shared
     
@@ -561,40 +620,9 @@ struct RoutineSetRow: View {
                 ROMSliderView(value: $rSet.rangeOfMotion, disabled: false)
                     .padding(.top, 4)
             }
-            
-            // 휴식 타이머 (운동 중에만)
-            if isWorkoutActive {
-                HStack {
-                    Button {
-                        timerManager.toggle(for: rSet.id) { elapsed in
-                            rSet.restTimeAfterSet = elapsed
-                        }
-                    } label: {
-                        HStack(spacing: 4) {
-                            Image(systemName: isTimerActiveForThis ? "stop.fill" : "timer")
-                                .font(.caption)
-                            if isTimerActiveForThis {
-                                Text(formatDuration(timerManager.elapsedSeconds))
-                                    .font(.caption).monospacedDigit()
-                            } else if rSet.restTimeAfterSet > 0 {
-                                Text(String(localized: "detail.rest", defaultValue: "휴식") + ": " + formatDuration(rSet.restTimeAfterSet))
-                                    .font(.caption)
-                            } else {
-                                Text(String(localized: "detail.startRest", defaultValue: "휴식 시작"))
-                                    .font(.caption)
-                            }
-                        }
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.small)
-                    .tint(isTimerActiveForThis ? .red : .secondary)
-                    .sensoryFeedback(.impact(flexibility: .solid), trigger: isTimerActiveForThis)
-                    Spacer()
-                }
-            }
         }
         .padding(.horizontal, 8)
-        .padding(.vertical, 6)
+        .padding(.vertical, 8)
     }
     
     private func toggleCompletion() {
@@ -606,7 +634,7 @@ struct RoutineSetRow: View {
             }
         } else {
             completedSets.insert(rSet.id)
-            if !isTimerActiveForThis {
+            if !isTimerActiveForThis && !isLastSet {
                 timerManager.start(for: rSet.id)
             }
         }

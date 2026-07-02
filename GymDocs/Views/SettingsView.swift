@@ -26,7 +26,7 @@ struct SettingsView: View {
                         Text(String(localized: "settings.theme.light", defaultValue: "라이트 모드")).tag(1)
                         Text(String(localized: "settings.theme.dark", defaultValue: "다크 모드")).tag(2)
                     } label: {
-                        SettingsLabel(title: String(localized: "settings.theme", defaultValue: "화면 모드"), systemImage: "moon.fill", color: .indigo)
+                        Label(String(localized: "settings.theme", defaultValue: "화면 모드"), systemImage: "moon")
                     }
                     .pickerStyle(.navigationLink)
                     Picker(selection: $appLanguage) {
@@ -35,7 +35,7 @@ struct SettingsView: View {
                         Text("한국어").tag(2)
                         Text("日本語").tag(3)
                     } label: {
-                        SettingsLabel(title: String(localized: "settings.language", defaultValue: "언어 설정"), systemImage: "globe", color: .cyan)
+                        Label(String(localized: "settings.language", defaultValue: "언어 설정"), systemImage: "globe")
                     }
                     .pickerStyle(.navigationLink)
                 } header: {
@@ -46,19 +46,19 @@ struct SettingsView: View {
                     Button {
                         exportData()
                     } label: {
-                        SettingsLabel(title: String(localized: "settings.export"), systemImage: "square.and.arrow.up", color: .blue)
+                        Label(String(localized: "settings.export", defaultValue: "데이터 내보내기"), systemImage: "square.and.arrow.up")
                     }
 
                     Button {
                         showImportPicker = true
                     } label: {
-                        SettingsLabel(title: String(localized: "settings.import"), systemImage: "square.and.arrow.down", color: .green)
+                        Label(String(localized: "settings.import", defaultValue: "데이터 가져오기"), systemImage: "square.and.arrow.down")
                     }
                     
                     Button {
                         exportCSV()
                     } label: {
-                        SettingsLabel(title: String(localized: "settings.exportCSV", defaultValue: "Excel(CSV)로 내보내기"), systemImage: "doc.text.magnifyingglass", color: .orange)
+                        Label(String(localized: "settings.exportCSV", defaultValue: "Excel(CSV)로 내보내기"), systemImage: "doc.text.magnifyingglass")
                     }
                 } header: {
                     Text(String(localized: "settings.backup"))
@@ -74,10 +74,11 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Button(role: .destructive) {
+                    Button {
                         showClearAlert = true
                     } label: {
-                        SettingsLabel(title: String(localized: "settings.clearAllData"), systemImage: "trash.fill", color: .red)
+                        Label(String(localized: "settings.clearAllData", defaultValue: "전체 데이터 초기화"), systemImage: "trash")
+                            .foregroundStyle(.primary)
                     }
                 }
             }
@@ -284,22 +285,4 @@ struct ShareSheet: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }
 
-struct SettingsLabel: View {
-    let title: String
-    let systemImage: String
-    let color: Color
-
-    var body: some View {
-        Label {
-            Text(title)
-                .foregroundStyle(.primary)
-        } icon: {
-            Image(systemName: systemImage)
-                .font(.body)
-                .foregroundStyle(.white)
-                .frame(width: 28, height: 28)
-                .background(color)
-                .cornerRadius(6)
-        }
-    }
-}
+// Removed SettingsLabel

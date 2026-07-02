@@ -45,6 +45,7 @@ struct AddWorkoutRecordView: View {
                         }
                         .buttonStyle(.bordered)
                         .tint(selectedBodyPart == nil ? Color(hex: "FFD52E") : .secondary)
+                        .foregroundStyle(.primary)
 
                         ForEach(BodyPart.allCases, id: \.self) { part in
                             Button {
@@ -56,6 +57,7 @@ struct AddWorkoutRecordView: View {
                             }
                             .buttonStyle(.bordered)
                             .tint(selectedBodyPart == part ? Color(hex: "FFD52E") : .secondary)
+                            .foregroundStyle(.primary)
                         }
                     }
                     .padding()

@@ -43,6 +43,7 @@ struct ExerciseListView: View {
                         }
                         .buttonStyle(.bordered)
                         .tint(selectedBodyPart == nil ? Color(hex: "FFD52E") : .secondary)
+                        .foregroundStyle(.primary)
 
                         ForEach(BodyPart.allCases, id: \.self) { part in
                             Button {
@@ -54,6 +55,7 @@ struct ExerciseListView: View {
                             }
                             .buttonStyle(.bordered)
                             .tint(selectedBodyPart == part ? Color(hex: "FFD52E") : .secondary)
+                            .foregroundStyle(.primary)
                         }
                     }
                     .padding()
@@ -78,6 +80,7 @@ struct ExerciseListView: View {
                                     Text(exercise.localizedName)
                                         .font(.body)
                                 }
+                                .buttonStyle(.hapticPress)
                             }
                         }
                     }

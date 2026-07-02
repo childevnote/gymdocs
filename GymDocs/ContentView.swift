@@ -59,15 +59,23 @@ struct ContentView: View {
                 .tabItem { Label(String(localized: "tab.routines", defaultValue: "루틴"), systemImage: "list.bullet.clipboard.fill") }
                 .tag(1)
 
+            Text("시작 화면")
+                .tabItem { Label(String(localized: "tab.start", defaultValue: "시작"), systemImage: "play.circle.fill") }
+                .tag(2)
+
             ExerciseListView()
                 .tabItem { Label(String(localized: "tab.exercises", defaultValue: "운동"), systemImage: "dumbbell.fill") }
-                .tag(2)
+                .tag(3)
+
+            AnalysisView()
+                .tabItem { Label(String(localized: "tab.analysis", defaultValue: "분석"), systemImage: "chart.bar.fill") }
+                .tag(4)
 
             SettingsView()
                 .tabItem { Label(String(localized: "tab.settings", defaultValue: "설정"), systemImage: "gearshape.fill") }
-                .tag(3)
+                .tag(5)
         }
-        .tint(Color(hex: "FFD52E"))
+        .tint(.primary)
         .preferredColorScheme(colorScheme)
         .environment(\.locale, appLocale)
         .fullScreenCover(isPresented: .init(get: { !hasCompletedOnboarding }, set: { _ in })) {

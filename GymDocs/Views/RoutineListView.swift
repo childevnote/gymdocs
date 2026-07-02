@@ -34,7 +34,7 @@ struct RoutineListView: View {
                                     Spacer()
                                     Label("진행 중", systemImage: "figure.run")
                                         .font(.caption2)
-                                        .foregroundStyle(.white)
+                                        .foregroundStyle(.black)
                                         .padding(.horizontal, 8)
                                         .padding(.vertical, 4)
                                         .background(Color(hex: "FFD52E"))
@@ -43,6 +43,7 @@ struct RoutineListView: View {
                             }
                             .padding(.vertical, 4)
                         }
+                        .buttonStyle(.hapticPress)
                     }
                     .onDelete { indexSet in
                         for index in indexSet {
