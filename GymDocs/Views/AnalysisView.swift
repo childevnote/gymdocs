@@ -53,26 +53,29 @@ struct AnalysisView: View {
             }
             .navigationTitle(String(localized: "tab.analysis", defaultValue: "분석"))
             .task(id: allRecords.count) {
-                calculateDerivedData()
+                await calculateDerivedData()
             }
         }
     }
     
-    private func calculateDerivedData() {
+    private func calculateDerivedData() async {
         // 1. Fatigue Calculation
-        fatigueResults = FatigueCalculator.calculate(records: allRecords, userWeight: userWeight)
+        fatigueResults = await FatigueCalculator.calculate(records: allRecords, userWeight: userWeight)
         
         // 2. Weekly Chart Data Calculation
         let calendar = Calendar.current
         var newWeeklyData: [Date: (volume: Double, intensity: Double)] = [:]
         let twelveWeeksAgo = calendar.date(byAdding: .weekOfYear, value: -12, to: Date()) ?? Date()
         
-        for record in allRecords where record.date >= twelveWeeksAgo {
+        // 데이터가 최신순(reverse)으로 정렬되어 있으므로 prefix(while:)을 사용해 O(N) 대신 O(K)로 최적화
+        let recentRecords = allRecords.prefix { $0.date >= twelveWeeksAgo }
+        for record in recentRecords {
             let comps = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: record.date)
             if let weekStart = calendar.date(from: comps) {
                 newWeeklyData[weekStart, default: (0, 0)].volume += record.totalVolume
                 newWeeklyData[weekStart, default: (0, 0)].intensity += record.intensityScore
             }
+            await Task.yield()
         }
         weeklyData = newWeeklyData
     }

@@ -36,6 +36,10 @@ struct WorkoutDetailView: View {
                         if !isLocked {
                             Button(role: .destructive) {
                                 modelContext.delete(setRecord)
+                                // 삭제 후 통계 업데이트 (약간의 딜레이를 줘서 삭제가 컨텍스트에 반영된 후 계산되도록 함)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    record.updateStats()
+                                }
                             } label: {
                                 Label(String(localized: "common.delete", defaultValue: "삭제"), systemImage: "trash")
                             }
@@ -53,6 +57,7 @@ struct WorkoutDetailView: View {
                         newSet.rangeOfMotion = lastSet.rangeOfMotion
                     }
                     modelContext.insert(newSet)
+                    record.updateStats()
                 } label: {
                     Label(String(localized: "detail.addSet"), systemImage: "plus.circle")
                 }
@@ -233,6 +238,12 @@ struct SetRecordRow: View {
         }
         .padding(.vertical, 8)
         .disabled(isLocked)
+        .onChange(of: setRecord.isCompleted) { _, _ in setRecord.workoutRecord?.updateStats() }
+        .onChange(of: setRecord.weight) { _, _ in setRecord.workoutRecord?.updateStats() }
+        .onChange(of: setRecord.reps) { _, _ in setRecord.workoutRecord?.updateStats() }
+        .onChange(of: setRecord.timeDuration) { _, _ in setRecord.workoutRecord?.updateStats() }
+        .onChange(of: setRecord.restTimeAfterSet) { _, _ in setRecord.workoutRecord?.updateStats() }
+        .onChange(of: setRecord.rangeOfMotion) { _, _ in setRecord.workoutRecord?.updateStats() }
     }
 }
 

@@ -77,8 +77,16 @@ struct ExerciseListView: View {
                         Section(header: Text(part.displayName)) {
                             ForEach(items) { exercise in
                                 NavigationLink(destination: ExerciseChartView(exercise: exercise)) {
-                                    Text(exercise.localizedName)
-                                        .font(.body)
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(exercise.localizedName)
+                                            .font(.body)
+                                        if !exercise.localizedDesc.isEmpty {
+                                            Text(exercise.localizedDesc)
+                                                .font(.caption2)
+                                                .foregroundStyle(.secondary)
+                                                .lineLimit(1)
+                                        }
+                                    }
                                 }
                                 .buttonStyle(.hapticPress)
                             }

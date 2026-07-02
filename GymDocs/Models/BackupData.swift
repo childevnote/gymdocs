@@ -46,6 +46,7 @@ struct RoutineExerciseDTO: Codable {
 
 struct ExerciseDTO: Codable {
     let id: UUID
+    let code: String?
     let name: String
     let type: ExerciseType
     let bodyPart: BodyPart
@@ -53,6 +54,7 @@ struct ExerciseDTO: Codable {
 
     init(from exercise: Exercise) {
         self.id = exercise.id
+        self.code = exercise.code
         self.name = exercise.name
         self.type = exercise.type
         self.bodyPart = exercise.bodyPart
@@ -60,12 +62,13 @@ struct ExerciseDTO: Codable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case id, name, type, bodyPart, createdAt
+        case id, code, name, type, bodyPart, createdAt
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)
+        code = try container.decodeIfPresent(String.self, forKey: .code)
         name = try container.decode(String.self, forKey: .name)
         type = try container.decode(ExerciseType.self, forKey: .type)
         bodyPart = try container.decodeIfPresent(BodyPart.self, forKey: .bodyPart) ?? .other

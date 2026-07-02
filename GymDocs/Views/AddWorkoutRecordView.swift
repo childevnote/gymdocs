@@ -86,9 +86,15 @@ struct AddWorkoutRecordView: View {
                                             Text(exercise.localizedName)
                                                 .font(.body)
                                                 .foregroundStyle(.primary)
+                                            if !exercise.localizedDesc.isEmpty {
+                                                Text(exercise.localizedDesc)
+                                                    .font(.caption2)
+                                                    .foregroundStyle(.secondary)
+                                                    .lineLimit(1)
+                                            }
                                             Text(exercise.type.displayName)
                                                 .font(.caption)
-                                                .foregroundStyle(.secondary)
+                                                .foregroundStyle(.tertiary)
                                         }
                                         Spacer()
                                         Image(systemName: "plus.circle")
@@ -119,6 +125,7 @@ struct AddWorkoutRecordView: View {
         // Add one initial set
         let firstSet = SetRecord(order: 1, workoutRecord: record)
         modelContext.insert(firstSet)
+        record.updateStats() // 추가: 초기 통계 반영
         searchText = ""
         dismiss()
         onRecordCreated?(record)

@@ -284,6 +284,7 @@ import UIKit
                 setRecord.isCompleted = true
                 modelContext.insert(setRecord)
             }
+            record.updateStats() // 추가: DB 반영
             
             // 루틴에 반영: 완료된 첫 번째 세트 기준으로 루틴 세트들 값 업데이트
             if syncRoutine {

@@ -15,24 +15,26 @@ final class WorkoutRecord {
         sets.sorted { $0.order < $1.order }
     }
 
-    // MARK: - Computed Stats
+    // MARK: - Denormalized Stats (반정규화)
+    var totalVolume: Double = 0.0
+    var intensityScore: Double = 0.0
 
-    /// Pure volume (uses userWeight for bodyweight/assisted exercises)
-    var totalVolume: Double {
-        guard let exercise else { return 0 }
+    /// 세트가 추가/삭제/수정될 때 호출하여 통계값을 DB에 반영합니다.
+    func updateStats() {
+        guard let exercise else {
+            totalVolume = 0
+            intensityScore = 0
+            return
+        }
         let completed = completedSets
-        guard !completed.isEmpty else { return 0 }
-        let userWeight = Self.userWeight
-        return Self.computeVolume(for: exercise, sets: completed, userWeight: userWeight)
-    }
-
-    /// Intensity score factoring in ROM multiplier and rest-time penalty/bonus per set
-    var intensityScore: Double {
-        guard let exercise else { return 0 }
-        let completed = completedSets
-        guard !completed.isEmpty else { return 0 }
-        let userWeight = Self.userWeight
-        return Self.computeIntensity(for: exercise, sets: completed, userWeight: userWeight)
+        guard !completed.isEmpty else {
+            totalVolume = 0
+            intensityScore = 0
+            return
+        }
+        let userW = Self.userWeight
+        totalVolume = Self.computeVolume(for: exercise, sets: completed, userWeight: userW)
+        intensityScore = Self.computeIntensity(for: exercise, sets: completed, userWeight: userW)
     }
 
     init(date: Date, exercise: Exercise) {

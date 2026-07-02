@@ -5,32 +5,51 @@ import Foundation
 struct ExerciseTranslator {
     static let shared = ExerciseTranslator()
 
-    private let translationMap: [String: [String: String]]
+    private let codeMap: [String: (names: [String: String], desc: [String: String])]
+    private let legacyMap: [String: [String: String]]
 
     private init() {
-        struct DTO: Codable { let names: [String: String] }
+        struct DTO: Codable { 
+            let code: String
+            let names: [String: String]
+            let desc: [String: String]
+        }
 
         guard let url = Bundle.main.url(forResource: "default_exercises", withExtension: "json"),
               let data = try? Data(contentsOf: url),
               let dtos = try? JSONDecoder().decode([DTO].self, from: data)
         else {
-            translationMap = [:]
+            codeMap = [:]
+            legacyMap = [:]
             return
         }
 
-        // 모든 언어별 이름을 키로 등록하여 어떤 언어 이름으로 조회해도 전체 맵 반환
-        var map: [String: [String: String]] = [:]
-        map.reserveCapacity(dtos.count * 3)
+        var cMap: [String: (names: [String: String], desc: [String: String])] = [:]
+        var lMap: [String: [String: String]] = [:]
+        
+        cMap.reserveCapacity(dtos.count)
         for dto in dtos {
+            cMap[dto.code] = (names: dto.names, desc: dto.desc)
             for name in dto.names.values {
-                map[name] = dto.names
+                lMap[name] = dto.names
             }
         }
-        translationMap = map
+        codeMap = cMap
+        legacyMap = lMap
     }
 
-    func localizedName(for name: String) -> String {
-        guard let names = translationMap[name] else { return name }
+    func localizedName(forCode code: String) -> String? {
+        guard let names = codeMap[code]?.names else { return nil }
+        return names[preferredLanguageCode] ?? names["en"]
+    }
+
+    func localizedDesc(forCode code: String) -> String? {
+        guard let desc = codeMap[code]?.desc else { return nil }
+        return desc[preferredLanguageCode] ?? desc["en"]
+    }
+
+    func localizedName(forLegacyName name: String) -> String {
+        guard let names = legacyMap[name] else { return name }
         return names[preferredLanguageCode] ?? names["en"] ?? name
     }
 

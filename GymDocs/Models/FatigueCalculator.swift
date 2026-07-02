@@ -9,16 +9,16 @@ struct FatigueResult: Identifiable {
 }
 
 struct FatigueCalculator {
-    static func calculate(records: [WorkoutRecord], userWeight: Double) -> [FatigueResult] {
+    static func calculate(records: [WorkoutRecord], userWeight: Double) async -> [FatigueResult] {
         let now = Date()
         let calendar = Calendar.current
         
         let twentyEightDaysAgo = calendar.date(byAdding: .day, value: -28, to: now) ?? now
         let fourDaysAgo = calendar.date(byAdding: .day, value: -4, to: now) ?? now
         
-        // Filter records
-        let recent28Records = records.filter { $0.date >= twentyEightDaysAgo }
-        let recent4Records = records.filter { $0.date >= fourDaysAgo }
+        // Filter records (records는 최신순 정렬되어 있으므로 prefix 사용)
+        let recent28Records = records.prefix { $0.date >= twentyEightDaysAgo }
+        let recent4Records = records.prefix { $0.date >= fourDaysAgo }
         
         var results: [FatigueResult] = []
         
@@ -32,6 +32,7 @@ struct FatigueCalculator {
             for record in recent28Records where record.exercise?.bodyPart == part {
                 let day = calendar.startOfDay(for: record.date)
                 dailyIntensities[day, default: 0] += record.intensityScore
+                await Task.yield()
             }
             let maxDaily = dailyIntensities.values.max() ?? 0
             let maxCapacity = max(base, maxDaily)
@@ -46,6 +47,7 @@ struct FatigueCalculator {
             for record in recent4Records where record.exercise?.bodyPart == part {
                 let day = calendar.startOfDay(for: record.date)
                 recentDailyIntensities[day, default: 0] += record.intensityScore
+                await Task.yield()
             }
             
             for (day, intensity) in recentDailyIntensities {

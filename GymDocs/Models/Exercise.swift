@@ -82,6 +82,7 @@ enum ExerciseType: String, Codable, CaseIterable {
 @Model
 final class Exercise {
     @Attribute(.unique) var id: UUID
+    var code: String?
     var name: String
     var type: ExerciseType
     var bodyPart: BodyPart
@@ -90,8 +91,9 @@ final class Exercise {
     @Relationship(deleteRule: .cascade, inverse: \WorkoutRecord.exercise)
     var records: [WorkoutRecord]
 
-    init(name: String, type: ExerciseType, bodyPart: BodyPart = .other) {
+    init(code: String? = nil, name: String, type: ExerciseType, bodyPart: BodyPart = .other) {
         self.id = UUID()
+        self.code = code
         self.name = name
         self.type = type
         self.bodyPart = bodyPart
@@ -100,7 +102,17 @@ final class Exercise {
     }
 
     var localizedName: String {
-        ExerciseTranslator.shared.localizedName(for: name)
+        if let code = code, let localized = ExerciseTranslator.shared.localizedName(forCode: code) {
+            return localized
+        }
+        return ExerciseTranslator.shared.localizedName(forLegacyName: name)
+    }
+
+    var localizedDesc: String {
+        if let code = code, let desc = ExerciseTranslator.shared.localizedDesc(forCode: code) {
+            return desc
+        }
+        return ""
     }
 }
 
@@ -109,7 +121,9 @@ final class Exercise {
 extension Exercise {
     static func seedDefaultExercises(into context: ModelContext) {
         struct DTO: Codable {
+            let code: String
             let names: [String: String]
+            let desc: [String: String]?
             let type: ExerciseType
             let bodyPart: BodyPart
         }
@@ -122,7 +136,7 @@ extension Exercise {
         let lang = preferredLanguageCode
         for dto in dtos {
             let name = dto.names[lang] ?? dto.names["en"] ?? "Unknown"
-            context.insert(Exercise(name: name, type: dto.type, bodyPart: dto.bodyPart))
+            context.insert(Exercise(code: dto.code, name: name, type: dto.type, bodyPart: dto.bodyPart))
         }
     }
 }

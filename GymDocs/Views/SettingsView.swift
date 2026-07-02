@@ -16,10 +16,44 @@ struct SettingsView: View {
     @State private var showClearAlert = false
     @AppStorage("appColorScheme") private var appColorScheme = 0 // 0: System, 1: Light, 2: Dark
     @AppStorage("appLanguage") private var appLanguage = 0 // 0: System, 1: EN, 2: KO, 3: JA
+    @AppStorage("userHeight") private var userHeight = 0.0
+    @AppStorage("userWeight") private var userWeight = 0.0
+    @State private var heightText = ""
+    @State private var weightText = ""
 
     var body: some View {
         NavigationStack {
             List {
+                Section {
+                    HStack {
+                        Label(String(localized: "settings.height", defaultValue: "키"), systemImage: "ruler")
+                        Spacer()
+                        TextField("cm", text: $heightText)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.trailing)
+                            .frame(width: 80)
+                            .onChange(of: heightText) {
+                                userHeight = Double(heightText) ?? userHeight
+                            }
+                        Text("cm")
+                            .foregroundStyle(.secondary)
+                    }
+                    HStack {
+                        Label(String(localized: "settings.weight", defaultValue: "몸무게"), systemImage: "scalemass")
+                        Spacer()
+                        TextField("kg", text: $weightText)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.trailing)
+                            .frame(width: 80)
+                            .onChange(of: weightText) {
+                                userWeight = Double(weightText) ?? userWeight
+                            }
+                        Text("kg")
+                            .foregroundStyle(.secondary)
+                    }
+                } header: {
+                    Text(String(localized: "settings.bodyInfo", defaultValue: "신체 정보"))
+                }
                 Section {
                     Picker(selection: $appColorScheme) {
                         Text(String(localized: "settings.theme.system", defaultValue: "시스템 설정")).tag(0)
@@ -83,6 +117,10 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle(String(localized: "settings.title"))
+            .onAppear {
+                if userHeight > 0 { heightText = String(format: "%g", userHeight) }
+                if userWeight > 0 { weightText = String(format: "%g", userWeight) }
+            }
             .sheet(isPresented: $showExportShare) {
                 if let urls = exportURLs {
                     ShareSheet(activityItems: urls)
@@ -203,7 +241,7 @@ struct SettingsView: View {
                 // Insert exercises
                 var exerciseMap: [UUID: Exercise] = [:]
                 for dto in backup.exercises {
-                    let exercise = Exercise(name: dto.name, type: dto.type, bodyPart: dto.bodyPart)
+                    let exercise = Exercise(code: dto.code, name: dto.name, type: dto.type, bodyPart: dto.bodyPart)
                     exercise.id = dto.id
                     exercise.createdAt = dto.createdAt
                     modelContext.insert(exercise)
@@ -234,6 +272,11 @@ struct SettingsView: View {
                         setRecord.isCompleted = dto.isCompleted
                         modelContext.insert(setRecord)
                     }
+                }
+                
+                // 모든 세트 삽입 완료 후 통계 일괄 계산
+                for record in recordMap.values {
+                    record.updateStats()
                 }
                 
                 // Insert routines

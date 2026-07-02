@@ -38,7 +38,10 @@ struct RoutineSingleExercisePickerView: View {
                                 } label: {
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(exercise.localizedName).font(.body).foregroundStyle(.primary)
-                                        Text(exercise.type.displayName).font(.caption).foregroundStyle(.secondary)
+                                        if !exercise.localizedDesc.isEmpty {
+                                            Text(exercise.localizedDesc).font(.caption2).foregroundStyle(.secondary).lineLimit(1)
+                                        }
+                                        Text(exercise.type.displayName).font(.caption).foregroundStyle(.tertiary)
                                     }
                                 }
                             }
@@ -99,7 +102,10 @@ struct RoutineExercisePickerView: View {
                                     HStack {
                                         VStack(alignment: .leading, spacing: 2) {
                                             Text(exercise.localizedName).font(.body).foregroundStyle(.primary)
-                                            Text(exercise.type.displayName).font(.caption).foregroundStyle(.secondary)
+                                            if !exercise.localizedDesc.isEmpty {
+                                                Text(exercise.localizedDesc).font(.caption2).foregroundStyle(.secondary).lineLimit(1)
+                                            }
+                                            Text(exercise.type.displayName).font(.caption).foregroundStyle(.tertiary)
                                         }
                                         Spacer()
                                         if selectedExercises.contains(exercise.id) {
