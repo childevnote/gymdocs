@@ -8,6 +8,10 @@ struct AnalysisView: View {
     
     @State private var displayLimit = 10
     
+    // Cached derived data for performance
+    @State private var weeklyData: [Date: (volume: Double, intensity: Double)] = [:]
+    @State private var fatigueResults: [FatigueResult] = []
+    
     var body: some View {
         NavigationStack {
             List {
@@ -48,28 +52,34 @@ struct AnalysisView: View {
                 }
             }
             .navigationTitle(String(localized: "tab.analysis", defaultValue: "분석"))
+            .task(id: allRecords.count) {
+                calculateDerivedData()
+            }
         }
+    }
+    
+    private func calculateDerivedData() {
+        // 1. Fatigue Calculation
+        fatigueResults = FatigueCalculator.calculate(records: allRecords, userWeight: userWeight)
+        
+        // 2. Weekly Chart Data Calculation
+        let calendar = Calendar.current
+        var newWeeklyData: [Date: (volume: Double, intensity: Double)] = [:]
+        let twelveWeeksAgo = calendar.date(byAdding: .weekOfYear, value: -12, to: Date()) ?? Date()
+        
+        for record in allRecords where record.date >= twelveWeeksAgo {
+            let comps = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: record.date)
+            if let weekStart = calendar.date(from: comps) {
+                newWeeklyData[weekStart, default: (0, 0)].volume += record.totalVolume
+                newWeeklyData[weekStart, default: (0, 0)].intensity += record.intensityScore
+            }
+        }
+        weeklyData = newWeeklyData
     }
     
     // MARK: - Weekly Chart
     
     private var weeklyChartView: some View {
-        // Group by week
-        let calendar = Calendar.current
-        var weeklyData: [Date: (volume: Double, intensity: Double)] = [:]
-        
-        // Take records from the past 12 weeks for the chart
-        let twelveWeeksAgo = calendar.date(byAdding: .weekOfYear, value: -12, to: Date()) ?? Date()
-        
-        for record in allRecords where record.date >= twelveWeeksAgo {
-            // Find the start of the week for this record
-            let comps = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: record.date)
-            if let weekStart = calendar.date(from: comps) {
-                weeklyData[weekStart, default: (0, 0)].volume += record.totalVolume
-                weeklyData[weekStart, default: (0, 0)].intensity += record.intensityScore
-            }
-        }
-        
         let sortedWeeks = weeklyData.keys.sorted()
         
         return VStack(alignment: .leading, spacing: 16) {
@@ -128,9 +138,7 @@ struct AnalysisView: View {
     
     // MARK: - Fatigue View
     
-    private var fatigueResults: [FatigueResult] {
-        FatigueCalculator.calculate(records: allRecords, userWeight: userWeight)
-    }
+    // MARK: - Fatigue View
     
     private var fatigueView: some View {
         ForEach(fatigueResults) { result in
