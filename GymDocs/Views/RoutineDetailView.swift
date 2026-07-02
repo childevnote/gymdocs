@@ -132,7 +132,7 @@ struct RoutineDetailView: View {
                     description: Text(String(localized: "routines.addExercisesPrompt", defaultValue: "운동 추가 버튼을 눌러 운동을 추가하세요."))
                 )
                 .listRowBackground(Color.clear)
-            } else {
+            }
                 ForEach(sortedExercises) { rExercise in
                     RoutineExerciseSection(
                         rExercise: rExercise,
@@ -145,7 +145,13 @@ struct RoutineDetailView: View {
                         }
                     )
                 }
-            }
+                .onMove { source, destination in
+                    var list = sortedExercises
+                    list.move(fromOffsets: source, toOffset: destination)
+                    for (index, ex) in list.enumerated() {
+                        ex.order = index
+                    }
+                }
             
             // 운동 추가 버튼 (비활성 상태에서만)
             if !isWorkoutActive {

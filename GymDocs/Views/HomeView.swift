@@ -208,10 +208,12 @@ struct HomeView: View {
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                        }
-                        .onDelete { indexSet in
-                            for index in indexSet {
-                                modelContext.delete(routines[index])
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    modelContext.delete(routine)
+                                } label: {
+                                    Label(String(localized: "common.delete", defaultValue: "삭제"), systemImage: "trash")
+                                }
                             }
                         }
                     }

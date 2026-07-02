@@ -45,9 +45,12 @@ struct RoutineListView: View {
                         }
                         .buttonStyle(.hapticPress)
                     }
-                    .onDelete { indexSet in
-                        for index in indexSet {
-                            modelContext.delete(routines[index])
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                modelContext.delete(routine)
+                            } label: {
+                                Label(String(localized: "common.delete", defaultValue: "삭제"), systemImage: "trash")
+                            }
                         }
                     }
                 }

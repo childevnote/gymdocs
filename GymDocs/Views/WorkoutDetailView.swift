@@ -32,12 +32,14 @@ struct WorkoutDetailView: View {
                             .padding(.horizontal, 12)
                         }
                     }
-                }
-                .onDelete { indexSet in
-                    if isLocked { return }
-                    let sorted = record.sortedSets
-                    for index in indexSet {
-                        modelContext.delete(sorted[index])
+                    .contextMenu {
+                        if !isLocked {
+                            Button(role: .destructive) {
+                                modelContext.delete(setRecord)
+                            } label: {
+                                Label(String(localized: "common.delete", defaultValue: "삭제"), systemImage: "trash")
+                            }
+                        }
                     }
                 }
 
