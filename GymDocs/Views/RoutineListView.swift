@@ -4,6 +4,7 @@ import SwiftData
 struct RoutineListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Routine.createdAt) private var routines: [Routine]
+    var session = ActiveRoutineSession.shared
     @State private var showAddAlert = false
     @State private var showLimitAlert = false
     @State private var newRoutineName = ""
@@ -21,12 +22,24 @@ struct RoutineListView: View {
                 } else {
                     ForEach(routines) { routine in
                         NavigationLink(destination: RoutineDetailView(routine: routine)) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(routine.name)
-                                    .font(.headline)
-                                Text(String(localized: "routines.exerciseCount", defaultValue: "\(routine.exercises.count)개 운동"))
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(routine.name)
+                                        .font(.headline)
+                                    Text(String(localized: "routines.exerciseCount", defaultValue: "\(routine.exercises.count)개 운동"))
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                                if session.isCurrentRoutine(routine.id) {
+                                    Spacer()
+                                    Label("진행 중", systemImage: "figure.run")
+                                        .font(.caption2)
+                                        .foregroundStyle(.white)
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 4)
+                                        .background(Color(hex: "FFD52E"))
+                                        .clipShape(Capsule())
+                                }
                             }
                             .padding(.vertical, 4)
                         }

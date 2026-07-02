@@ -1,6 +1,30 @@
 import Foundation
 import SwiftData
 
+/// 전역 루틴 운동 세션 상태 관리 (싱글톤)
+@Observable
+final class ActiveRoutineSession {
+    static let shared = ActiveRoutineSession()
+    private init() {}
+    
+    /// 현재 진행 중인 루틴 ID (nil이면 비활성)
+    var activeRoutineID: UUID? = nil
+    
+    var isActive: Bool { activeRoutineID != nil }
+    
+    func start(routineID: UUID) {
+        activeRoutineID = routineID
+    }
+    
+    func end() {
+        activeRoutineID = nil
+    }
+    
+    func isCurrentRoutine(_ routineID: UUID) -> Bool {
+        activeRoutineID == routineID
+    }
+}
+
 @Model
 final class Routine {
     @Attribute(.unique) var id: UUID

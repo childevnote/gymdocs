@@ -2,26 +2,45 @@ import Foundation
 import SwiftData
 
 enum RangeOfMotion: String, Codable, CaseIterable {
-    case full
-    case eccentric
-    case concentric
+    // allCases order = left to right on slider: normal, concentric, eccentric, full
     case normal
+    case concentric
+    case eccentric
+    case full
     
     var multiplier: Double {
         switch self {
-        case .full: return 1.15
-        case .eccentric: return 1.1
-        case .concentric: return 0.95
         case .normal: return 1.0
+        case .concentric: return 0.95
+        case .eccentric: return 1.1
+        case .full: return 1.15
         }
     }
     
     var displayName: String {
         switch self {
-        case .full: return String(localized: "rom.full", defaultValue: "전가동범위")
-        case .eccentric: return String(localized: "rom.eccentric", defaultValue: "네거티브(신장성)")
-        case .concentric: return String(localized: "rom.concentric", defaultValue: "포지티브(단축성)")
         case .normal: return String(localized: "rom.normal", defaultValue: "일반")
+        case .concentric: return String(localized: "rom.concentric", defaultValue: "수축")
+        case .eccentric: return String(localized: "rom.eccentric", defaultValue: "신장")
+        case .full: return String(localized: "rom.full", defaultValue: "전범위")
+        }
+    }
+    
+    var sliderIndex: Int {
+        switch self {
+        case .normal: return 0
+        case .concentric: return 1
+        case .eccentric: return 2
+        case .full: return 3
+        }
+    }
+    
+    static func fromSliderIndex(_ index: Int) -> RangeOfMotion {
+        switch index {
+        case 1: return .concentric
+        case 2: return .eccentric
+        case 3: return .full
+        default: return .normal
         }
     }
 }

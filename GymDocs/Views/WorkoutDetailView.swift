@@ -104,9 +104,8 @@ struct SetRecordRow: View {
                 .sensoryFeedback(.success, trigger: setRecord.isCompleted)
             }
 
-            // ROM and Timer (moved above inputs)
+            // Timer row
             HStack {
-                // Rest timer
                 Button {
                     timerManager.toggle(for: setRecord.id) { elapsed in
                         setRecord.restTimeAfterSet = elapsed
@@ -133,29 +132,12 @@ struct SetRecordRow: View {
                 .tint(isTimerActiveForThis ? .red : .secondary)
                 .disabled(isLocked)
                 .sensoryFeedback(.impact(flexibility: .solid), trigger: isTimerActiveForThis)
-
                 Spacer()
-
-                // ROM Radio pills
-                if exerciseType != .timeOnly {
-                    HStack(spacing: 6) {
-                        ForEach(RangeOfMotion.allCases, id: \.self) { rom in
-                            Button {
-                                setRecord.rangeOfMotion = rom
-                            } label: {
-                                Text(rom.displayName)
-                                    .font(.system(size: 11, weight: setRecord.rangeOfMotion == rom ? .bold : .regular))
-                                    .padding(.horizontal, 8)
-                                    .padding(.vertical, 6)
-                                    .background(setRecord.rangeOfMotion == rom ? Color(hex: "FFD52E") : Color.secondary.opacity(0.1))
-                                    .foregroundStyle(setRecord.rangeOfMotion == rom ? .white : .primary)
-                                    .clipShape(Capsule())
-                            }
-                            .buttonStyle(.plain)
-                            .disabled(isLocked)
-                        }
-                    }
-                }
+            }
+            
+            // ROM Slider (full width)
+            if exerciseType != .timeOnly {
+                ROMSliderView(value: $setRecord.rangeOfMotion, disabled: isLocked)
             }
 
             // Input fields based on exercise type (Bigger inputs with matching corners)

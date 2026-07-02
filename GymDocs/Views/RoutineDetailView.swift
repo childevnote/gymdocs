@@ -2,22 +2,123 @@ import SwiftUI
 import SwiftData
 import UIKit
 
+// MARK: - ROM Slider View
+
+struct ROMSliderView: View {
+    @Binding var value: RangeOfMotion
+    let disabled: Bool
+    
+    @State private var dragOffset: CGFloat = 0
+    @State private var isDragging = false
+    
+    private let cases = RangeOfMotion.allCases  // normal, concentric, eccentric, full
+    
+    var body: some View {
+        GeometryReader { geo in
+            let totalWidth = geo.size.width
+            let segmentWidth = totalWidth / CGFloat(cases.count - 1)
+            let currentX = CGFloat(value.sliderIndex) * segmentWidth
+            let clampedX = isDragging ? dragOffset.clamped(to: 0...totalWidth) : currentX
+            
+            ZStack(alignment: .leading) {
+                // Track background
+                RoundedRectangle(cornerRadius: 3)
+                    .fill(Color.secondary.opacity(0.2))
+                    .frame(height: 6)
+                
+                // Active track
+                RoundedRectangle(cornerRadius: 3)
+                    .fill(Color(hex: "FFD52E"))
+                    .frame(width: clampedX + 10, height: 6)
+                
+                // Tick marks + labels
+                ForEach(Array(cases.enumerated()), id: \.offset) { index, rom in
+                    let x = CGFloat(index) * segmentWidth
+                    VStack(spacing: 4) {
+                        Circle()
+                            .fill(rom == value ? Color(hex: "FFD52E") : Color.secondary.opacity(0.4))
+                            .frame(width: 8, height: 8)
+                        Text(rom.displayName)
+                            .font(.system(size: 9, weight: rom == value ? .bold : .regular))
+                            .foregroundStyle(rom == value ? .primary : .secondary)
+                            .fixedSize()
+                    }
+                    .offset(x: x - 4, y: -18)
+                }
+                
+                // Thumb
+                Circle()
+                    .fill(Color(hex: "FFD52E"))
+                    .frame(width: 22, height: 22)
+                    .shadow(radius: 2)
+                    .offset(x: clampedX - 11)
+                    .gesture(
+                        disabled ? nil : DragGesture(minimumDistance: 0)
+                            .onChanged { g in
+                                isDragging = true
+                                dragOffset = g.location.x.clamped(to: 0...totalWidth)
+                            }
+                            .onEnded { g in
+                                isDragging = false
+                                let x = g.location.x.clamped(to: 0...totalWidth)
+                                let idx = Int((x / segmentWidth).rounded())
+                                    .clamped(to: 0...(cases.count - 1))
+                                value = RangeOfMotion.fromSliderIndex(idx)
+                            }
+                    )
+            }
+            .frame(height: 6)
+            .padding(.top, 28) // room for labels above
+        }
+        .frame(height: 50)
+    }
+}
+
+extension Comparable {
+    func clamped(to range: ClosedRange<Self>) -> Self {
+        min(max(self, range.lowerBound), range.upperBound)
+    }
+}
+
+// MARK: - Main View
+
 struct RoutineDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    @Query private var dailySummaries: [DailySummary]
+    var session = ActiveRoutineSession.shared
+    
     let routine: Routine
     @State private var showExercisePicker = false
     @State private var showLimitAlert = false
     @State private var exerciseToReplace: RoutineExercise?
     
-    // Workflow States
-    @State private var isWorkoutActive = false
-    @State private var isWorkoutCompleted = false
+    // Workout state
     @State private var completedSets: Set<UUID> = []
+    
+    // Finish-related
+    @State private var showFinishAlert = false
+    @State private var showSyncRoutineAlert = false
+    
+    // "다른 루틴이 활성화 중" 경고
+    @State private var showOtherActiveAlert = false
+    
+    var isThisRoutineActive: Bool {
+        session.isCurrentRoutine(routine.id)
+    }
+    
+    var isWorkoutActive: Bool {
+        isThisRoutineActive
+    }
 
     var sortedExercises: [RoutineExercise] {
         routine.exercises.sorted { $0.order < $1.order }
+    }
+    
+    /// 운동 중 기존 루틴 세트 값과 달라진 게 있는지 체크
+    var hasChangesFromOriginal: Bool {
+        // 수정 여부를 정교하게 비교하려면 스냅샷이 필요하지만,
+        // 단순화: 완료된 세트가 하나라도 있으면 "변경 가능성 있음"으로 간주
+        !completedSets.isEmpty
     }
 
     var body: some View {
@@ -35,7 +136,6 @@ struct RoutineDetailView: View {
                         rExercise: rExercise,
                         routine: routine,
                         isWorkoutActive: isWorkoutActive,
-                        isWorkoutCompleted: isWorkoutCompleted,
                         completedSets: $completedSets,
                         onReplace: {
                             exerciseToReplace = rExercise
@@ -45,7 +145,8 @@ struct RoutineDetailView: View {
                 }
             }
             
-            if !isWorkoutCompleted {
+            // 운동 추가 버튼 (비활성 상태에서만)
+            if !isWorkoutActive {
                 Section {
                     Button {
                         if routine.exercises.count >= 20 {
@@ -74,8 +175,7 @@ struct RoutineDetailView: View {
                 Button {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 } label: {
-                    Image(systemName: "checkmark")
-                        .bold()
+                    Image(systemName: "checkmark").bold()
                 }
             }
         }
@@ -88,11 +188,14 @@ struct RoutineDetailView: View {
         }
         .safeAreaInset(edge: .bottom) {
             if !routine.exercises.isEmpty {
-                if !isWorkoutActive && !isWorkoutCompleted {
-                    // SETUP MODE
+                if !isWorkoutActive {
+                    // 세팅 모드 버튼
                     Button {
-                        withAnimation {
-                            isWorkoutActive = true
+                        if session.isActive && !isThisRoutineActive {
+                            showOtherActiveAlert = true
+                        } else {
+                            session.start(routineID: routine.id)
+                            completedSets = []
                         }
                     } label: {
                         Text(String(localized: "routines.startWorkout", defaultValue: "이 루틴으로 운동 시작"))
@@ -105,11 +208,9 @@ struct RoutineDetailView: View {
                     .clipShape(Capsule())
                     .padding(.horizontal)
                     .padding(.bottom, 8)
-                } else if isWorkoutActive && !isWorkoutCompleted {
-                    // ACTIVE WORKOUT MODE
-                    Button {
-                        finishWorkout()
-                    } label: {
+                } else {
+                    // 운동 완료 버튼
+                    Button { showFinishAlert = true } label: {
                         Text(String(localized: "routines.finishWorkout", defaultValue: "이 루틴 운동 완료 🏁"))
                             .font(.headline)
                             .frame(maxWidth: .infinity)
@@ -117,22 +218,6 @@ struct RoutineDetailView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(Color(hex: "FFD52E"))
-                    .clipShape(Capsule())
-                    .padding(.horizontal)
-                    .padding(.bottom, 8)
-                } else {
-                    // COMPLETED MODE
-                    Button {
-                        dismiss()
-                        NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
-                    } label: {
-                        Text("운동 종료됨 (홈으로 돌아가기)")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.gray)
                     .clipShape(Capsule())
                     .padding(.horizontal)
                     .padding(.bottom, 8)
@@ -144,27 +229,61 @@ struct RoutineDetailView: View {
         } message: {
             Text(String(localized: "routines.exerciseLimitMessage", defaultValue: "한 루틴당 최대 20개의 운동만 추가할 수 있습니다."))
         }
-    }
-
-    private func finishWorkout() {
-        let today = Date()
-        let startOfDay = Calendar.current.startOfDay(for: today)
-        
-        // Find or create DailySummary
-        let summary = dailySummaries.first(where: { $0.date == startOfDay })
-        if let existing = summary {
-            existing.isFinished = true
-        } else {
-            let newSummary = DailySummary(date: today, isFinished: true)
-            modelContext.insert(newSummary)
+        .alert("다른 루틴 진행 중", isPresented: $showOtherActiveAlert) {
+            Button("확인", role: .cancel) { }
+        } message: {
+            Text("현재 진행 중인 루틴이 있습니다. 먼저 완료 후 다른 루틴을 시작할 수 있습니다.")
         }
-        
-        _ = RestTimerManager.shared.stop()
+        // 운동 완료 확인
+        .alert("운동 완료", isPresented: $showFinishAlert) {
+            Button("완료") {
+                finishAndAskSync()
+            }
+            Button("취소", role: .cancel) { }
+        } message: {
+            Text("루틴 운동을 완료하시겠습니까?")
+        }
+        // 루틴 반영 여부 확인
+        .alert("루틴에 반영", isPresented: $showSyncRoutineAlert) {
+            Button("반영") {
+                syncChangesToRoutine()
+                commitWorkout(syncRoutine: true)
+            }
+            Button("반영 안 함") {
+                commitWorkout(syncRoutine: false)
+            }
+            Button("취소", role: .cancel) { }
+        } message: {
+            Text("수정된 세트 값(무게, 횟수, 가동범위 등)을 루틴 기본값에 반영하시겠습니까?")
+        }
+    }
+    
+    private func finishAndAskSync() {
+        if hasChangesFromOriginal {
+            showSyncRoutineAlert = true
+        } else {
+            commitWorkout(syncRoutine: false)
+        }
+    }
+    
+    /// 루틴 세트 기본값을 현재 수행한 세트 값으로 업데이트
+    private func syncChangesToRoutine() {
+        for rExercise in sortedExercises {
+            let sortedSets = rExercise.sets.sorted { $0.order < $1.order }
+            for rSet in sortedSets where completedSets.contains(rSet.id) {
+                // rSet 값은 이미 유저가 수정했으므로 그대로 유지 (RoutineSet이 바인딩됨)
+                _ = rSet // 이미 @Model이므로 자동 반영
+            }
+        }
+    }
+    
+    /// 실제 WorkoutRecord를 저장하고 세션 종료
+    private func commitWorkout(syncRoutine: Bool) {
+        let today = Date()
         
         for rExercise in sortedExercises {
             guard let exercise = rExercise.exercise else { continue }
             
-            // Only save exercises that have at least one completed set
             let exerciseCompletedSets = rExercise.sets.filter { completedSets.contains($0.id) }
             if exerciseCompletedSets.isEmpty { continue }
             
@@ -183,21 +302,38 @@ struct RoutineDetailView: View {
                 setRecord.isCompleted = true
                 modelContext.insert(setRecord)
             }
+            
+            // 루틴에 반영: 완료된 첫 번째 세트 기준으로 루틴 세트들 값 업데이트
+            if syncRoutine {
+                let routineSets = rExercise.sets.sorted { $0.order < $1.order }
+                for (i, rSet) in routineSets.enumerated() {
+                    if i < sortedSets.count {
+                        let src = sortedSets[i]
+                        rSet.weight = src.weight
+                        rSet.reps = src.reps
+                        rSet.timeDuration = src.timeDuration
+                        rSet.rangeOfMotion = src.rangeOfMotion
+                    }
+                }
+            }
         }
         
-        withAnimation {
-            isWorkoutActive = false
-            isWorkoutCompleted = true
-        }
+        _ = RestTimerManager.shared.stop()
+        session.end()
+        completedSets = []
+        
+        NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
+        dismiss()
     }
 }
+
+// MARK: - Exercise Section
 
 struct RoutineExerciseSection: View {
     @Environment(\.modelContext) private var modelContext
     let rExercise: RoutineExercise
     let routine: Routine
     let isWorkoutActive: Bool
-    let isWorkoutCompleted: Bool
     @Binding var completedSets: Set<UUID>
     let onReplace: () -> Void
     
@@ -216,64 +352,52 @@ struct RoutineExerciseSection: View {
                     
                     Spacer()
                     
-                    if !isWorkoutCompleted {
-                        Menu {
+                    // 항상 편집 메뉴 표시 (운동 중에도 삭제 가능)
+                    Menu {
+                        if !isWorkoutActive {
                             Button {
                                 onReplace()
                             } label: {
                                 Label(String(localized: "common.change", defaultValue: "변경"), systemImage: "arrow.2.squarepath")
                             }
-                            Button(role: .destructive) {
-                                modelContext.delete(rExercise)
-                                reorderExercises()
-                            } label: {
-                                Label(String(localized: "common.delete", defaultValue: "삭제"), systemImage: "trash")
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis")
-                                .font(.title3)
-                                .padding(8)
-                                .background(Color.secondary.opacity(0.1))
-                                .clipShape(Circle())
-                                .foregroundStyle(.secondary)
                         }
+                        Button(role: .destructive) {
+                            modelContext.delete(rExercise)
+                            reorderExercises()
+                        } label: {
+                            Label(String(localized: "common.delete", defaultValue: "삭제"), systemImage: "trash")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                            .font(.title3)
+                            .padding(8)
+                            .background(Color.secondary.opacity(0.1))
+                            .clipShape(Circle())
+                            .foregroundStyle(.secondary)
                     }
                 }
                 
-                if !isWorkoutCompleted {
-                    HStack(spacing: 12) {
-                        Button {
-                            if let lastSet = sortedSets.last {
-                                modelContext.delete(lastSet)
-                                reorderSets()
-                            }
-                        } label: {
-                            Image(systemName: "minus.circle")
-                                .font(.title3)
-                        }
-                        .disabled(sortedSets.isEmpty)
-                        
-                        Text(String(localized: "common.set", defaultValue: "세트"))
-                            .font(.subheadline).bold()
-                        
-                        Button {
-                            let newOrder = rExercise.sets.count + 1
-                            let newSet = RoutineSet(order: newOrder)
-                            if let lastSet = sortedSets.last {
-                                newSet.weight = lastSet.weight
-                                newSet.reps = lastSet.reps
-                                newSet.timeDuration = lastSet.timeDuration
-                                newSet.rangeOfMotion = lastSet.rangeOfMotion
-                            }
-                            newSet.routineExercise = rExercise
-                            modelContext.insert(newSet)
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .font(.title3)
-                        }
+                // 세트 +/- 버튼 (항상 표시, 운동 중에도 가능)
+                HStack(spacing: 12) {
+                    Button {
+                        removeLastSet()
+                    } label: {
+                        Image(systemName: "minus.circle")
+                            .font(.title3)
                     }
-                    .foregroundStyle(.secondary)
+                    .disabled(sortedSets.isEmpty)
+                    
+                    Text(String(localized: "common.set", defaultValue: "세트"))
+                        .font(.subheadline).bold()
+                    
+                    Button {
+                        addSet()
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.title3)
+                    }
                 }
+                .foregroundStyle(.secondary)
             }
             .padding(.horizontal, 4)
             
@@ -284,27 +408,14 @@ struct RoutineExerciseSection: View {
                         rSet: rSet,
                         type: rExercise.type,
                         isWorkoutActive: isWorkoutActive,
-                        isWorkoutCompleted: isWorkoutCompleted,
                         completedSets: $completedSets,
                         onDelete: {
                             modelContext.delete(rSet)
                             reorderSets()
                         }
                     )
-                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                        if !isWorkoutCompleted {
-                            Button(role: .destructive) {
-                                modelContext.delete(rSet)
-                                reorderSets()
-                            } label: {
-                                Label(String(localized: "common.delete", defaultValue: "삭제"), systemImage: "trash")
-                            }
-                        }
-                    }
                 }
             }
-            
-
         }
         .padding(.vertical, 16)
         .padding(.horizontal, 16)
@@ -312,6 +423,27 @@ struct RoutineExerciseSection: View {
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)
         .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+    }
+    
+    private func addSet() {
+        let newOrder = (sortedSets.last?.order ?? 0) + 1
+        let newSet = RoutineSet(order: newOrder)
+        if let lastSet = sortedSets.last {
+            newSet.weight = lastSet.weight
+            newSet.reps = lastSet.reps
+            newSet.timeDuration = lastSet.timeDuration
+            newSet.rangeOfMotion = lastSet.rangeOfMotion
+        }
+        rExercise.sets.append(newSet)
+        modelContext.insert(newSet)
+        newSet.routineExercise = rExercise
+    }
+    
+    private func removeLastSet() {
+        guard let lastSet = sortedSets.last else { return }
+        completedSets.remove(lastSet.id)
+        modelContext.delete(lastSet)
+        reorderSets()
     }
     
     private func reorderSets() {
@@ -329,20 +461,21 @@ struct RoutineExerciseSection: View {
     }
 }
 
+// MARK: - Set Row
+
 struct RoutineSetRow: View {
     @Bindable var rSet: RoutineSet
     let type: ExerciseType
     let isWorkoutActive: Bool
-    let isWorkoutCompleted: Bool
     @Binding var completedSets: Set<UUID>
     let onDelete: () -> Void
     
     var timerManager = RestTimerManager.shared
-
+    
     private var isCompleted: Bool {
         completedSets.contains(rSet.id)
     }
-
+    
     private var isTimerActiveForThis: Bool {
         timerManager.isRunning && timerManager.activeSetId == rSet.id
     }
@@ -350,8 +483,7 @@ struct RoutineSetRow: View {
     var body: some View {
         VStack(spacing: 12) {
             HStack {
-                if isWorkoutActive || isWorkoutCompleted {
-                    // Checkmark in workout mode
+                if isWorkoutActive {
                     Button {
                         toggleCompletion()
                     } label: {
@@ -363,10 +495,8 @@ struct RoutineSetRow: View {
                             .cornerRadius(8)
                     }
                     .buttonStyle(.plain)
-                    .disabled(isWorkoutCompleted)
                     .sensoryFeedback(.success, trigger: isCompleted)
                 } else {
-                    // Just the number in setup mode
                     Text("\(rSet.order)")
                         .font(.subheadline).bold()
                         .foregroundStyle(.secondary)
@@ -384,24 +514,16 @@ struct RoutineSetRow: View {
                             .multilineTextAlignment(.trailing)
                             .font(.title3).bold()
                             .frame(width: 60)
-                            .disabled(isWorkoutCompleted)
-                        Text("kg")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                        Text("kg").font(.subheadline).foregroundStyle(.secondary)
                     }
-                    
                     Spacer()
-                    
                     HStack(spacing: 2) {
                         TextField("0", value: $rSet.reps, format: .number)
                             .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
                             .font(.title3).bold()
                             .frame(width: 60)
-                            .disabled(isWorkoutCompleted)
-                        Text("회")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                        Text("회").font(.subheadline).foregroundStyle(.secondary)
                     }
                 } else if type == .repsOnly {
                     Spacer()
@@ -411,10 +533,7 @@ struct RoutineSetRow: View {
                             .multilineTextAlignment(.trailing)
                             .font(.title3).bold()
                             .frame(width: 60)
-                            .disabled(isWorkoutCompleted)
-                        Text("회")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                        Text("회").font(.subheadline).foregroundStyle(.secondary)
                     }
                 } else {
                     Spacer()
@@ -424,30 +543,28 @@ struct RoutineSetRow: View {
                             .multilineTextAlignment(.trailing)
                             .font(.title3).bold()
                             .frame(width: 60)
-                            .disabled(isWorkoutCompleted)
-                        Text("초")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                        Text("초").font(.subheadline).foregroundStyle(.secondary)
                     }
                 }
                 
-                if !isWorkoutCompleted {
-                    Button {
-                        onDelete()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
-                            .padding(.leading, 8)
-                            .frame(width: 24, height: 24)
-                    }
+                Button { onDelete() } label: {
+                    Image(systemName: "xmark")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                        .padding(.leading, 8)
+                        .frame(width: 24, height: 24)
                 }
             }
             
-            // Timer and ROM (Only visible during active workout)
-            if isWorkoutActive && !isWorkoutCompleted {
+            // ROM 슬라이더 (타입에 따라, 항상 표시)
+            if type != .timeOnly {
+                ROMSliderView(value: $rSet.rangeOfMotion, disabled: false)
+                    .padding(.top, 4)
+            }
+            
+            // 휴식 타이머 (운동 중에만)
+            if isWorkoutActive {
                 HStack {
-                    // Rest timer
                     Button {
                         timerManager.toggle(for: rSet.id) { elapsed in
                             rSet.restTimeAfterSet = elapsed
@@ -458,8 +575,7 @@ struct RoutineSetRow: View {
                                 .font(.caption)
                             if isTimerActiveForThis {
                                 Text(formatDuration(timerManager.elapsedSeconds))
-                                    .font(.caption)
-                                    .monospacedDigit()
+                                    .font(.caption).monospacedDigit()
                             } else if rSet.restTimeAfterSet > 0 {
                                 Text(String(localized: "detail.rest", defaultValue: "휴식") + ": " + formatDuration(rSet.restTimeAfterSet))
                                     .font(.caption)
@@ -473,35 +589,14 @@ struct RoutineSetRow: View {
                     .controlSize(.small)
                     .tint(isTimerActiveForThis ? .red : .secondary)
                     .sensoryFeedback(.impact(flexibility: .solid), trigger: isTimerActiveForThis)
-
                     Spacer()
-
-                    // ROM Radio pills
-                    if type != .timeOnly {
-                        HStack(spacing: 6) {
-                            ForEach(RangeOfMotion.allCases, id: \.self) { rom in
-                                Button {
-                                    rSet.rangeOfMotion = rom
-                                } label: {
-                                    Text(rom.displayName)
-                                        .font(.system(size: 11, weight: rSet.rangeOfMotion == rom ? .bold : .regular))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 6)
-                                        .background(rSet.rangeOfMotion == rom ? Color(hex: "FFD52E") : Color.secondary.opacity(0.1))
-                                        .foregroundStyle(rSet.rangeOfMotion == rom ? .white : .primary)
-                                        .clipShape(Capsule())
-                                }
-                                .buttonStyle(.plain)
-                            }
-                        }
-                    }
                 }
             }
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 6)
     }
-
+    
     private func toggleCompletion() {
         if isCompleted {
             completedSets.remove(rSet.id)
@@ -518,8 +613,7 @@ struct RoutineSetRow: View {
     }
 }
 
-// Format duration helper (Since we removed the global one earlier, we add it back here privately or keep it if it's already in WorkoutDetailView. Wait, WorkoutDetailView has it internally? Let's check. Ah, it was internal to WorkoutDetailView! So we can use it here.)
-// But wait, if WorkoutDetailView's formatDuration is private or internal to that file, we can't use it.
+// MARK: - Exercise Picker (단일 교체)
 
 struct RoutineSingleExercisePickerView: View {
     @Environment(\.modelContext) private var modelContext
@@ -528,43 +622,37 @@ struct RoutineSingleExercisePickerView: View {
     let routine: Routine
     let targetToReplace: RoutineExercise
     @State private var searchText = ""
-
+    
     private var filteredExercises: [Exercise] {
         if searchText.isEmpty { return allExercises }
         return allExercises.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
     }
-
+    
     private var groupedExercises: [(BodyPart, [Exercise])] {
         let dict = Dictionary(grouping: filteredExercises, by: { $0.bodyPart })
         return BodyPart.allCases.compactMap { part in
-            if let items = dict[part], !items.isEmpty {
-                return (part, items)
-            }
+            if let items = dict[part], !items.isEmpty { return (part, items) }
             return nil
         }
     }
-
+    
     var body: some View {
         NavigationStack {
             List {
                 if filteredExercises.isEmpty {
-                    ContentUnavailableView.search(text: searchText)
-                        .listRowBackground(Color.clear)
+                    ContentUnavailableView.search(text: searchText).listRowBackground(Color.clear)
                 } else {
                     ForEach(groupedExercises, id: \.0) { part, items in
                         Section(header: Text(part.displayName)) {
                             ForEach(items) { exercise in
                                 Button {
-                                    replaceExercise(with: exercise)
+                                    targetToReplace.exercise = exercise
+                                    targetToReplace.type = exercise.type
                                     dismiss()
                                 } label: {
                                     VStack(alignment: .leading, spacing: 2) {
-                                        Text(exercise.localizedName)
-                                            .font(.body)
-                                            .foregroundStyle(.primary)
-                                        Text(exercise.type.displayName)
-                                            .font(.caption)
-                                            .foregroundStyle(.secondary)
+                                        Text(exercise.localizedName).font(.body).foregroundStyle(.primary)
+                                        Text(exercise.type.displayName).font(.caption).foregroundStyle(.secondary)
                                     }
                                 }
                             }
@@ -577,19 +665,14 @@ struct RoutineSingleExercisePickerView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(String(localized: "common.cancel", defaultValue: "취소")) {
-                        dismiss()
-                    }
+                    Button(String(localized: "common.cancel", defaultValue: "취소")) { dismiss() }
                 }
             }
         }
     }
-    
-    private func replaceExercise(with newExercise: Exercise) {
-        targetToReplace.exercise = newExercise
-        targetToReplace.type = newExercise.type
-    }
 }
+
+// MARK: - Exercise Picker (다중 추가)
 
 struct RoutineExercisePickerView: View {
     @Environment(\.modelContext) private var modelContext
@@ -599,32 +682,27 @@ struct RoutineExercisePickerView: View {
     
     @State private var selectedExercises: Set<UUID> = []
     @State private var searchText = ""
-
-    private var remainingSlots: Int {
-        max(0, 20 - routine.exercises.count)
-    }
-
+    
+    private var remainingSlots: Int { max(0, 20 - routine.exercises.count) }
+    
     private var filteredExercises: [Exercise] {
         if searchText.isEmpty { return allExercises }
         return allExercises.filter { $0.localizedName.localizedCaseInsensitiveContains(searchText) }
     }
-
+    
     private var groupedExercises: [(BodyPart, [Exercise])] {
         let dict = Dictionary(grouping: filteredExercises, by: { $0.bodyPart })
         return BodyPart.allCases.compactMap { part in
-            if let items = dict[part], !items.isEmpty {
-                return (part, items)
-            }
+            if let items = dict[part], !items.isEmpty { return (part, items) }
             return nil
         }
     }
-
+    
     var body: some View {
         NavigationStack {
             List {
                 if filteredExercises.isEmpty {
-                    ContentUnavailableView.search(text: searchText)
-                        .listRowBackground(Color.clear)
+                    ContentUnavailableView.search(text: searchText).listRowBackground(Color.clear)
                 } else {
                     ForEach(groupedExercises, id: \.0) { part, items in
                         Section(header: Text(part.displayName)) {
@@ -634,17 +712,12 @@ struct RoutineExercisePickerView: View {
                                 } label: {
                                     HStack {
                                         VStack(alignment: .leading, spacing: 2) {
-                                            Text(exercise.localizedName)
-                                                .font(.body)
-                                                .foregroundStyle(.primary)
-                                            Text(exercise.type.displayName)
-                                                .font(.caption)
-                                                .foregroundStyle(.secondary)
+                                            Text(exercise.localizedName).font(.body).foregroundStyle(.primary)
+                                            Text(exercise.type.displayName).font(.caption).foregroundStyle(.secondary)
                                         }
                                         Spacer()
                                         if selectedExercises.contains(exercise.id) {
-                                            Image(systemName: "checkmark.circle.fill")
-                                                .foregroundStyle(.blue)
+                                            Image(systemName: "checkmark.circle.fill").foregroundStyle(.blue)
                                         } else {
                                             Image(systemName: "circle")
                                         }
@@ -662,9 +735,7 @@ struct RoutineExercisePickerView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(String(localized: "common.cancel", defaultValue: "취소")) {
-                        dismiss()
-                    }
+                    Button(String(localized: "common.cancel", defaultValue: "취소")) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(String(localized: "common.add", defaultValue: "추가") + " (\(selectedExercises.count))") {
@@ -676,28 +747,23 @@ struct RoutineExercisePickerView: View {
             }
         }
     }
-
+    
     private func toggleSelection(_ exercise: Exercise) {
         if selectedExercises.contains(exercise.id) {
             selectedExercises.remove(exercise.id)
-        } else {
-            if selectedExercises.count < remainingSlots {
-                selectedExercises.insert(exercise.id)
-            }
+        } else if selectedExercises.count < remainingSlots {
+            selectedExercises.insert(exercise.id)
         }
     }
-
+    
     private func addSelectedExercises() {
         var currentOrder = routine.exercises.count
         for exercise in allExercises where selectedExercises.contains(exercise.id) {
             let newRoutineEx = RoutineExercise(order: currentOrder, type: exercise.type, exercise: exercise)
             routine.exercises.append(newRoutineEx)
-            
-            // Add one default set
             let defaultSet = RoutineSet(order: 1)
             defaultSet.routineExercise = newRoutineEx
             modelContext.insert(defaultSet)
-            
             currentOrder += 1
         }
     }
